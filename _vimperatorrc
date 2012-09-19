@@ -123,3 +123,15 @@ qmark r https://www.google.com/reader/view/
 qmark t http://twitter.com/
 qmark x https://mixi.jp/
 qmark y http://jp.youtube.com/
+
+" タブ番号をタブ上に表示
+set tabnumbers
+style -name fix-tabnumbers chrome://* #TabsToolbar { counter-reset: tabnumber !important; }
+
+" Normal mode のタブ移動を hl で
+nmap l gt
+nmap h gT
+
+" コマンド入力を ; で
+nnonremap ; :
+nnonremap : ;
