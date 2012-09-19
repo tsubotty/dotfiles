@@ -5,14 +5,8 @@
 set nobeep
 " 検索で大文字小文字を無視
 set ignorecase
-" GUI(全て非表示)
-set guioptions=
-" 自動入力欄フォーカスを無効化
-set focuscontent
 " hint用設定 キーボード中段のみを使う
 set hintchars=lsjdkfgh
-" 読み込んだ事を出力
-" echo "Welcome back"
 " エディタをMacVim-KaoriYaに(mvimスクリプトをダウンロードして使う)
 set editor='/usr/bin/mvim -f'
 
@@ -28,7 +22,7 @@ display: none !important;
 	}
 EOM
 " Hint
-hi Hint z-index:5000; font-size:14px; color:white; background-color:green; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 2px 0px 2px; position:absolute; font-family: Menlo, Consolas, Monaco, monospace; text-transform: uppercase;
+hi Hint z-index:5000; font-size:14px; color:white; background-color:blue; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 2px 0px 2px; position:absolute; font-family: Menlo, Consolas, Monaco, monospace; text-transform: uppercase;
 
 "=============================================
 " Key Config
@@ -53,11 +47,6 @@ map c :copy<Space>
 map e :mr<Space>alc<Space>
 map m :mr<Space>
 map w :wikipediaja<Space>
-" URL中の数字を++/--
-mapc +
-mapc -
-noremap ++ <C-a>
-noremap -- <C-x>
 
 "=============================================
 " Firefox Config
