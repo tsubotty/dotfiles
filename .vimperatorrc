@@ -2,7 +2,9 @@
 " Vimp Config
 "=============================================
 " スクロールの端などの際に出るbeepをoff
-set nobeep
+" Beep設定
+set visualbell
+hi Bell opacity: .3;
 " 検索で大文字小文字を無視
 set ignorecase
 " hint用設定 キーボード中段のみを使う

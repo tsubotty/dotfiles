@@ -1,4 +1,4 @@
-DOT_FILES = .zshrc .vimrc .gvimrc .vim .gemrc .zsh .vimperatorrc .emacs.d
+DOT_FILES = .zshrc .vimrc .gvimrc .gemrc .zsh .vimperatorrc .emacs.d
 
 all: install
 
