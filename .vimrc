@@ -1,76 +1,7 @@
-"###### Vundle Settings #####'
-"set nocompatible               " be iMproved
-" filetype off                   " required!
-" 
-"  set rtp+=~/.vim/bundle/vundle/
-"   call vundle#rc()
-"   
-"    " let Vundle manage Vundle
-"	"  "gmarik/vundle" required! 
-"Bundle "quickrun.vim"
-"filetype plugin indent on
+source ~/dotfiles/.vimrc.bundle
 
-set nocompatible               " Be iMproved
-filetype off                   " Required!
+source ~/dotfiles/.vimrc.basic
 
-if has('vim_starting')
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+source ~/dotfiles/.vimrc.mapping
 
-call neobundle#rc(expand('~/.vim/bundle/'))
-
-" Let NeoBundle 
-"
-" Recommended to install
-" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make
-" -f your_machines_makefile
-NeoBundle 'Shougo/vimproc'
-"
-" My Bundles here:
-"
-" Note: You don't set neobundle setting in .gvimrc!
-
-" Original repos on github
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-NeoBundle 'L9'
-NeoBundle 'FuzzyFinder'
-NeoBundle 'rails.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'git://github.com/Shougo/unite.vim.git'
-
-" Non github repos
-NeoBundle 'git://git.wincent.com/command-t.git'
-
-" Non git repos
-NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
-NeoBundle 'https://github.com/thinca/vim-quickrun.git'
-NeoBundle 'https://github.com/scrooloose/nerdtree'
-
-"
-"
-filetype plugin indent on     " Required!
-"
-" Brief help
-" :NeoBundleList          - list
-" configured bundles
-" :NeoBundleInstall(!)    -
-" install(update) bundles
-" :NeoBundleClean(!)      -
-" confirm(or auto-approve) removal of
-"  unused bundles
-
-"Installation check.
-if neobundle#exists_not_installed_bundles()
-	echomsg 'Not installed bundles : ' .
-				\ string(neobundle#get_not_installed_bundle_names())
-	echomsg 'Please execute ":NeoBundleInstall" command.'
-	"finish
-endif
-
-set runtimepath+=~/.vim/
-runtime! userautoload/*.vim
 
