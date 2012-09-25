@@ -14,4 +14,4 @@ Usage:
 Clone from github
 git clone git@github.com:yuroyoro/dotfiles.git
 
-In that directory, type "make" then symblic links from your $HOME to dotfiles are made.
+Move into the directory, type "make", then symblic links from your $HOME to dotfiles are made.
