@@ -126,54 +126,18 @@ esac
 ### RVM ###
 if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
 
-
-# java alias
-alias javac='javac -J-Dfile.encoding=UTF-8'
-alias java='java -Dfile.encoding=UTF-8'
-alias g='git'
-
-#VCS settings ##### gitのbranchを表示させる設定
-#autoload -Uz vcs_info
-#precmd() {
-#	    psvar=()
-#		LANG=en_US.UTF-8 vcs_info
-#		psvar[1]=$vcs_info_msg_0_
-#	}
-#	PROMPT=$'%2F%n@%m%f %3F%~%f%1v\n%# '
+## alias設定
 #
+[ -f ~/dotfiles/.zshrc.alias ] && source ~/dotfiles/.zshrc.alias
 
+## OS毎の設定
 case "${OSTYPE}" in
 # Mac(Unix)
 darwin*)
-   	# vim is default editor
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias gdb='/usr/bin/gdb' #gdb7.5が微妙なのでデフォルトのgdbを使ってる
-	# rbenv(ruby version controll)
-eval "$(rbenv init -)"
-
-	# z (easy jump)
-_Z_CMD=j
-source ~/.zsh/z.sh
-precmd() {
-	  _z --add "$(pwd -P)"
-  }
-
-#=============================
-# source auto-fu.zsh
-#=============================
-if [ -f ~/.zsh/auto-fu.zsh ]; then
-    source ~/.zsh/auto-fu.zsh
-    function zle-line-init () {
-        auto-fu-init
-    }
-    zle -N zle-line-init
-    zstyle ':completion:*' completer _oldlist _complete
-fi
-    ;;  
+    [ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
+    ;;
 # Linux
 linux*)
-    # ここに設定
+    [ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
     ;;  
 esac
