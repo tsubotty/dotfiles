@@ -22,14 +22,9 @@ set pastetoggle=<F11> "<F11>でpasteとnopasteを入れ替える
 set noswapfile "swapファイルを作らない
 set nobackup "bakcupファイルを作らない
 set formatoptions-=ro "コメントアウトで改行時の自動をやめる
+set backspace=indent,eol,start
+set whichwrap=b,s,h,l,<,>,[,]
 autocmd FileType * set formatoptions-=ro
-
-"####インデント関連#####"
-set tabstop=4
-set shiftwidth=4
-set softtabstop=0
-set smarttab
-set listchars=eol:¬,tab:▸\
 
 set title "編集中のファイル名を表示
 set showmatch "括弧入力時の対応する括弧を表示
@@ -50,3 +45,6 @@ let g:neocomplcache_enable_at_startup = 1
 
 "vimを使ってくれてありがとう非表示
 set notitle
+
+" OSのクリップボードを使用する
+set clipboard+=unnamed
