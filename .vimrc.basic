@@ -1,6 +1,5 @@
 syntax on "色分け
 set hidden "バッファを保存しなくても他のバッファを表示
-set wildmenu "コマンドライン補完を便利に
 set showcmd "タイプ途中のコマンドを画面最下行に表示
 set incsearch "インクリメンタルサーチ
 set hlsearch "検索語を強調表示
@@ -38,11 +37,6 @@ set wrapscan "検索時に最後まで行ったら最初に戻る
 set fileencoding=utf-8
 "クリップボード関連
 set clipboard+=autoselect
-" clipboard=autoselect
-
-"NeoComplcache有効
-let g:neocomplcache_enable_at_startup = 1
-
 "vimを使ってくれてありがとう非表示
 set notitle
 

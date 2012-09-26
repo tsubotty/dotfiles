@@ -7,4 +7,5 @@ source ~/dotfiles/.vimrc.basic
 source ~/dotfiles/.vimrc.mapping
 "インデント設定
 source ~/dotfiles/.vimrc.indent
-"表示関連
+"補完
+source ~/dotfiles/.vimrc.completion
