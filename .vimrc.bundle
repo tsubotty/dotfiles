@@ -29,7 +29,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
-
+NeoBundle 'thinca/vim-ref'
 
 " Non github repos
 NeoBundle 'git://git.wincent.com/command-t.git'
