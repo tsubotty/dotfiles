@@ -13,7 +13,7 @@ set hintchars=lsjdkfgh
 set editor='/usr/bin/mvim -f'
 
 " Hint
-hi Hint z-index:5000; font-size:14px; color:white; background-color:blue; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 2px 0px 2px; position:absolute; font-family: Menlo, Consolas, Monaco, monospace; text-transform: uppercase;
+hi Hint z-index:5000; font-size:13px; color:white; background-color:blue; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 2px 0px 2px; position:absolute; font-family: Menlo, Consolas, Monaco, monospace; text-transform: uppercase;
 
 " タブ番号をタブ上に表示
 set tabnumbers
