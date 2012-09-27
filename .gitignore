@@ -21,4 +21,5 @@ samples
 .vim/bundle/
 .vim/.netrwhist
 .vimrc_sample
-
+.emacs.d/ac-comphist.dat
+.emacs.d/auto-save-list
