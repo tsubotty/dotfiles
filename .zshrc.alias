@@ -5,3 +5,5 @@ alias java='java -Dfile.encoding=UTF-8'
 alias g='git'
 # ls
 alias ls='ls -F' la='ls -a' ll='ls -la'
+# g++
+alias gpp='g++'
