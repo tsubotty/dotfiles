@@ -32,3 +32,10 @@ set titlestring=Firefox
 " Evernote Clearly
 noremap e :js __readable_by_evernote.readable_by_evernote__menu__call(buffer.URL);
 noremap E :js __readable_by_evernote.__readable_by_evernote__launch(true);
+
+" 移動量
+noremap j 3j
+noremap k 3k
+
+"migemo search
+"set hintmatching=custom

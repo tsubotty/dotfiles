@@ -29,6 +29,7 @@ NeoBundle 'basyura/unite-rails'
 NeoBundle 'thinca/vim-unite-history'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'choplin/unite-vim_hacks'
+NeoBundle 'mattn/zencoding-vim.git'
 
 " Non github repos
 NeoBundle 'git://git.wincent.com/command-t.git'
