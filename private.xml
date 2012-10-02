@@ -1,0 +1,114 @@
+<?xml version="1.0"?> 
+<root> 
+
+    <!--アプリケーション定義 -->
+	<appdef>
+		<appname>FIREFOX</appname>
+		<equal>org.mozilla.firefox</equal>
+	</appdef>
+	<appdef>
+		<appname>REEDER</appname>
+        <equal>com.reederapp.mac</equal>
+	</appdef>
+	<appdef>
+		<appname>PREVIEW</appname>
+        <equal>com.apple.Preview</equal>
+	</appdef>
+	<appdef>
+		<appname>VIRTUAL_BOX</appname>
+        <equal>org.virtualbox.app.VirtualBoxVM</equal>
+	</appdef>
+
+
+    <!--キー割り当て -->
+	<item> 
+		<name>Swap Command + Backslash to Command + Tab </name> 
+		<identifier>private.righthand_applicationswitcher</identifier>
+		<autogen> 
+			--KeyToKey-- 
+			KeyCode::BACKSLASH, ModifierFlag::COMMAND_R, 
+			KeyCode::TAB, ModifierFlag::COMMAND_L 
+		</autogen> 
+	</item> 
+	<item>
+		<name>Ctrl-G to EISUU+Escape in Terminal</name>
+		<identifier>remap.jis_escape2eisuuAndEscape_global</identifier>
+		<autogen>
+			--KeyOverlaidModifier-- 
+			KeyCode::G, ModifierFlag::CONTROL_L,
+			KeyCode::JIS_EISUU, KeyCode::ESCAPE
+		</autogen>
+	</item>
+	<item>
+		<name>shift_L_to_Eisuu(When type only)</name>
+		<identifier>remap.shift_L_to_Eisuu</identifier>
+		<autogen>
+			--KeyOverlaidModifier-- 
+			KeyCode::SHIFT_L,
+			KeyCode::SHIFT_L,
+			KeyCode::JIS_EISUU
+		</autogen>
+	</item>
+	<item>
+		<name>shift_R_to_Eisuu(When type only)</name>
+		<identifier>remap.shift_R_to_Kana</identifier>
+		<autogen>
+			--KeyOverlaidModifier-- 
+			KeyCode::SHIFT_R,
+			KeyCode::SHIFT_R,
+			KeyCode::JIS_KANA
+		</autogen>
+	</item>
+	<item>
+		<name>space_to_shift(when hold)</name>
+		<identifier>remap.space_to_shift</identifier>
+		<autogen>
+			--KeyOverlaidModifier-- 
+			KeyCode::SPACE,
+			KeyCode::SHIFT_L,
+			KeyCode::SPACE
+		</autogen>
+	</item>
+	<item> 
+		<name>Emacs like down in Firefox</name>
+		<identifier>private.emacs_down_in_Firefox</identifier>
+        <only>FIREFOX, REEDER, PREVIEW</only>
+		<autogen> 
+			--KeyToKey-- 
+			KeyCode::N, ModifierFlag::CONTROL_L, 
+			KeyCode::CURSOR_DOWN
+		</autogen> 
+	</item> 
+	<item> 
+		<name>Emacs like up in Firefox</name>
+		<identifier>private.emacs_up_in_Firefox</identifier>
+		<only>FIREFOX, REEDER, PREVIEW</only>
+		<autogen> 
+			--KeyToKey-- 
+			KeyCode::P, ModifierFlag::CONTROL_L, 
+			KeyCode::CURSOR_UP
+		</autogen> 
+	</item> 
+	<item>
+		<name>Command_L_to_Eisuu(When type only)</name>
+		<identifier>remap.Command_L_to_Eisuu</identifier>
+        <not>VIRTUAL_BOX</not>
+		<autogen>
+			--KeyOverlaidModifier-- 
+			KeyCode::COMMAND_L,
+			KeyCode::COMMAND_L,
+			KeyCode::JIS_EISUU
+		</autogen>
+	</item>
+	<item>
+		<name>Command_R_to_Kana(When type only)</name>
+		<identifier>remap.Command_R_to_Kana</identifier>
+        <not>VIRTUAL_BOX</not>
+		<autogen>
+			--KeyOverlaidModifier-- 
+			KeyCode::COMMAND_R,
+			KeyCode::COMMAND_R,
+			KeyCode::JIS_KANA
+		</autogen>
+	</item>
+</root>
