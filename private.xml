@@ -21,6 +21,8 @@
 
 
     <!--キー割り当て -->
+    
+    <!--右手でもアプリスイッチャー -->
 	<item> 
 		<name>Swap Command + Backslash to Command + Tab </name> 
 		<identifier>private.righthand_applicationswitcher</identifier>
@@ -30,6 +32,8 @@
 			KeyCode::TAB, ModifierFlag::COMMAND_L 
 		</autogen> 
 	</item> 
+
+    <!-- どこでもCtrl-GでESC -->
 	<item>
 		<name>Ctrl-G to EISUU+Escape in Terminal</name>
 		<identifier>remap.jis_escape2eisuuAndEscape_global</identifier>
@@ -39,19 +43,18 @@
 			KeyCode::JIS_EISUU, KeyCode::ESCAPE
 		</autogen>
 	</item>
+
+    <!-- シフトでIME  --> 
 	<item>
-		<name>shift_L_to_Eisuu(When type only)</name>
-		<identifier>remap.shift_L_to_Eisuu</identifier>
+		<name>shift_to_IME(When type only && Not in VirtualBox)</name>
+		<identifier>remap.shift_to_IME</identifier>
+        <not>VIRTUAL_BOX</not>
 		<autogen>
 			--KeyOverlaidModifier-- 
 			KeyCode::SHIFT_L,
 			KeyCode::SHIFT_L,
 			KeyCode::JIS_EISUU
 		</autogen>
-	</item>
-	<item>
-		<name>shift_R_to_Eisuu(When type only)</name>
-		<identifier>remap.shift_R_to_Kana</identifier>
 		<autogen>
 			--KeyOverlaidModifier-- 
 			KeyCode::SHIFT_R,
@@ -59,6 +62,8 @@
 			KeyCode::JIS_KANA
 		</autogen>
 	</item>
+
+    <!-- スペースをシフトに -->
 	<item>
 		<name>space_to_shift(when hold)</name>
 		<identifier>remap.space_to_shift</identifier>
@@ -69,29 +74,28 @@
 			KeyCode::SPACE
 		</autogen>
 	</item>
+    
+    <!-- Emacs風に上下移動 -->
 	<item> 
-		<name>Emacs like down in Firefox</name>
-		<identifier>private.emacs_down_in_Firefox</identifier>
+		<name>Emacs like UpDown in Firefox</name>
+		<identifier>private.emacs_updown_in_firefox</identifier>
         <only>FIREFOX, REEDER, PREVIEW</only>
 		<autogen> 
 			--KeyToKey-- 
 			KeyCode::N, ModifierFlag::CONTROL_L, 
 			KeyCode::CURSOR_DOWN
 		</autogen> 
-	</item> 
-	<item> 
-		<name>Emacs like up in Firefox</name>
-		<identifier>private.emacs_up_in_Firefox</identifier>
-		<only>FIREFOX, REEDER, PREVIEW</only>
 		<autogen> 
 			--KeyToKey-- 
 			KeyCode::P, ModifierFlag::CONTROL_L, 
 			KeyCode::CURSOR_UP
 		</autogen> 
 	</item> 
+
+    <!-- VirtualBox上では無視されるコマンドキーのIME -->
 	<item>
-		<name>Command_L_to_Eisuu(When type only)</name>
-		<identifier>remap.Command_L_to_Eisuu</identifier>
+		<name>Command_to_IME (When type only && Not in VirtualBox)</name>
+		<identifier>remap.Command_to_IME</identifier>
         <not>VIRTUAL_BOX</not>
 		<autogen>
 			--KeyOverlaidModifier-- 
@@ -99,11 +103,6 @@
 			KeyCode::COMMAND_L,
 			KeyCode::JIS_EISUU
 		</autogen>
-	</item>
-	<item>
-		<name>Command_R_to_Kana(When type only)</name>
-		<identifier>remap.Command_R_to_Kana</identifier>
-        <not>VIRTUAL_BOX</not>
 		<autogen>
 			--KeyOverlaidModifier-- 
 			KeyCode::COMMAND_R,
