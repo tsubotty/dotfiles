@@ -18,7 +18,10 @@
 		<appname>VIRTUAL_BOX</appname>
         <equal>org.virtualbox.app.VirtualBoxVM</equal>
 	</appdef>
-
+	<appdef>
+		<appname>VLC</appname>
+        <equal>org.videolan.vlc</equal>
+	</appdef>
 
     <!--キー割り当て -->
     
@@ -38,7 +41,7 @@
 		<name>Ctrl-G to EISUU+Escape in Terminal</name>
 		<identifier>remap.jis_escape2eisuuAndEscape_global</identifier>
 		<autogen>
-			--KeyOverlaidModifier-- 
+			--KeyToKey--
 			KeyCode::G, ModifierFlag::CONTROL_L,
 			KeyCode::JIS_EISUU, KeyCode::ESCAPE
 		</autogen>
@@ -108,6 +111,33 @@
 			KeyCode::COMMAND_R,
 			KeyCode::COMMAND_R,
 			KeyCode::JIS_KANA
+		</autogen>
+	</item>
+
+    <!-- VLCでvimライク -->
+	<item>
+        <name>VLC_VIM</name>
+		<identifier>remap.VLC_VIM</identifier>
+        <only>VLC</only>
+		<autogen>
+			--KeyToKey--
+			KeyCode::H,
+			KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::CONTROL_L 
+		</autogen>
+		<autogen>
+			--KeyToKey--
+			KeyCode::L,
+			KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::CONTROL_L 
+		</autogen>
+		<autogen>
+			--KeyToKey--
+			KeyCode::J,
+			KeyCode::CURSOR_DOWN, ModifierFlag::COMMAND_L
+		</autogen>
+		<autogen>
+			--KeyToKey--
+			KeyCode::K,
+			KeyCode::CURSOR_UP, ModifierFlag::COMMAND_L 
 		</autogen>
 	</item>
 </root>
