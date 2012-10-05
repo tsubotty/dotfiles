@@ -39,3 +39,7 @@ noremap k 3k
 
 "migemo search
 "set hintmatching=custom
+
+"Google reader 有効
+autocmd LocationChange .* js modes.passAllKeys = false
+autocmd LocationChange www\\.google\\.(co\\.jp|com)/reader js modes.passAllKeys = true

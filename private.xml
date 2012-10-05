@@ -1,7 +1,7 @@
 <?xml version="1.0"?> 
 <root> 
 
-    <!--アプリケーション定義 -->
+    <!--**************************************************************** アプリケーション定義 ****************************************************************-->
 	<appdef>
 		<appname>FIREFOX</appname>
 		<equal>org.mozilla.firefox</equal>
@@ -22,8 +22,12 @@
 		<appname>VLC</appname>
         <equal>org.videolan.vlc</equal>
 	</appdef>
+	<appdef>
+		<appname>CHROME</appname>
+        <equal>com.google.Chrome</equal>
+	</appdef>
 
-    <!--キー割り当て -->
+    <!--**************************************************************** キー割り当て  ****************************************************************-->
     
     <!--右手でもアプリスイッチャー -->
 	<item> 
@@ -82,7 +86,7 @@
 	<item> 
 		<name>Emacs like UpDown in Firefox</name>
 		<identifier>private.emacs_updown_in_firefox</identifier>
-        <only>FIREFOX, REEDER, PREVIEW</only>
+        <only>FIREFOX, REEDER, PREVIEW, CHROME</only>
 		<autogen> 
 			--KeyToKey-- 
 			KeyCode::N, ModifierFlag::CONTROL_L, 
