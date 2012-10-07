@@ -55,3 +55,8 @@ autocmd LocationChange www\\.google\\.(co\\.jp|com)/reader js modes.passAllKeys 
 "dとxを入れ替え
 nnoremap x d
 nnoremap d x
+
+"<C-G>に<ESC>
+nnoremap <C-G> <ESC>
+inoremap <C-G> <ESC>
+
