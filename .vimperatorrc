@@ -11,9 +11,14 @@ set ignorecase
 set hintchars=lsjdkfgh
 " エディタをMacVim-KaoriYaに(mvimスクリプトをダウンロードして使う)
 set editor='/usr/bin/mvim -f'
+" 自動フォーカスオフ
+set focuscontent
 
 " Hint
 hi Hint z-index:5000; font-size:13px; color:white; background-color:blue; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 2px 0px 2px; position:absolute; font-family: Menlo, Consolas, Monaco, monospace; text-transform: uppercase;
+
+"GUI
+"set go=mTb
 
 " タブ番号をタブ上に表示
 set tabnumbers
@@ -32,14 +37,21 @@ set titlestring=Firefox
 " Evernote Clearly
 noremap e :js __readable_by_evernote.readable_by_evernote__menu__call(buffer.URL);
 noremap E :js __readable_by_evernote.__readable_by_evernote__launch(true);
+" Evernote Clip :clip
+command clip javascript Evernote.Overlay.init(null)
 
 " 移動量
 noremap j 3j
 noremap k 3k
 
-"migemo search
-"set hintmatching=custom
 
 "Google reader 有効
 autocmd LocationChange .* js modes.passAllKeys = false
 autocmd LocationChange www\\.google\\.(co\\.jp|com)/reader js modes.passAllKeys = true
+
+"migemofind
+"let g:migemized_find_language=Japanese = "cat";
+
+"dとxを入れ替え
+nnoremap x d
+nnoremap d x
