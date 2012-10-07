@@ -60,7 +60,7 @@ smap <C-k> <Plug>(neocomplcache_snippets_expand)
 " TABで補完できるようにする
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " undo
-inoremap <expr><C-g>     neocomplcache#undo_completion()
+"inoremap <expr><C-g>     neocomplcache#undo_completion()
 " 補完候補の共通部分までを補完する
 inoremap <expr><C-s> neocomplcache#complete_common_string()
 " SuperTab like snippets behavior.
