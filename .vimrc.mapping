@@ -15,11 +15,20 @@ map Y y$ "yyと同じように使える
 "insert mode での移動
 inoremap <C-e> <END>
 inoremap <C-a> <HOME>
-"inoremap <C-j> <Down>
-"inoremap <C-k> <Up>
-"inoremap <C-h> <Left>
+
+"##### Vim風のキーバインド #####"
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-"Ctrl+c をESCに
+
+"##### Emacs風のキーバインド #####"
+"inoremap <C-n> <Down>
+"inoremap <C-p> <Up>
+"inoremap <C-b> <Left>
+"inoremap <C-f> <Right>
+
+"Ctrl+g をESCに
 "inoremap <C-g> <ESC>
 "noremap <C-g> <ESC>
 "vnoremap <C-g> <ESC>
@@ -38,7 +47,7 @@ func! s:kill_line()
         normal! D
     endif
 endfunc
-inoremap <C-k>  <C-o>:<C-u>call <SID>kill_line()<CR>
+"inoremap <C-k>  <C-o>:<C-u>call <SID>kill_line()<CR>
 
 """ unite.vim
 " 入力モードで開始する
