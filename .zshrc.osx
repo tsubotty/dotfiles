@@ -4,8 +4,6 @@ alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias gdb='/usr/bin/gdb' #gdb7.5が微妙なのでデフォルトのgdbを使ってる
 
-# rbenv(ruby version controll)
-eval "$(rbenv init -)"
 
 # z (easy jump)
 _Z_CMD=j
