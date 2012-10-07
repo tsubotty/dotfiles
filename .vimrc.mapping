@@ -29,10 +29,10 @@ inoremap <C-l> <Right>
 "inoremap <C-f> <Right>
 
 "Ctrl+g をESCに
-"inoremap <C-g> <ESC>
-"noremap <C-g> <ESC>
-"vnoremap <C-g> <ESC>
-"cnoremap <C-g> <ESC>
+inoremap <C-g> <ESC>
+noremap <C-g> <ESC>
+vnoremap <C-g> <ESC>
+cnoremap <C-g> <ESC>
 
 nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return> 
 "ESCキー２度押しでハイライトを消す

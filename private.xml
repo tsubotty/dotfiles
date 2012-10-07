@@ -44,6 +44,7 @@
 	<item>
 		<name>Ctrl-G to EISUU+Escape in Terminal</name>
 		<identifier>remap.jis_escape2eisuuAndEscape_global</identifier>
+        <not>VIRTUAL_BOX</not>
 		<autogen>
 			--KeyToKey--
 			KeyCode::G, ModifierFlag::CONTROL_L,
