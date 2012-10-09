@@ -4,7 +4,7 @@
 " スクロールの端などの際に出るbeepをoff
 " Beep設定
 set visualbell
-hi Bell opacity: .3;
+highlight! Bell opacity: .3;
 " 検索で大文字小文字を無視
 set ignorecase
 " hint用設定 キーボード中段のみを使う
@@ -13,12 +13,16 @@ set hintchars=lsjdkfgh
 set editor='/usr/bin/mvim -f'
 " 自動フォーカスオフ
 set focuscontent
+"カラースキーム
+colorscheme vimPgray
+" コマンドライン自動補完強化
+set autocomplete
+set complete=sl
+" GUI
+" set gui=addons,bookmarks,nomenu,nonavigation,tab
 
 " Hint
-hi Hint z-index:5000; font-size:13px; color:white; background-color:blue; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 2px 0px 2px; position:absolute; font-family: Menlo, Consolas, Monaco, monospace; text-transform: uppercase;
-
-"GUI
-"set go=mTb
+highlight! Hint font-size:13px;color:#FFFF00;background-color:#0000FF;opacity:0.7;-moz-border-radius: 10px;border-color:red;border-width:0px;border-style:solid;padding:0px 2px 0px 2px;position:absolute;font-family: Menlo, Consolas, Monaco, monospace;text-transform: uppercase;
 
 " タブ番号をタブ上に表示
 set tabnumbers
@@ -35,14 +39,14 @@ nnoremap : ;
 " タイトル
 set titlestring=Firefox
 " Evernote Clearly
-noremap e :js __readable_by_evernote.readable_by_evernote__menu__call(buffer.URL);
-noremap E :js __readable_by_evernote.__readable_by_evernote__launch(true);
+cnoremap e :js __readable_by_evernote.readable_by_evernote__menu__call(buffer.URL);<CR>
+cnoremap E :js __readable_by_evernote.__readable_by_evernote__launch(true);<CR>
 " Evernote Clip :clip
 command clip javascript Evernote.Overlay.init(null)
 
 " 移動量
-noremap j 3j
-noremap k 3k
+noremap j 4j
+noremap k 4k
 
 
 "Google reader 有効
@@ -60,3 +64,11 @@ nnoremap d x
 nnoremap <C-G> <ESC>
 inoremap <C-G> <ESC>
 
+"[[と]]でページをめくる。日本語ページ対応
+set nextpattern=\bnext\b,\bmore\b,next,^次(の)?ページ,\b次.*,→\b,^>$,^(>>|≫)$,^(>|≫),(>|≫)$,^次(へ|の|ペ),^続き,\bnext\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\bmore\b
+set previouspattern=\bprev|previous\b,prev,^前(の)?ページ,\b前.*,\b←,^<$,^(<<|≪)$,^(<|≪),(<|≪)$,^前(へ|
+
+"埋め込み動画用
+let g:hints_for_embedded_mode="e"
+cnoremap pl stplay<CR>
+cnoremap pa stpause<CR>
