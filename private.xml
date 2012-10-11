@@ -26,6 +26,10 @@
 		<appname>CHROME</appname>
         <equal>com.google.Chrome</equal>
 	</appdef>
+	<appdef>
+		<appname>EMACS</appname>
+        <equal>org.gnu.Emacs</equal>
+	</appdef>
 
     <!--**************************************************************** キー割り当て  ****************************************************************-->
     
@@ -44,7 +48,7 @@
 	<item>
 		<name>Ctrl-G to EISUU+Escape in Terminal</name>
 		<identifier>remap.jis_escape2eisuuAndEscape_global</identifier>
-        <not>VIRTUAL_BOX</not>
+        <not>VIRTUAL_BOX, EMACS</not>
 		<autogen>
 			--KeyToKey--
 			KeyCode::G, ModifierFlag::CONTROL_L,

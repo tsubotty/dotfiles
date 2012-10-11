@@ -39,8 +39,8 @@ nnoremap : ;
 " タイトル
 set titlestring=Firefox
 " Evernote Clearly
-cnoremap e :js __readable_by_evernote.readable_by_evernote__menu__call(buffer.URL);<CR>
-cnoremap E :js __readable_by_evernote.__readable_by_evernote__launch(true);<CR>
+noremap e :js __readable_by_evernote.readable_by_evernote__menu__call(buffer.URL);
+noremap E :js __readable_by_evernote.__readable_by_evernote__launch(true);
 " Evernote Clip :clip
 command clip javascript Evernote.Overlay.init(null)
 
@@ -70,5 +70,5 @@ set previouspattern=\bprev|previous\b,prev,^前(の)?ページ,\b前.*,\b←,^<$
 
 "埋め込み動画用
 let g:hints_for_embedded_mode="e"
-cnoremap pl stplay<CR>
-cnoremap pa stpause<CR>
+cnoremap st stplay
+cnoremap pa stpause
