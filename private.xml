@@ -46,7 +46,7 @@
 
     <!-- どこでもCtrl-GでESC -->
 	<item>
-		<name>Ctrl-G to EISUU+Escape in Terminal</name>
+        <name>Ctrl-G to EISUU+Escape (except for Emacs)</name> 
 		<identifier>remap.jis_escape2eisuuAndEscape_global</identifier>
         <not>VIRTUAL_BOX, EMACS</not>
 		<autogen>
@@ -149,4 +149,16 @@
 			KeyCode::CURSOR_UP, ModifierFlag::COMMAND_L 
 		</autogen>
 	</item>
+
+    <!--IMEトグル -->
+    <item>
+        <name>右コマンドをIMEトグルとして使う</name>
+        <identifier>remap.ime_toggle</identifier>
+        <autogen>
+            --KeyOverlaidModifier-- 
+            KeyCode::COMMAND_R,
+            KeyCode::SPACE, ModifierFlag::COMMAND_R
+        </autogen>
+    </item>
+
 </root>
