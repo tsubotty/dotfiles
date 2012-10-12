@@ -9,3 +9,5 @@ source ~/dotfiles/.vimrc.mapping
 source ~/dotfiles/.vimrc.indent
 "補完
 source ~/dotfiles/.vimrc.completion
+"Color関連
+source ~/dotfiles/.vimrc.colors

@@ -1,5 +1,6 @@
 "色とか透明度とか
-colorscheme elflord
+"colorscheme elflord
+colorscheme wombat
 set transparency=15
 set lines=90 columns=200
 "クリップボード
