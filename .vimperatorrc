@@ -72,3 +72,5 @@ set previouspattern=\bprev|previous\b,prev,^前(の)?ページ,\b前.*,\b←,^<$
 let g:hints_for_embedded_mode="e"
 cnoremap st stplay
 cnoremap pa stpause
+
+:alias bt bmarks 
