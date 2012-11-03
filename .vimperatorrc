@@ -14,15 +14,25 @@ set editor='/usr/bin/mvim -f'
 " 自動フォーカスオフ
 set focuscontent
 "カラースキーム
-colorscheme vimPgray
+colorscheme vimplight
 " コマンドライン自動補完強化
 set autocomplete
 set complete=sl
 " GUI
 " set gui=addons,bookmarks,nomenu,nonavigation,tab
+" ステータスライン
+set laststatus=0
+set showstatuslinks=0
+"set fullscreen
+set mainecoon=ac
 
 " Hint
-highlight! Hint font-size:13px;color:#FFFF00;background-color:#0000FF;opacity:0.7;-moz-border-radius: 10px;border-color:red;border-width:0px;border-style:solid;padding:0px 2px 0px 2px;position:absolute;font-family: Menlo, Consolas, Monaco, monospace;text-transform: uppercase;
+highlight! Hint font-size:14px;color:#FFFF00;background-color:#0000FF;opacity:0.7; border-radius: 3px; -moz-border-radius-toplight: 3px;border-color:red;border-width:0px;border-style:solid;padding:0px 2px 0px 2px;position:absolute;font-family: Menlo, Consolas, Monaco, monospace;text-transform: uppercase;
+hi HintElem background-color: transparent; color: #FF0000; opcacity:0.0;
+hi HintActive background-color: transparent; border: 1px #ef6f6f dotted; -moz-border-radius: 10px; padding: 0.1em; font-weight: bold;
+
+" prompt非表示
+js document.getElementById("liberator-commandline-prompt-text").hidden=true
 
 " タブ番号をタブ上に表示
 set tabnumbers
@@ -37,12 +47,12 @@ nnoremap ; :
 nnoremap : ;
 
 " タイトル
-set titlestring=Firefox
+set titlestring=
 " Evernote Clearly
 noremap e :js __readable_by_evernote.readable_by_evernote__menu__call(buffer.URL);
-noremap E :js __readable_by_evernote.__readable_by_evernote__launch(true);
+noremap E :js __readable_by_evernote.__readable_by_evernote__launch(true);<CR>
 " Evernote Clip :clip
-command clip javascript Evernote.Overlay.init(null)
+"command clip javascript Evernote.Overlay.init(null)
 
 " 移動量
 noremap j 4j
@@ -50,8 +60,8 @@ noremap k 4k
 
 
 "Google reader 有効
-autocmd LocationChange .* js modes.passAllKeys = false
-autocmd LocationChange www\\.google\\.(co\\.jp|com)/reader js modes.passAllKeys = true
+"autocmd LocationChange .* js modes.passAllKeys = false
+"autocmd LocationChange www\\.google\\.(co\\.jp|com)/reader js modes.passAllKeys = true
 
 "migemofind
 "let g:migemized_find_language=Japanese = "cat";
@@ -70,7 +80,25 @@ set previouspattern=\bprev|previous\b,prev,^前(の)?ページ,\b前.*,\b←,^<$
 
 "埋め込み動画用
 let g:hints_for_embedded_mode="e"
-cnoremap st stplay
-cnoremap pa stpause
+"cnoremap st stplay
+"cnoremap pa stpause
 
-:alias bt bmarks 
+"new tab
+"map t ;tabopen google<CR>
+
+"open tab 
+"map o ;open google 
+
+"read vimperatorrc
+map S ;source ~/.vimperatorrc<CR>
+
+"tag open
+map B ;bmarks! -tags 
+map <C-C> ;bmarks! -tags 
+
+"INSERT
+noremap i gi
+noremap gi i
+
+"stplay
+map <C-S> ;stplay<CR>

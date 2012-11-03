@@ -22,8 +22,8 @@ endif
 "GuiColorScheme wombat
 "colorscheme wombat
 "colorscheme macvim
-colorscheme jellybeans
-"colorscheme molokai 
+"colorscheme jellybeans
+colorscheme molokai 
 "colorscheme slate 
 
 

@@ -10,7 +10,9 @@ done
 fi
 
 ##PATH
-export PATH=/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/opt/X11/bin:$HOME/bin
+export PATH=/usr/local/bin:/usr/local/sbin/:/bin:/usr/sbin:/sbin:/usr/bin:/opt/X11/bin:$HOME/bin:${PATH}
+## TeX用PATH追加
+export PATH=/Applications/UpTeX.app/teTeX/bin:${PATH}
 
 #(d) is default on
 
@@ -56,6 +58,7 @@ setopt extended_history   # ヒストリに実行時間も保存する
 setopt hist_ignore_dups   # 直前と同じコマンドはヒストリに追加しない
 setopt share_history      # 他のシェルのヒストリをリアルタイムで共有する
 setopt hist_reduce_blanks # 余分なスペースを削除してヒストリに保存する
+HISTTIMEFORMAT='%y/%m/%d %H:%M:%S ';
 
 # マッチしたコマンドのヒストリを表示できるようにする
 autoload history-search-end

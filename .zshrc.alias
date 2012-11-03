@@ -4,7 +4,7 @@ alias java='java -Dfile.encoding=UTF-8'
 # git alias
 alias g='git'
 # ls
-alias ls='ls -F' la='ls -a' ll='ls -la'
+alias ls='ls -F' la='ls -a' ll='ls -lah'
 # g++
 alias gpp='g++'
 ## Homebrew ##

@@ -58,6 +58,19 @@
 ;; common lisp
 (require 'cl)
 
+;; for m-x shell-command
+    (setq shell-file-name "/usr/local/bin/zsh")
+
+;; Add library path
+(add-to-list 'load-path "~/.emacs.d/site-lisp/yatex1.76")
+;; YaTeX mode
+(setq auto-mode-alist
+      (cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
+(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
+;; previewにtexshop
+(setq tex-command "~/Library/TeXShop/bin/platex2pdf-utf8"
+       dvi2-command "open -a TeXShop")
+
 ;;; P79-81 お勧めのキー操作
 ;; C-mにnewline-and-indentを割り当てる。
 ;; 先ほどとは異なりglobal-set-keyを利用
@@ -300,11 +313,11 @@
 
 ;; package.elの設定
 (when (require 'package nil t)
-  ;; パッケージリポジトリにMarmaladeと開発者運営のELPAを追加
+  ;; パッケージリポジトリにMarmaladeと開発者運営のELPAを追加
   (add-to-list 'package-archives
                '("marmalade" . "http://marmalade-repo.org/packages/"))
   (add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/"))
-  ;; インストールしたパッケージにロードパスを通して読み込む
+  ;; インストールしたパッケージにロードパスを通して読み込む
   (package-initialize))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

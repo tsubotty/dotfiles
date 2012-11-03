@@ -37,6 +37,26 @@
 	<appdef>
 		<appname>THUNDERBIRD</appname>
         <equal>org.mozilla.thunderbird</equal>
+    </appdef>
+    <appdef>
+        <appname>ITERM2</appname>
+        <equal>com.googlecode.iterm2</equal>
+	</appdef>
+    <appdef>
+        <appname>TERMINAL</appname>
+        <equal>com.apple.Terminal</equal>
+	</appdef>
+    <appdef>
+        <appname>NIGHTLY</appname>
+        <equal>org.mozilla.nightly</equal>
+	</appdef>
+    <appdef>
+        <appname>AURORA</appname>
+        <equal>org.mozilla.aurora</equal>
+	</appdef>
+    <appdef>
+        <appname>SUBLIME</appname>
+        <equal>com.sublimetext.2</equal>
 	</appdef>
 
     <!--**************************************************************** キー割り当て  ****************************************************************-->
@@ -99,7 +119,7 @@
 	<item> 
 		<name>Emacslike UpDown</name>
 		<identifier>private.emacs_updown_in_firefox</identifier>
-        <only>FIREFOX, REEDER, PREVIEW, CHROME, FINDER, THUNDERBIRD</only>
+        <only>FIREFOX, NIGHTLY, AURORA, REEDER, PREVIEW, CHROME, FINDER, THUNDERBIRD</only>
 		<autogen> 
 			--KeyToKey-- 
 			KeyCode::N, ModifierFlag::CONTROL_L, 
@@ -112,11 +132,21 @@
 		</autogen> 
 	</item> 
 
-    <!-- Emacs風に左右移動 -->
+    <!-- Emacs風に移動 -->
 	<item> 
-		<name>Emacslike LeftRight</name>
-		<identifier>private.emacs_leftright</identifier>
-        <only>FINDER, THUNDERBIRD, PREVIEW</only>
+		<name>Emacslike UpDownLeftRight(except for firefox, iterm2, terminal)</name>
+		<identifier>private.emacs_move</identifier>
+        <not>FIREFOX, NIGHTLY, AURORA, CHROME, ITERM2, TERMINAL, SUBLIME</not>
+		<autogen> 
+			--KeyToKey-- 
+			KeyCode::N, ModifierFlag::CONTROL_L, 
+			KeyCode::CURSOR_DOWN
+		</autogen> 
+		<autogen> 
+			--KeyToKey-- 
+			KeyCode::P, ModifierFlag::CONTROL_L, 
+			KeyCode::CURSOR_UP
+		</autogen> 
 		<autogen> 
 			--KeyToKey-- 
 			KeyCode::B, ModifierFlag::CONTROL_L, 

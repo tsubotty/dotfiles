@@ -12,6 +12,11 @@ alias tmux='tmuxx'
 alias tm='tmuxx'
 alias tma='tmux attach'
 alias tml='tmux list-window'
+# Application
+alias safari='open -g -a Safari'
+alias chrome='open -g -a Google\ Chrome'
+alias firefox='open -g -a Firefox'
+alias subl="'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl'"
 
 
 # z (easy jump)
