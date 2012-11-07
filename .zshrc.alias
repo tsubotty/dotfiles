@@ -7,6 +7,8 @@ alias upp='cd ../..'
 alias uppp='cd ../../..'
 # git alias
 alias g='git'
+# svn alias
+alias s='svn'
 # ls
 alias ls='ls -F' la='ls -a' ll='ls -lah'
 # g++
