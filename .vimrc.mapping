@@ -1,12 +1,15 @@
 "#####自動で括弧の中に戻る######"
-"imap {} {}<Left>
-"imap [] []<Left>
-"imap () ()<Left>
-"imap “” “”<Left>
-"imap ” ”<Left>
-"imap <> <><Left>
-"imap “ “<Left>
-"
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap ( ()<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+inoremap <> <><Left>
+
+"oで改行した時にインデントの形跡を残す"
+noremap o ob<BS>
+""inoremap <TAB> <ESC>==i
+
 ""#####コロンセミコロン入れ変え
 noremap ; :
 noremap : ;
@@ -23,6 +26,7 @@ inoremap <C-a> <HOME>
 "inoremap <C-l> <Right>
 
 "##### Emacs風のキーバインド #####"
+"iunmap <C-n>
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
 inoremap <C-b> <Left>
@@ -78,4 +82,4 @@ nnoremap <silent> ,uc :<C-u>Unite file_rec<CR>
 "au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 
 " Zen-Coidng
-"let g:user_zen_leader_key='<C->'
+let g:user_zen_leader_key=','

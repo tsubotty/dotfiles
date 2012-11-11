@@ -140,7 +140,7 @@
 	<item> 
 		<name>Emacslike UpDownLeftRight(except for firefox, iterm2, terminal)</name>
 		<identifier>private.emacs_move</identifier>
-        <not>FIREFOX, NIGHTLY, AURORA, CHROME, ITERM2, MACVIM, TERMINAL, SUBLIME</not>
+        <not>FIREFOX, NIGHTLY, AURORA, CHROME, ITERM2, MACVIM, EMACS, TERMINAL, SUBLIME</not>
 		<autogen> 
 			--KeyToKey-- 
 			KeyCode::N, ModifierFlag::CONTROL_L, 

@@ -1,324 +1,400 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 3.2 Emacsの起動と終了                                  ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; P30 デバッグモードでの起動
+;; おまじない
+(require 'cl)
+;; Emacsからの質問をy/nで回答する
+(fset 'yes-or-no-p 'y-or-n-p)
+;; スタートアップメッセージを非表示
+(setq inhibit-startup-screen t)
+
 ;switch alt command
 (setq ns-command-modifier (quote meta))
 (setq ns-alternate-modifier (quote super))
 
-;; ;; より下に記述した物が PATH の先頭に追加されます
-;; (dolist (dir (list
-;;               "/sbin"
-;;               "/usr/sbin"
-;;               "/bin"
-;;               "/usr/local/bin"
-;;               "/opt/local/bin"
-;;               "/sw/bin"
-;;               "/usr/bin"
-;;               (expand-file-name "~/bin")
-;;               (expand-file-name "~/.emacs.d/bin")
-;;               ))
-;;  ;; PATH と exec-path に同じ物を追加します
-;;  (when (and (file-exists-p dir) (not (member dir exec-path)))
-;;    (setenv "PATH" (concat dir ":" (getenv "PATH")))
-;;    (setq exec-path (append (list dir) exec-path))))
+;起動時フレームサイズ
+(setq initial-frame-alist
+			(append (list
+					'(width .108)    ; フレーム幅(文字数)
+					'(height .60)   ; フレーム高(文字数)
+					) initial-frame-alist))
+;; ビープ音を消す
+(setq visible-bell t)
+(setq ring-bell-function 'ignore)
 
-;;;; Gdb
-;;; /usr/local/bin/gdbを優先するために、実行パスの先頭に追加
-(add-to-list 'exec-path "/usr/local/bin") 
+(if window-system 
+    (progn
+      (set-frame-parameter nil 'alpha 80)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 4.1 効率的な設定ファイルの作り方と管理方法             ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; P60-61 Elisp配置用のディレクトリを作成
+;; Emacs 23より前のバージョンを利用している方は
+;; user-emacs-directory変数が未定義のため次の設定を追加
+(when (< emacs-major-version 23)
+  (defvar user-emacs-directory "~/.emacs.d/"))
 
-(setq gdb-many-windows t)
-
-;;; 変数の上にマウスカーソルを置くと値を表示
-(add-hook 'gdb-mode-hook '(lambda () (gud-tooltip-mode t)))
-
-;;; I/O バッファを表示
-(setq gdb-use-separate-io-buffer t)
-
-;;; t にすると mini buffer に値が表示される
-(setq gud-tooltip-echo-area nil)
-
-
-; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
-;; ------------------------------------------------------------------------
-;; @ load-path
-
-;; load-pathの追加関数
+;; load-path を追加する関数を定義
 (defun add-to-load-path (&rest paths)
   (let (path)
     (dolist (path paths paths)
-      (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
+      (let ((default-directory
+              (expand-file-name (concat user-emacs-directory path))))
         (add-to-list 'load-path default-directory)
         (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
             (normal-top-level-add-subdirs-to-load-path))))))
 
-;; load-pathに追加するフォルダ
-;; 2つ以上フォルダを指定する場合の引数 => (add-to-load-path "elisp" "xxx" "xxx")
+;; 引数のディレクトリとそのサブディレクトリをload-pathに追加
 (add-to-load-path "elisp" "conf" "public_repos")
 
-;; ------------------------------------------------------------------------
-;; @ general
 
-;; common lisp
-(require 'cl)
 
-;; for m-x shell-command
-    (setq shell-file-name "/usr/local/bin/zsh")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 4.2 環境に応じた設定の分岐                             ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; P65 CUIとGUIによる分岐
+;; ターミナル以外はツールバー、スクロールバーを非表示
+(when window-system
+  ;; tool-barを非表示
+  (tool-bar-mode 0)
+  ;; scroll-barを非表示
+  (scroll-bar-mode 0))
 
-;; Add library path
-(add-to-list 'load-path "~/.emacs.d/site-lisp/yatex1.76")
-;; YaTeX mode
-(setq auto-mode-alist
-      (cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
-(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
-;; previewにtexshop
-(setq tex-command "~/Library/TeXShop/bin/platex2pdf-utf8"
-       dvi2-command "open -a TeXShop")
+;; CocoaEmacs以外はメニューバーを非表示
+(unless (eq window-system 'ns)
+  ;; menu-barを非表示
+  (menu-bar-mode 0))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 5.2 キーバインドの設定                                 ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; P80 C-hをバックスペースにする
+;; 入力されるキーシーケンスを置き換える
+;; ?\C-?はDELのキーシケンス
+;; (keyboard-translate ?\C-h ?\C-?)
 
 ;;; P79-81 お勧めのキー操作
 ;; C-mにnewline-and-indentを割り当てる。
-;; 先ほどとは異なりglobal-set-keyを利用
+;; 先ほどとは異なりglobal-set-keyを利用
 (global-set-key (kbd "C-m") 'newline-and-indent)
-;; 折り返しトグルコマンド
+;; 折り返しトグルコマンド
 (define-key global-map (kbd "C-c l") 'toggle-truncate-lines)
-;; "C-t" でウィンドウを切り替える。初期値はtranspose-chars
+;; "C-t" でウィンドウを切り替える。初期値はtranspose-chars
 (define-key global-map (kbd "C-t") 'other-window)
 
-;; 文字コード
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 5.3 環境変数の設定                                     ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; P82-83 パスの設定
+(add-to-list 'exec-path "/opt/local/bin")
+(add-to-list 'exec-path "/usr/local/bin")
+(add-to-list 'exec-path "~/bin")
+
+;;; P85 文字コードを指定する
 (set-language-environment "Japanese")
-(let ((ws window-system))
-  (cond ((eq ws 'w32)
-         (prefer-coding-system 'utf-8-unix)
-         (set-default-coding-systems 'utf-8-unix)
-         (setq file-name-coding-system 'sjis)
-         (setq locale-coding-system 'utf-8))
-        ((eq ws 'ns)
-         (require 'ucs-normalize)
-         (prefer-coding-system 'utf-8-hfs)
-         (setq file-name-coding-system 'utf-8-hfs)
-         (setq locale-coding-system 'utf-8-hfs))))
-;; Windowsで英数と日本語にMeiryoを指定
-;; Macで英数と日本語にRictyを指定
-(let ((ws window-system))
-  (cond ((eq ws 'w32)
-         (set-face-attribute 'default nil
-                             :family "Meiryo"  ;; 英数
-                             :height 100)
-         (set-fontset-font nil 'japanese-jisx0208 (font-spec :family "Meiryo")))  ;; 日本語
-        ((eq ws 'ns)
-         (set-face-attribute 'default nil
-                             :family "Ricty"  ;; 英数
-                             :height 140)
-         (set-fontset-font nil 'japanese-jisx0208 (font-spec :family "Ricty")))))  ;; 日本語
+(prefer-coding-system 'utf-8)
 
-;; スタートアップ非表示
-(setq inhibit-startup-screen t)
-;; scratchの初期メッセージ消去
-(setq initial-scratch-message "")
+;;; P86 ファイル名の扱い
+;; Mac OS Xの場合のファイル名の設定
+(when (eq system-type 'darwin)
+  (require 'ucs-normalize)
+  (set-file-name-coding-system 'utf-8-hfs)
+  (setq locale-coding-system 'utf-8-hfs))
 
-;; ツールバー非表示
-;;(tool-bar-mode -1)
+;; Windowsの場合のファイル名の設定
+(when (eq window-system 'w32)
+  (set-file-name-coding-system 'cp932)
+  (setq locale-coding-system 'cp932))
 
-;; メニューバーを非表示
-(menu-bar-mode -1)
 
-;; スクロールバー非表示
-;;(set-scroll-bar-mode nil)
 
-;; タイトルバーにファイルのフルパス表示
-(setq frame-title-format
-      (format "%%f - Emacs@%s" (system-name)))
-
-;; 行番号表示
-(global-linum-mode t)
-(set-face-attribute 'linum nil
-                    :foreground "#800"
-                    :height 0.9)
-
-;; 行番号フォーマット
-(setq linum-format "%4d")
-
-;; 括弧の範囲内を強調表示
-(show-paren-mode t)
-(setq show-paren-delay 0)
-(setq show-paren-style 'expression)
-
-;; 括弧の範囲色
-(set-face-background 'show-paren-match-face "#500")
-
-;; 選択領域の色
-(set-face-background 'region "#555")
-
-;; 行末の空白を強調表示
-(setq-default show-trailing-whitespace t)
-(set-face-background 'trailing-whitespace "#b14770")
-
-;; タブをスペースで扱う
-(setq-default indent-tabs-mode nil)
-
-;; タブ幅
-(custom-set-variables '(tab-width 4))
-
-;; yes or noをy or n
-(fset 'yes-or-no-p 'y-or-n-p)
-
-;; 最近使ったファイルをメニューに表示
-(recentf-mode t)
-
-;; 最近使ったファイルの表示数
-(setq recentf-max-menu-items 10)
-
-;; 最近開いたファイルの保存数を増やす
-(setq recentf-max-saved-items 3000)
-
-;; ミニバッファの履歴を保存する
-(savehist-mode 1)
-
-;; ミニバッファの履歴の保存数を増やす
-(setq history-length 3000)
-
-;; バックアップを残さない
-(setq make-backup-files nil)
-
-;; 行間
-(setq-default line-spacing 0)
-
-;; 1行ずつスクロール
-(setq scroll-conservatively 35
-      scroll-margin 0
-      scroll-step 1)
-(setq comint-scroll-show-maximum-output t) ;; shell-mode
-
-;; フレームの透明度
-(set-frame-parameter (selected-frame) 'alpha '(0.85))
-
-;; モードラインに行番号表示
-(line-number-mode t)
-
-;; モードラインに列番号表示
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 5.4 フレームに関する設定                               ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; P87-89 モードラインに関する設定
+;; カラム番号も表示
 (column-number-mode t)
+;; ファイルサイズを表示
+(size-indication-mode t)
+;; 時計を表示（好みに応じてフォーマットを変更可能）
+;; (setq display-time-day-and-date t) ; 曜日・月・日を表示
+;; (setq display-time-24hr-format t) ; 24時表示
+(display-time-mode t)
+;; バッテリー残量を表示
+(display-battery-mode t)
+;; リージョン内の行数と文字数をモードラインに表示する（範囲指定時のみ）
+;; http://d.hatena.ne.jp/sonota88/20110224/1298557375
+(defun count-lines-and-chars ()
+  (if mark-active
+      (format "%d lines,%d chars "
+              (count-lines (region-beginning) (region-end))
+              (- (region-end) (region-beginning)))
+      ;; これだとエコーエリアがチラつく
+      ;;(count-lines-region (region-beginning) (region-end))
+    ""))
 
-;; C-Ret で矩形選択
-;; 詳しいキーバインド操作：http://dev.ariel-networks.com/articles/emacs/part5/
-(cua-mode t)
-(setq cua-enable-cua-keys nil)
+(add-to-list 'default-mode-line-format
+             '(:eval (count-lines-and-chars)))
 
-;; ビープ音を消す
-(setq visible-bell t)
-(setq ring-bell-function 'ignore)
+;;; P90 タイトルバーにファイルのフルパスを表示
+(setq frame-title-format "%f")
+;; 行番号を常に表示する
+(global-linum-mode t)
 
 
-;; ------------------------------------------------------------------------
-;; @ modeline
 
-;; モードラインの割合表示を総行数表示
-(defvar my-lines-page-mode t)
-(defvar my-mode-line-format)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 5.5インデントの設定                                    ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; P92-94 タブ文字の表示幅
+;; TABの表示幅。初期値は8
+(setq-default tab-width 4)
+;; インデントにタブ文字を使用しない
+(setq-default indent-tabs-mode nil)
+;; php-modeのみタブを利用しない
+;; (add-hook 'php-mode-hook
+;;           '(lambda ()
+;;             (setq indent-tabs-mode nil)))
 
-(when my-lines-page-mode
-  (setq my-mode-line-format "%d")
-  (if size-indication-mode
-      (setq my-mode-line-format (concat my-mode-line-format " of %%I")))
-  (cond ((and (eq line-number-mode t) (eq column-number-mode t))
-         (setq my-mode-line-format (concat my-mode-line-format " (%%l,%%c)")))
-        ((eq line-number-mode t)
-         (setq my-mode-line-format (concat my-mode-line-format " L%%l")))
-        ((eq column-number-mode t)
-         (setq my-mode-line-format (concat my-mode-line-format " C%%c"))))
+;; C、C++、JAVA、PHPなどのインデント
+(add-hook 'c-mode-common-hook
+          '(lambda ()
+             (c-set-style "bsd")))
 
-  (setq mode-line-position
-        '(:eval (format my-mode-line-format
-                        (count-lines (point-max) (point-min))))))
 
-;; ------------------------------------------------------------------------
-;; @ initial frame maximize
 
-;; 起動時にウィンドウ最大化
-;; http://www.emacswiki.org/emacs/FullScreen#toc12
-(defun jbr-init ()
-  "Called from term-setup-hook after the default
-   terminal setup is
-   done or directly from startup if term-setup-hook not
-   used.  The value
-   0xF030 is the command for maximizing a window."
-  (interactive)
-  (w32-send-sys-command #xf030)
-  (ecb-redraw-layout)
-  (calendar))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 5.6 表示・装飾に関する設定                             ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; P95-96 フェイス
+;; リージョンの背景色を変更
+;; (set-face-background 'region "darkgreen")
 
-(let ((ws window-system))
-  (cond ((eq ws 'w32)
-         (set-frame-position (selected-frame) 0 0)
-         (setq term-setup-hook 'jbr-init)
-         (setq window-setup-hook 'jbr-init))
-        ((eq ws 'ns)
-         ;; for MacBook Air(Mid2012) 13inch display
-         (set-frame-position (selected-frame) 0 0)
-         (set-frame-size (selected-frame) 58 45))))
-
-;; ------------------------------------------------------------------------
-;; @ auto-install.el
-
-;; パッケージのインストールを自動化
-;; http://www.emacswiki.org/emacs/auto-install.el
-(when (require 'auto-install nil t)
-  (setq auto-install-directory "~/.emacs.d/elisp/")
-  (auto-install-update-emacswiki-package-name t)
-  (auto-install-compatibility-setup))
-
-;; ------------------------------------------------------------------------
-;; @  color-theme.el
-
-;; Emacsのカラーテーマ
-;; http://code.google.com/p/gnuemacscolorthemetest/
-(when (and (require 'color-theme nil t) (window-system))
+;; ▼要拡張機能インストール▼
+;;; P96-97 表示テーマの設定
+;; http://download.savannah.gnu.org/releases/color-theme/color-theme-6.6.0.tar.gz
+(when (require 'color-theme nil t)
+  ;; テーマを読み込むための設定
   (color-theme-initialize)
-  (color-theme-clarity))
+  ;; テーマhoberに変更する
+  (color-theme-hober))
 
-;; ------------------------------------------------------------------------
-;; @ redo+.el
+;;; P97-99 フォントの設定
+(when (eq window-system 'ns)
+  ;; asciiフォントをMenloに
+  (set-face-attribute 'default nil
+                      :family "Ricty"
+                      :height 130)
+  ;; 日本語フォントをヒラギノ明朝 Proに
+  (set-fontset-font
+   nil 'japanese-jisx0208
+   ;; 英語名の場合
+   ;; (font-spec :family "Hiragino Mincho Pro"))
+   (font-spec :family "Ricty")))
 
-;; redoできるようにする
-;; http://www.emacswiki.org/emacs/redo+.el
+(when (eq system-type 'windows-nt)
+  ;; asciiフォントをConsolasに
+  (set-face-attribute 'default nil
+                      :family "Consolas"
+                      :height 120)
+  ;; 日本語フォントをメイリオに
+  (set-fontset-font
+   nil
+   'japanese-jisx0208
+   (font-spec :family "メイリオ"))
+  ;; フォントの横幅を調節する
+  (setq face-font-rescale-alist
+        '((".*Consolas.*" . 1.0)
+          (".*メイリオ.*" . 1.15)
+          ("-cdac$" . 1.3))))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 5.7 ハイライトの設定                                   ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; P100 現在行のハイライト
+(defface my-hl-line-face
+  ;; 背景がdarkならば背景色を紺に
+  '((((class color) (background dark))
+     (:background "NavyBlue" t))
+    ;; 背景がlightならば背景色を緑に
+    (((class color) (background light))
+     (:background "LightGoldenrodYellow" t))
+    (t (:bold t)))
+  "hl-line's my face")
+(setq hl-line-face 'my-hl-line-face)
+(global-hl-line-mode t)
+
+;; P101 括弧の対応関係のハイライト
+;; paren-mode：対応する括弧を強調して表示する
+(setq show-paren-delay 0) ; 表示までの秒数。初期値は0.125
+(show-paren-mode t) ; 有効化
+;; parenのスタイル: expressionは括弧内も強調表示
+(setq show-paren-style 'expression)
+;; フェイスを変更する
+(set-face-background 'show-paren-match-face nil)
+(set-face-underline-p 'show-paren-match-face "yellow")
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 5.8 バックアップとオートセーブ                         ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; P102-103 バックアップとオートセーブの設定
+;; バックアップファイルを作成しない
+;; (setq make-backup-files nil) ; 初期値はt
+;; オートセーブファイルを作らない
+;; (setq auto-save-default nil) ; 初期値はt
+
+;; バックアップファイルの作成場所をシステムのTempディレクトリに変更する
+;; (setq backup-directory-alist
+;;       `((".*" . ,temporary-file-directory)))
+;; オートセーブファイルの作成場所をシステムのTempディレクトリに変更する
+;; (setq auto-save-file-name-transforms
+;;       `((".*" ,temporary-file-directory t)))
+
+;; バックアップとオートセーブファイルを~/.emacs.d/backups/へ集める
+(add-to-list 'backup-directory-alist
+             (cons "." "~/.emacs.d/backups/"))
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name "~/.emacs.d/backups/") t)))
+
+;; オートセーブファイル作成までの秒間隔
+(setq auto-save-timeout 15)
+;; オートセーブファイル作成までのタイプ間隔
+(setq auto-save-interval 60)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 5.9 フック                                             ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ファイルが #! から始まる場合、+xを付けて保存する
+(add-hook 'after-save-hook
+          'executable-make-buffer-file-executable-if-script-p)
+
+;; emacs-lisp-mode-hook用の関数を定義
+(defun elisp-mode-hooks ()
+  "lisp-mode-hooks"
+  (when (require 'eldoc nil t)
+    (setq eldoc-idle-delay 0.2)
+    (setq eldoc-echo-area-use-multiline-p t)
+    (turn-on-eldoc-mode)))
+
+;; emacs-lisp-modeのフックをセット
+(add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 6.1 Elispをインストールしよう                          ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ▼要拡張機能インストール▼
+;;; P113 拡張機能を自動インストール──auto-install
+;; auto-installの設定
+(when (require 'auto-install nil t)	; ←1●
+  ;; 2●インストールディレクトリを設定する 初期値は ~/.emacs.d/auto-install/
+  (setq auto-install-directory "~/.emacs.d/elisp/")
+  ;; EmacsWikiに登録されているelisp の名前を取得する
+  (auto-install-update-emacswiki-package-name t)
+  ;; 必要であればプロキシの設定を行う
+  ;; (setq url-proxy-services '(("http" . "localhost:8339")))
+  ;; 3●install-elisp の関数を利用可能にする
+  (auto-install-compatibility-setup)) ; 4●
+
+;; ▼要拡張機能インストール▼
+;;; P114-115 auto-installを利用する
+;; (install-elisp "http://www.emacswiki.org/emacs/download/redo+.el")
 (when (require 'redo+ nil t)
-  (global-set-key (kbd "C-\'") 'redo)
-  )
+  ;; C-' にリドゥを割り当てる
+  (global-set-key (kbd "C-'") 'redo)
+  ;; 日本語キーボードの場合C-. などがよいかも
+  ;; (global-set-key (kbd "C-.") 'redo)
+  ) ; ←ここでC-x C-eで設定反映
 
-;; ------------------------------------------------------------------------
-;; @ menu-tree.el
-
-;; メニューバー日本語化
-;; http://www11.atwiki.jp/s-irie/pages/13.html
-(if (and (= emacs-major-version 22)
-         (eq window-system 'x))
-    (setq menu-tree-coding-system 'utf-8))
-(require 'menu-tree nil t)
-
-;; ------------------------------------------------------------------------
-;; @ tabbar.el
-
-;; タブ化
-;; http://www.emacswiki.org/emacs/tabbar.el
-;;(require 'cl)
-(require 'tabbar nil t)
-
-;
-
-;; グループ化しない
-(setq tabbar-buffer-groups-function nil)
-
-;; ------------------------------------------------------------------------
-;; @ multi-term.el
-
-;; 端末エミュレータ
-;; http://www.emacswiki.org/emacs/multi-term.el
-(when (require 'multi-term nil t)
-  (setq multi-term-program "/usr/local/bin/zsh"))
-
+;; ▼要拡張機能インストール▼（ただし、Emacs24からはインストール不要）
+;;; P115-116 Emacs Lisp Package Archive（ELPA）──Emacs Lispパッケージマネージャ
 ;; package.elの設定
 (when (require 'package nil t)
-  ;; パッケージリポジトリにMarmaladeと開発者運営のELPAを追加
+  ;; パッケージリポジトリにMarmaladeと開発者運営のELPAを追加
   (add-to-list 'package-archives
                '("marmalade" . "http://marmalade-repo.org/packages/"))
   (add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/"))
-  ;; インストールしたパッケージにロードパスを通して読み込む
+  ;; インストールしたパッケージにロードパスを通して読み込む
   (package-initialize))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 6.2 統一したインタフェースでの操作                     ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ▼要拡張機能インストール▼
+;;; P122-129 候補選択型インタフェース──Anything
+;; (auto-install-batch "anything")
+(when (require 'anything nil t)
+  (setq
+   ;; 候補を表示するまでの時間。デフォルトは0.5
+   anything-idle-delay 0.3
+   ;; タイプして再描写するまでの時間。デフォルトは0.1
+   anything-input-idle-delay 0.2
+   ;; 候補の最大表示数。デフォルトは50
+   anything-candidate-number-limit 100
+   ;; 候補が多いときに体感速度を早くする
+   anything-quick-update t
+   ;; 候補選択ショートカットをアルファベットに
+   anything-enable-shortcuts 'alphabet)
+
+  (when (require 'anything-config nil t)
+    ;; root権限でアクションを実行するときのコマンド
+    ;; デフォルトは"su"
+    (setq anything-su-or-sudo "sudo"))
+
+  (require 'anything-match-plugin nil t)
+
+  (when (and (executable-find "cmigemo")
+             (require 'migemo nil t))
+    (require 'anything-migemo nil t))
+
+  (when (require 'anything-complete nil t)
+    ;; lispシンボルの補完候補の再検索時間
+    (anything-lisp-complete-symbol-set-timer 150))
+
+  (require 'anything-show-completion nil t)
+
+  (when (require 'auto-install nil t)
+    (require 'anything-auto-install nil t))
+
+  (when (require 'descbinds-anything nil t)
+    ;; describe-bindingsをAnythingに置き換える
+    (descbinds-anything-install)))
+
+;; ▼要拡張機能インストール▼
+;;; P127-128 過去の履歴からペースト──anything-show-kill-ring
+;; M-yにanything-show-kill-ringを割り当てる
+(define-key global-map (kbd "M-y") 'anything-show-kill-ring)
+
+;; ▼要拡張機能インストール▼
+;;; P128-129 moccurを利用する──anything-c-moccur
+(when (require 'anything-c-moccur nil t)
+  (setq
+   ;; anything-c-moccur用 `anything-idle-delay'
+   anything-c-moccur-anything-idle-delay 0.1
+   ;; バッファの情報をハイライトする
+   anything-c-moccur-higligt-info-line-flag t
+   ;; 現在選択中の候補の位置をほかのwindowに表示する
+   anything-c-moccur-enable-auto-look-flag t
+   ;; 起動時にポイントの位置の単語を初期パターンにする
+   anything-c-moccur-enable-initial-pattern t)
+  ;; C-M-oにanything-c-moccur-occur-by-moccurを割り当てる
+  (global-set-key (kbd "C-M-o") 'anything-c-moccur-occur-by-moccur))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 6.3 入力の効率化                                       ;;
@@ -330,3 +406,49 @@
     "~/.emacs.d/elisp/ac-dict")
   (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
   (ac-config-default))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 6.4 検索と置換の拡張                                   ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ▼要拡張機能インストール▼
+;;; P132 検索結果をリストアップする──color-moccur
+;; color-moccurの設定
+(when (require 'color-moccur nil t)
+  ;; M-oにoccur-by-moccurを割り当て
+  (define-key global-map (kbd "M-o") 'occur-by-moccur)
+  ;; スペース区切りでAND検索
+  (setq moccur-split-word t)
+  ;; ディレクトリ検索のとき除外するファイル
+  (add-to-list 'dmoccur-exclusion-mask "\\.DS_Store")
+  (add-to-list 'dmoccur-exclusion-mask "^#.+#$")
+  ;; Migemoを利用できる環境であればMigemoを使う
+  (when (and (executable-find "cmigemo")
+             (require 'migemo nil t))
+    (setq moccur-use-migemo t)))
+
+;; ▼要拡張機能インストール▼
+;;; P133-134 moccurの結果を直接編集──moccur-edit
+;; moccur-editの設定
+(require 'moccur-edit nil t)
+;; moccur-edit-finish-editと同時にファイルを保存する
+;; (defadvice moccur-edit-change-file
+;;   (after save-after-moccur-edit-buffer activate)
+;;   (save-buffer))
+
+;; ▼要拡張機能インストール▼
+;;; P136 grepの結果を直接編集──wgrep
+;; wgrepの設定
+(require 'wgrep nil t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 7.9 シェルの利用                                       ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ▼要拡張機能インストール▼
+;;; ターミナルの利用 multi-term
+;; multi-termの設定
+(when (require 'multi-term nil t)
+  ;; 使用するシェルを指定
+  (setq multi-term-program "/usr/local/bin/zsh")
+	(setenv "TERMINFO" "~/.terminfo"))

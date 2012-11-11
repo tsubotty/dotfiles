@@ -6,7 +6,9 @@ alias eman='env LANG=C man'
 alias pbc='pbcopy'
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias gdb='/usr/bin/gdb' #gdb7.5が微妙なのでデフォルトのgdbを使ってる
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw "$@"'
+alias E='/Applications/Emacs.app/Contents/MacOS/Emacs -nw "$@"'
+#alias gdb='/usr/bin/gdb' #gdb7.5が微妙なのでデフォルトのgdbを使ってる
 alias locateupdate='sudo /usr/libexec/locate.updatedb'
 # tmux
 alias tmux='tmuxx'

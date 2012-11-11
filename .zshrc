@@ -12,7 +12,7 @@ fi
 ##PATH
 export PATH=/usr/local/bin:/usr/local/sbin/:/bin:/usr/sbin:/sbin:/usr/bin:/opt/X11/bin:$HOME/bin:${PATH}
 ## TeX用PATH追加
-export PATH=/Applications/UpTeX.app/teTeX/bin:${PATH}
+export PATH=${PATH}:/Applications/UpTeX.app/teTeX/bin
 
 #(d) is default on
 
