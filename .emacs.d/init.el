@@ -47,7 +47,7 @@
             (normal-top-level-add-subdirs-to-load-path))))))
 
 ;; 引数のディレクトリとそのサブディレクトリをload-pathに追加
-(add-to-load-path "elisp" "conf" "public_repos")
+(add-to-load-path "elisp" "conf" "public_repos" "site-lisp")
 
 
 
@@ -452,3 +452,13 @@
   ;; 使用するシェルを指定
   (setq multi-term-program "/usr/local/bin/zsh")
 	(setenv "TERMINFO" "~/.terminfo"))
+
+;;;; YaTeX (野鳥)----------------------------------
+;; YaTeX mode
+(setq auto-mode-alist
+      (cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
+(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
+;; previewにtexshop
+(setq tex-command "~/Library/TeXShop/bin/platex2pdf-utf8"
+       dvi2-command "open -a TeXShop")
+

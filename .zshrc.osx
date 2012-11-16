@@ -10,6 +10,18 @@ alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw "$@"'
 alias E='/Applications/Emacs.app/Contents/MacOS/Emacs -nw "$@"'
 #alias gdb='/usr/bin/gdb' #gdb7.5が微妙なのでデフォルトのgdbを使ってる
 alias locateupdate='sudo /usr/libexec/locate.updatedb'
+## Homebrew ##
+alias b='brew'
+alias bs='brew -S'
+alias bi='brew info'
+alias bl='brew list'
+alias bh='brew home'
+alias bopt='brew options'
+alias bout='brew outdated'
+alias bup='brew update'
+alias bupg='brew upgrade'
+alias opbr='open $(brew --prefix)/'
+alias cdbr='pushd $(brew --prefix)/'
 # tmux
 alias tmux='tmuxx'
 alias tm='tmuxx'

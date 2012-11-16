@@ -1,10 +1,17 @@
+# shutdown
+alias bye='sudo shutdown -h now'
 # java alias
 alias javac='javac -J-Dfile.encoding=UTF-8'
 alias java='java -Dfile.encoding=UTF-8'
 # move
-alias up='cd ..'
-alias upp='cd ../..'
-alias uppp='cd ../../..'
+#alias up='cd ..'
+#alias upp='cd ../..'
+#alias uppp='cd ../../..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+# cp confirm
+alias cp='cp -i'
 # git alias
 alias g='git'
 # svn alias
@@ -13,24 +20,6 @@ alias s='svn'
 alias ls='ls -F' la='ls -a' ll='ls -lah'
 # g++
 alias gpp='g++'
-## Homebrew ##
-alias b='brew'
-alias bs='brew -S'
-alias bi='brew info'
-alias bl='brew list'
-alias bh='brew home'
-alias bopt='brew options'
-alias bout='brew outdated'
-alias bup='brew update'
-alias bupg='brew upgrade'
-alias opbr='open $(brew --prefix)/'
-alias cdbr='pushd $(brew --prefix)/'
-## aptitude apt ##
-alias att='aptitude'
-alias install='i'
-alias search='s'
-alias sag='sudo apt-get'
-alias ac='apt-cache'
 # tmux
 alias tm='tmux'
 alias tma='tmux attach'

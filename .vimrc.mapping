@@ -1,10 +1,10 @@
 "#####自動で括弧の中に戻る######"
-inoremap { {}<Left>
-inoremap [ []<Left>
-inoremap ( ()<Left>
-inoremap " ""<Left>
-inoremap ' ''<Left>
-inoremap <> <><Left>
+""inoremap { {}<Left>
+""inoremap [ []<Left>
+""inoremap ( ()<Left>
+""inoremap " ""<Left>
+""inoremap ' ''<Left>
+""inoremap <> <><Left>
 
 "oで改行した時にインデントの形跡を残す"
 noremap o ob<BS>
