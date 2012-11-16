@@ -18,7 +18,8 @@ Session.vim
 .zshrc.local
 samples
 
-.vim/bundle/
+.vim/bundle/*
+!.vim/bundle/neobundle.vim							
 .vim/.netrwhist
 .vimrc_sample
 .emacs.d/ac-comphist.dat
