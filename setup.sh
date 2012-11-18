@@ -12,18 +12,18 @@ DOT_FILES=( .zsh .zshrc .zshenv .zsh_profile .emacs.d .gemrc .gitconfig .vimrc .
 if [ "$ans" = "1" ]; then
     for file in ${DOT_FILES[@]}
     do
-        ln -s $HOME/dotfiles/$file $HOME/$file
+        ln -sf $HOME/dotfiles/$file $HOME/$file
     done
     if expr "$OSTYPE" : "darwin*" > /dev/null; then
-        ln -s $HOME/dotfiles/private.xml $HOME/Library/Application\ Support/KeyRemap4MacBook/private.xml
+        ln -sf $HOME/dotfiles/private.xml $HOME/Library/Application\ Support/KeyRemap4MacBook/private.xml
     fi
 elif [ "$ans" = "2" ]; then
     for file in ${DOT_FILES[@]}
     do
-        ln -sn $HOME/dotfiles/$file $HOME/$file
+        ln -s $HOME/dotfiles/$file $HOME/$file
     done
     if expr "$OSTYPE" : "darwin*" > /dev/null; then
-        ln -sn $HOME/dotfiles/private.xml $HOME/Library/Application\ Support/KeyRemap4MacBook/private.xml
+        ln -s $HOME/dotfiles/private.xml $HOME/Library/Application\ Support/KeyRemap4MacBook/private.xml
     fi
 else
     echo "setup has cancelled"
