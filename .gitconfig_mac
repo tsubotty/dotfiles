@@ -1,0 +1,20 @@
+[user]
+	name = Tsubone Seiya
+	email = karasuhaneto@gmail.com
+[core]
+	excludesfile = /Users/home/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+	co = checkout
+	st = status
+	ci = commit -a
+	ft = fetch
+	vi = "!f() { vi "$(git ls-files "\\*$1\\*" | head -10)"; }; f" 
+[tig "bind"]
+	generic = g move-first-line
+	generic = G move-last-line

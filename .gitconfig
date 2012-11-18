@@ -2,13 +2,15 @@
 	name = Tsubone Seiya
 	email = karasuhaneto@gmail.com
 [core]
-	excludesfile = /Users/home/.gitignore_global
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+	excludesfile = $HOME/.gitignore
+	autocrlf = input
+	editor = vim
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+	grep = auto
 [alias]
 	co = checkout
 	st = status
