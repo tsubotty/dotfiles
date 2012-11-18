@@ -130,7 +130,9 @@ esac
 if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
 
 ### rbenv(ruby version controll) ###
-eval "$(rbenv init -)"
+if [ -n "`which rbenv 2>/dev/null`" ]; then
+    eval "$(rbenv init -)"
+fi
 
 ## alias設定
 #
