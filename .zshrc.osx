@@ -1,5 +1,6 @@
 # vim is default editor
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+export VISUAL=/Applications/MacVim.app/Contents/MacOS/Vim
 # English man
 alias eman='env LANG=C man'
 # osx alias
@@ -34,21 +35,3 @@ alias firefox='open -g -a Firefox'
 alias subl="'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl'"
 
 
-# z (easy jump)
-_Z_CMD=j
-source ~/.zsh/z.sh
-precmd() {
-    _z --add "$(pwd -P)"
-}
-
-#=============================
-# source auto-fu.zsh
-#=============================
-if [ -f ~/.zsh/auto-fu.zsh ]; then
-    source ~/.zsh/auto-fu.zsh
-    function zle-line-init () {
-    auto-fu-init
-}
-zle -N zle-line-init
-zstyle ':completion:*' completer _oldlist _complete
-fi

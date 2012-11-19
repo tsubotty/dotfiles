@@ -109,19 +109,42 @@ PROMPT2=$tmp_prompt2  # セカンダリのプロンプト(コマンドが2行以
 RPROMPT=$tmp_rprompt  # 右側のプロンプト
 SPROMPT=$tmp_sprompt  # スペル訂正用プロンプト
 # SSHログイン時のプロンプト
-[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-  PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
-;
+#[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
+#  PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
+#;
 
-### Title (user@hostname) ###
+# precmdを複数 
+autoload -Uz add-zsh-hook
+
+### Title PWD:user@hostname ###
 case "${TERM}" in
 kterm*|xterm*|)
-  precmd() {
-    echo -ne "\033]0;${USER}@${HOST%%.*}\007"
+  _precmd_1() {
+      print -Pn "\e]0;%~:%n@%m\a"
   }
+  add-zsh-hook precmd _precmd_1
   ;;
 esac
 
+# z (easy jump)
+_Z_CMD=j
+source ~/.zsh/z.sh
+_precmd_2() {
+    _z --add "$(pwd -P)"
+}
+add-zsh-hook precmd _precmd_2
+
+#=============================
+# source auto-fu.zsh
+#=============================
+if [ -f ~/.zsh/auto-fu.zsh ]; then
+    source ~/.zsh/auto-fu.zsh
+    function zle-line-init () {
+    auto-fu-init
+}
+zle -N zle-line-init
+zstyle ':completion:*' completer _oldlist _complete
+fi
 
 # ------------------------------
 # Other Settings
@@ -130,7 +153,8 @@ esac
 if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
 
 ### rbenv(ruby version controll) ###
-if [ -n "`which rbenv 2>/dev/null`" ]; then
+#if [ -n "`which rbenv 2>/dev/null`" ]; then
+if [ -d ~/.rbenv/ ]; then
     eval "$(rbenv init -)"
 fi
 
