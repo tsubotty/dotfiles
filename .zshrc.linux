@@ -1,4 +1,8 @@
 # apt alias
+if [ -x /usr/bin/vim ]; then
+    export EDITOR=/usr/bin/vim
+    export VISUAL=/usr/bin/vim
+fi
 alias agup='sudo apt-get update && sudo apt-get dist-upgrade'
 alias rem='sudo apt-get autoremove'
 alias cl-'sudo apt-get autoclean'
