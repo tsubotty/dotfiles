@@ -8,7 +8,7 @@ fi
 echo "全て上書き（1）, 既存の物は残す（2）, 中止（それ以外）"
 
 read ans
-DOT_FILES=( .zsh .zshrc .zshenv .zsh_profile .emacs.d .gemrc .gitconfig .vimrc .gvimrc .vim .vimperatorrc .muttrc .screenrc .tmux.conf)
+DOT_FILES=( .zshrc .zshenv .zsh_profile .emacs.d .gemrc .gitconfig .vimrc .gvimrc .vim .vimperatorrc .muttrc .screenrc .tmux.conf)
 if [ "$ans" = "1" ]; then
     for file in ${DOT_FILES[@]}
     do
@@ -28,6 +28,14 @@ elif [ "$ans" = "2" ]; then
 else
     echo "setup has cancelled"
 fi
+
+echo "Intalling oh-my-zsh to ${HOME} ...."
+git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+
+for file in `ls -la $HOME/dotfiles/my_zsh_custom`
+do
+    ln -sf $file $HOME/.oh-my-zsh/custom/$file
+done
 
 echo "Vimプラグイン:NeoBundleのインストールを行いますか？（y/n）"
 read ans
