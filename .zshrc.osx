@@ -2,15 +2,17 @@
 export PATH=${PATH}:/Applications/UpTeX.app/teTeX/bin
 # my_shell_scripts
 export PATH=${PATH}:${HOME}/my_shell_scripts
-# vim is default editor
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-export VISUAL=/Applications/MacVim.app/Contents/MacOS/Vim
+# set vim as default editor
+if [ -x /Applications/MacVim.app/Contents/MacOS/Vim ]; then
+    export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+    export VISUAL=/Applications/MacVim.app/Contents/MacOS/Vim
+    alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+    alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+fi
 # English man
 alias eman='env LANG=C man'
 # osx alias
 alias pbc='pbcopy'
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw "$@"'
 alias E='/Applications/Emacs.app/Contents/MacOS/Emacs -nw "$@"'
 #alias gdb='/usr/bin/gdb' #gdb7.5が微妙なのでデフォルトのgdbを使ってる
@@ -38,4 +40,5 @@ alias chrome='open -g -a Google\ Chrome'
 alias firefox='open -g -a Firefox'
 alias subl="'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl'"
 
-
+alias wakeubuntu='VBoxManage startvm ~/VirtualBox\ VMs/Ubuntu/Ubuntu.vbox'
+alias tsubone='ssh -l tsubone'
