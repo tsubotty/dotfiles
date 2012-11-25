@@ -32,6 +32,8 @@ fi
 echo "Intalling oh-my-zsh to ${HOME} ...."
 git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 
+cp -f $HOME/dotfiles/misc.zsh $HOME/.oh-my-zsh/lib/  # url-magicに問題があるため自分用の物に置き換え
+
 for file in `ls $HOME/dotfiles/my_zsh_custom`
 do
     ln -sf $HOME/dotfiles/my_zsh_custom/$file $HOME/.oh-my-zsh/custom/$file
