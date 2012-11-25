@@ -135,7 +135,7 @@ add-zsh-hook precmd _precmd_2
 # source auto-fu.zsh
 #=============================
 if [ -f $HOME/dotfiles/.zsh/auto-fu.zsh ]; then
-    source ~/.zsh/auto-fu.zsh
+    source ~/dotfiles/.zsh/auto-fu.zsh
     function zle-line-init () {
     auto-fu-init
 }
