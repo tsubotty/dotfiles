@@ -23,8 +23,10 @@ endif
 "colorscheme wombat
 "colorscheme macvim
 "colorscheme jellybeans
-colorscheme molokai 
+"colorscheme molokai 
 "colorscheme slate 
+colorscheme vividchalk
+"colorscheme inkpot
 
 
 "ポップアップメニューのカラーを設定
