@@ -22,4 +22,4 @@ alias atr='sudo aptitude remove'
 alias atp='sudo aptitude purge'
 
 
-export PATH=/var/lib/gems/1.8/bin:$PATH
+export PATH=/var/lib/gems/1.8/gems/:$PATH
