@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh #フレームワークの基準ディレクトリ
 
-ZSH_THEME="karasuhaneto"
+ZSH_THEME="my_rprompt"
 
 # CASE_SENSITIVE="true"
 
