@@ -87,6 +87,6 @@ let g:user_zen_leader_key=','
 " NERD-Commenter
 let g:NERDCreateDefaultMappings = 0 " デフォルトのマッピングオフ
 let NERDSpaceDelims = 1 " スペース一個挟む
-nmap // <Plug>NERDCommenterToggle
-vmap // <Plug>NERDCommenterToggle
-nmap /a <Plug>NERDCommenterAppend
+nmap ,/ <Plug>NERDCommenterToggle
+vmap ,/ <Plug>NERDCommenterToggle
+nmap ,a <Plug>NERDCommenterAppend
