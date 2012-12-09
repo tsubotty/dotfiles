@@ -23,3 +23,4 @@ alias atp='sudo aptitude purge'
 
 
 export PATH=/var/lib/gems/1.8/gems/:$PATH
+alias vi='vim'

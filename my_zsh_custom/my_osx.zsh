@@ -46,3 +46,6 @@ alias tsubone='ssh -l tsubone'
 alias rm='rmtrash'
 alias vmrun_ubuntu='/Applications/VMware\ Fusion.app/Contents/Library/vmrun start ~/VMware/Ubuntu.vmwarevm'
 alias vmrun_windows='/Applications/VMware\ Fusion.app/Contents/Library/vmrun start ~/VMware/Windows7.vmwarevm'
+
+alias img="wget_url.sh"
+alias sakura='ssh -p 2411 tsubone@sakura'
