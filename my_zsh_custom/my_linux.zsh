@@ -1,10 +1,10 @@
 case "${OSTYPE}" in
     linux*)
-        # apt alias
         if [ -x /usr/bin/vim ]; then
             export EDITOR=/usr/bin/vim
             export VISUAL=/usr/bin/vim
         fi
+        # apt alias
         alias agup='sudo apt-get update && sudo apt-get dist-upgrade'
         alias rem='sudo apt-get autoremove'
         alias cl-'sudo apt-get autoclean'
@@ -23,8 +23,6 @@ case "${OSTYPE}" in
         alias atr='sudo aptitude remove'
         alias atp='sudo aptitude purge'
 
-
-        export PATH=/var/lib/gems/1.8/gems/:$PATH
         alias vi='vim'
         ;;
 esac

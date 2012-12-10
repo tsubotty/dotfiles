@@ -14,5 +14,7 @@ ZSH_THEME="my_rprompt"
 
 plugins=(git autojump)
 
+# 下記追加 PATHの設定を先に行う
+source $HOME/dotfiles/.path.zsh
 source $ZSH/oh-my-zsh.sh
 

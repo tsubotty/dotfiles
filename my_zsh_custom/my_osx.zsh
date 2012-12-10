@@ -1,10 +1,5 @@
 case "${OSTYPE}" in
     darwin*)
-        # TeX用PATH追加
-        export PATH=${PATH}:/Applications/UpTeX.app/teTeX/bin
-        # my_shell_scripts
-        export PATH=${PATH}:${HOME}/my_shell_scripts
-        # set vim as default editor
         if [ -x /Applications/MacVim.app/Contents/MacOS/Vim ]; then
             export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
             export VISUAL=/Applications/MacVim.app/Contents/MacOS/Vim
