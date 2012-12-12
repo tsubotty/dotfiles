@@ -46,5 +46,6 @@ case "${OSTYPE}" in
 
         alias img="wget_url.sh"
         alias sakura='ssh -p 2411 tsubone@sakura'
+        alias tar='gtar'
         ;;
 esac

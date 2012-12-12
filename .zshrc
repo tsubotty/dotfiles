@@ -12,7 +12,7 @@ ZSH_THEME="my_rprompt"
 
 # COMPLETION_WAITING_DOTS="true"
 
-plugins=(git autojump)
+plugins=(git)
 
 # 下記追加 PATHの設定を先に行う
 source $HOME/dotfiles/.path.zsh
