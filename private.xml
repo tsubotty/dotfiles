@@ -66,6 +66,10 @@
         <appname>VMWARE</appname>
         <equal>com.vmware.fusion</equal>
 	</appdef>
+    <appdef>
+        <appname>PARALLELS</appname>
+        <equal>com.parallels.desktop.console</equal>
+	</appdef>
 
     <!--**************************************************************** キー割り当て  ****************************************************************-->
     
@@ -171,7 +175,7 @@
 	<item>
 		<name>Command_to_IME (When type only && Not in VirtualBox)</name>
 		<identifier>remap.Command_to_IME</identifier>
-        <not>VIRTUAL_BOX, VMWARE</not>
+        <not>VIRTUAL_BOX, VMWARE, PARALLELS</not>
 		<autogen>
 			--KeyOverlaidModifier-- 
 			KeyCode::COMMAND_L,

@@ -13,16 +13,5 @@ case "${OSTYPE}" in
 esac
 
 export PATH=/usr/local/bin:/usr/local/sbin/:/bin:/usr/sbin:/sbin:/usr/bin:/opt/X11/bin:$HOME/bin:${PATH}
-
-# zshの設定ファイルを分割する ~/dotfiles/.zsh/の*.zshを読み込む
-ZSHHOME="${HOME}/dotfiles/.zsh"
-
-if [ -d $ZSHHOME -a -r $ZSHHOME -a \
-    -x $ZSHHOME ]; then
-for i in $ZSHHOME/*; do
-    [[ ${i##*/} = *.zsh ]] && [ \( -f $i -o -h $i \) -a -r $i ] && . $i
-done
-fi
-
 # 重複リセット？
 typeset -U
