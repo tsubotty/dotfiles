@@ -33,14 +33,15 @@ NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'choplin/unite-vim_hacks'
 NeoBundle 'mattn/zencoding-vim.git'
 NeoBundle 'mattn/sonictemplate-vim.git'
+NeoBundle 'vim-scripts/The-NERD-Commenter'
+NeoBundle 'https://github.com/thinca/vim-quickrun.git'
+NeoBundle 'https://github.com/scrooloose/nerdtree'
 
 " Non github repos
 NeoBundle 'git://git.wincent.com/command-t.git'
 
 " Non git repos
 "NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
-NeoBundle 'https://github.com/thinca/vim-quickrun.git'
-NeoBundle 'https://github.com/scrooloose/nerdtree'
 
 filetype plugin indent on     " Required!
 

@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh #フレームワークの基準ディレクトリ
 
-ZSH_THEME="karasuhaneto"
+ZSH_THEME="my_rprompt"
 
 # CASE_SENSITIVE="true"
 
@@ -14,5 +14,7 @@ ZSH_THEME="karasuhaneto"
 
 plugins=(git autojump)
 
+# 下記追加 PATHの設定を先に行う
+source $HOME/dotfiles/.path.zsh
 source $ZSH/oh-my-zsh.sh
 

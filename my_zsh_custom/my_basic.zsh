@@ -1,18 +1,3 @@
-# zshの設定ファイルを分割する ~/dotfiles/.zsh/の*.zshを読み込む
-ZSHHOME="${HOME}/dotfiles/.zsh"
-
-if [ -d $ZSHHOME -a -r $ZSHHOME -a \
-	-x $ZSHHOME ]; then
-for i in $ZSHHOME/*; do
-	[[ ${i##*/} = *.zsh ]] && [ \( -f $i -o -h $i \) -a -r $i ] && . $i
-done
-fi
-
-##PATH
-export PATH=/usr/local/bin:/usr/local/sbin/:/bin:/usr/sbin:/sbin:/usr/bin:/opt/X11/bin:$HOME/bin:${PATH}
-
-#(d) is default on
-
 # ------------------------------
 # General Settings
 # ------------------------------
@@ -73,15 +58,15 @@ function history-all { history -E 1 }
 # ------------------------------
 ### Ls Color ###
 # 色の設定 普通にlsした時の色
-#export LSCOLORS=Cxfxcxdxbxegedabagacad
+export LSCOLORS=Cxfxcxdxbxegedabagacad
 ## 補完時の色の設定
-#export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 ## ZLS_COLORSとは？ 多分下のzsytle ':の設定と重複
-#export ZLS_COLORS=$LS_COLORS
+export ZLS_COLORS=$LS_COLORS
 ## lsコマンド時、自動で色がつく(ls -Gのようなもの？)
-#export CLICOLOR=true
+export CLICOLOR=true
 ## 補完候補に色を付ける
-#zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 #
 #### Prompt ###
 ## プロンプトに色を付ける

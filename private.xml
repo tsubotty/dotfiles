@@ -62,6 +62,10 @@
         <appname>MACVIM</appname>
         <equal>org.vim.MacVim</equal>
 	</appdef>
+    <appdef>
+        <appname>VMWARE</appname>
+        <equal>com.vmware.fusion</equal>
+	</appdef>
 
     <!--**************************************************************** キー割り当て  ****************************************************************-->
     
@@ -80,7 +84,7 @@
 	<item>
         <name>Ctrl-G to EISUU+Escape (except for Emacs)</name> 
 		<identifier>remap.jis_escape2eisuuAndEscape_global</identifier>
-        <not>VIRTUAL_BOX, EMACS</not>
+        <not>VIRTUAL_BOX, EMACS, VMWARE</not>
 		<autogen>
 			--KeyToKey--
 			KeyCode::G, ModifierFlag::CONTROL_L,
@@ -92,7 +96,7 @@
 	<item>
 		<name>shift_to_IME(When type only && Not in VirtualBox)</name>
 		<identifier>remap.shift_to_IME</identifier>
-        <not>VIRTUAL_BOX</not>
+        <not>VIRTUAL_BOX, VMWARE</not>
 		<autogen>
 			--KeyOverlaidModifier-- 
 			KeyCode::SHIFT_L,
@@ -140,7 +144,7 @@
 	<item> 
 		<name>Emacslike UpDownLeftRight(except for firefox, iterm2, terminal)</name>
 		<identifier>private.emacs_move</identifier>
-        <not>VIRTUAL_BOX, FIREFOX, NIGHTLY, AURORA, CHROME, ITERM2, MACVIM, EMACS, TERMINAL, SUBLIME</not>
+        <not>VIRTUAL_BOX, VMWARE, FIREFOX, NIGHTLY, AURORA, CHROME, ITERM2, MACVIM, EMACS, TERMINAL, SUBLIME</not>
 		<autogen> 
 			--KeyToKey-- 
 			KeyCode::N, ModifierFlag::CONTROL_L, 
@@ -167,7 +171,7 @@
 	<item>
 		<name>Command_to_IME (When type only && Not in VirtualBox)</name>
 		<identifier>remap.Command_to_IME</identifier>
-        <not>VIRTUAL_BOX</not>
+        <not>VIRTUAL_BOX, VMWARE</not>
 		<autogen>
 			--KeyOverlaidModifier-- 
 			KeyCode::COMMAND_L,

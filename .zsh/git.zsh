@@ -5,9 +5,9 @@ zstyle ":vcs_info:*" enable git
 # commitしていない変更をチェックする
 zstyle ":vcs_info:git:*" check-for-changes true
 # gitリポジトリに対して、変更情報とリポジトリ情報を表示する
-zstyle ":vcs_info:git:*" formats "%c%u[%b:%r]"
+zstyle ":vcs_info:git:*" formats "%c%u(%b:%r%)"
 # gitリポジトリに対して、コンフリクトなどの情報を表示する
-zstyle ":vcs_info:git:*" actionformats "%c%u<%a>[%b:%r]"
+zstyle ":vcs_info:git:*" actionformats "%c%u<%a>(%b:%r%)"
 # addしていない変更があることを示す文字列
 zstyle ":vcs_info:git:*" unstagedstr "<A>"
 # commitしていないstageがあることを示す文字列
