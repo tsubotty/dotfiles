@@ -31,3 +31,5 @@ alias tml='tmux list-sessions'
 #rake 遅い
 alias rake='noglob rake'
 compdef -d rake
+alias raspi='ssh -p 2682 tsubone@raspi'
+alias sakura='ssh -p 2411 tsubone@sakura'

@@ -19,6 +19,7 @@ elseif &term =~ "xterm-color"
   set t_Sb=[4%dm
 endif
 
+set t_Co=256
 "GuiColorScheme wombat
 "colorscheme wombat
 "colorscheme macvim
