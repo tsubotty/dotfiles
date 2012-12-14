@@ -2,7 +2,7 @@
 case "${OSTYPE}" in
     darwin*)
         # TeX用PATH追加
-        export PATH=${PATH}:/Applications/UpTeX.app/teTeX/bin
+        #export PATH=${PATH}:/Applications/UpTeX.app/teTeX/bin
         # my_shell_scripts
         export PATH=${PATH}:${HOME}/my_shell_scripts
         # set vim as default editor
@@ -12,6 +12,6 @@ case "${OSTYPE}" in
         ;;
 esac
 
-export PATH=/usr/local/bin:/usr/local/sbin/:/bin:/usr/sbin:/sbin:/usr/bin:/opt/X11/bin:$HOME/bin:${PATH}
+export PATH=/usr/local/bin:/usr/local/sbin/:/opt/local/bin:/opt/local/sbin:/bin:/usr/sbin:/sbin:/usr/bin:/opt/X11/bin:$HOME/bin:${PATH}
 # 重複リセット？
-typeset -U
+typeset -U path

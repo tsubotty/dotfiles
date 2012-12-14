@@ -8,6 +8,9 @@ for i in $ZSHHOME/*; do
 done
 fi
 
+# zsh-git-promptを読み込む
+source ~/dotfiles/.zsh/git-prompt/zshrc.sh
+
 # ------------------------------
 # General Settings
 # ------------------------------
