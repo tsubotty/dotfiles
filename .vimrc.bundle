@@ -18,6 +18,7 @@ NeoBundle 'rails.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-guicolorscheme'
@@ -36,7 +37,8 @@ NeoBundle 'mattn/sonictemplate-vim.git'
 NeoBundle 'vim-scripts/The-NERD-Commenter'
 NeoBundle 'https://github.com/thinca/vim-quickrun.git'
 NeoBundle 'https://github.com/scrooloose/nerdtree'
-
+" powerline
+NeoBundle 'Lokaltog/vim-powerline' 
 " Non github repos
 NeoBundle 'git://git.wincent.com/command-t.git'
 

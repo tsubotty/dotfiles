@@ -9,6 +9,6 @@ case ${UID} in
   ;;
 esac 
 
-RPROMPT="%{$fg[yellow]%}$(my_vcs_info)%{$reset_color%}%{$FG[239]%}[%{$reset_color%}%{$fg[cyan]%}%~%{$reset_color%}%{$FG[239]%}]%{$reset_color%}"
+RPROMPT="%{$fg[yellow]%}%{$reset_color%}%{$FG[239]%}[%{$reset_color%}%{$fg[cyan]%}%~%{$reset_color%}%{$FG[239]%}]%{$reset_color%}"
 
 SPROMPT="%{$fg_bold[red]%}correct: %R -> %r (y or n)?%{$reset_color%} "

@@ -125,9 +125,9 @@
 ;; 時計を表示（好みに応じてフォーマットを変更可能）
 ;; (setq display-time-day-and-date t) ; 曜日・月・日を表示
 ;; (setq display-time-24hr-format t) ; 24時表示
-(display-time-mode t)
+;;(display-time-mode t)
 ;; バッテリー残量を表示
-(display-battery-mode t)
+;;(display-battery-mode t)
 ;; リージョン内の行数と文字数をモードラインに表示する（範囲指定時のみ）
 ;; http://d.hatena.ne.jp/sonota88/20110224/1298557375
 (defun count-lines-and-chars ()
