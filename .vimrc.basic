@@ -19,7 +19,8 @@ set number "行番号を表示する
 set notimeout ttimeout ttimeoutlen=200 "キーコードはすぐにタイムアウト。マッピングはタイムアウトしない
 set pastetoggle=<F11> "<F11>でpasteとnopasteを入れ替える
 set noswapfile "swapファイルを作らない
-set nobackup "bakcupファイルを作らない
+"set nobackup "bakcupファイルを作らない
+set backupdir=$HOME/.vim/vimbackup
 set backupskip=/private/tmp/*,/tmp/* "cronetab用
 set formatoptions-=ro "コメントアウトで改行時の自動をやめる
 set backspace=indent,eol,start
