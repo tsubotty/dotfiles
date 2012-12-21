@@ -4,6 +4,8 @@ case "${OSTYPE}" in
         # my_shell_scripts
         export PATH=${PATH}:${HOME}/my_shell_scripts
         export PATH=$(brew --prefix coreutils)/libexec/gnubin:${PATH}
+        export JAVA_HOME=$(/usr/libexec/java_home)
+        export PATH=$PATH:${JAVA_HOME}/bin
         ;;
     linux*)
         export PATH=/var/lib/gems/1.8/gems/:$PATH

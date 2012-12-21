@@ -20,11 +20,14 @@ set notimeout ttimeout ttimeoutlen=200 "キーコードはすぐにタイムア�
 set pastetoggle=<F11> "<F11>でpasteとnopasteを入れ替える
 set noswapfile "swapファイルを作らない
 "set nobackup "bakcupファイルを作らない
-set backupdir=$HOME/.vim/vimbackup
+set backupdir=$HOME/dotfiles/.vim/vimbackup
 set backupskip=/private/tmp/*,/tmp/* "cronetab用
 set formatoptions-=ro "コメントアウトで改行時の自動をやめる
 set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
+set browsedir=current
+"set list
+
 autocmd FileType * set formatoptions-=ro
 
 set title "編集中のファイル名を表示

@@ -1,0 +1,32 @@
+#flag="original" # 自分専用設定のみ
+flag="framework" # oh-my-zshを使用
+ZSH_THEME="my_rprompt"
+
+if [ $flag = "framework" ]; then
+    ZSH=$HOME/.oh-my-zsh #フレームワークの基準ディレクトリ
+
+    # CASE_SENSITIVE="true"
+
+    # DISABLE_AUTO_UPDATE="true"
+
+    # DISABLE_LS_COLORS="true"
+
+    # DISABLE_AUTO_TITLE="true"
+
+    # COMPLETION_WAITING_DOTS="true"
+
+    plugins=(git)
+
+    # 下記追加 PATHの設定を先に行う
+    source $HOME/dotfiles/.path.zsh
+    source $ZSH/oh-my-zsh.sh
+else
+    autoload -U compinit
+    compinit
+    prefix="${HOME}/dotfiles/my_zsh_custom/"
+    for file in `ls $prefix`
+    do
+        . $prefix$file
+    done
+    . $prefix$ZSH_THEME".zsh-theme"
+fi

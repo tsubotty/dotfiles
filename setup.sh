@@ -8,8 +8,9 @@ fi
 echo "全て上書き（1）, 既存の物は残す（2）, 中止（それ以外）"
 
 read ans
-DOT_FILES=( .zshrc .zshenv .zsh_profile .emacs.d .gemrc .gitconfig .vimrc .gvimrc .vim .vimperatorrc .muttrc .screenrc .tmux.conf)
+DOT_FILES=( .zshenv .zsh_profile .emacs.d .gemrc .gitconfig .vimrc .gvimrc .vim .vimperatorrc .muttrc .screenrc .tmux.conf)
 if [ "$ans" = "1" ]; then
+    ln -sfn $HOME/dotfiles/.zshrc.head $HOME/.zshrc
     for file in ${DOT_FILES[@]}
     do
         ln -sfn $HOME/dotfiles/$file $HOME/$file
