@@ -11,14 +11,20 @@ alias java='java -Dfile.encoding=UTF-8'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias pu='pushd'
+alias po='popd'
 # cp confirm
 alias cp='cp -i'
 # git alias
 alias g='git'
+alias gst='git status'
+alias gdf='git diff'
+alias gci='git commit -a'
+alias gcim='git commit -am'
 # svn alias
 alias s='svn'
 # ls
-alias ls='ls -F' la='ls -a' ll='ls -lah'
+alias ls='ls -F --color' la='ls -a --color' ll='ls -lah --color'
 # g++
 alias gpp='g++'
 # tmux
@@ -33,3 +39,4 @@ alias rake='noglob rake'
 compdef -d rake
 alias raspi='ssh -p 2682 tsubone@raspi'
 alias sakura='ssh -p 2411 tsubone@sakura'
+alias less='less -MN'

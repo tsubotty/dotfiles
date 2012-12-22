@@ -45,6 +45,10 @@ case "${OSTYPE}" in
         alias vmrun_windows='/Applications/VMware\ Fusion.app/Contents/Library/vmrun start ~/VMware/Windows7.vmwarevm'
 
         alias img="wget_url.sh"
+        
+        # GNU commands
         alias tar='gtar'
+        alias find='gfind'
+        alias xargs='gxargs'
         ;;
 esac

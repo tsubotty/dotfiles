@@ -8,8 +8,9 @@ fi
 echo "全て上書き（1）, 既存の物は残す（2）, 中止（それ以外）"
 
 read ans
-DOT_FILES=( .zshrc .zshenv .zsh_profile .emacs.d .gemrc .gitconfig .vimrc .gvimrc .vim .vimperatorrc .muttrc .screenrc .tmux.conf)
+DOT_FILES=( .zshenv .zsh_profile .emacs.d .gemrc .gitconfig .vimrc .gvimrc .vim .vimperatorrc .muttrc .screenrc .tmux.conf)
 if [ "$ans" = "1" ]; then
+    ln -sfn $HOME/dotfiles/.zshrc.head $HOME/.zshrc
     for file in ${DOT_FILES[@]}
     do
         ln -sfn $HOME/dotfiles/$file $HOME/$file
@@ -34,9 +35,15 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 
 cp -f $HOME/dotfiles/misc.zsh $HOME/.oh-my-zsh/lib/  # url-magicに問題があるため自分用の物に置き換え
 
-for file in `ls $HOME/dotfiles/my_zsh_custom`
+## oh-my-zsh用 ##
+ln -sf $HOME/dotfiles/basic_for_framework.zsh $HOME/.oh-my-zsh/custom/basic_for_framework.zsh
+for file in `ls $HOME/dotfiles/zsh_settings`
 do
-    ln -sf $HOME/dotfiles/my_zsh_custom/$file $HOME/.oh-my-zsh/custom/$file
+    ln -sf $HOME/dotfiles/zsh_settings/$file $HOME/.oh-my-zsh/custom/$file
+done
+for file in `ls $HOME/dotfiles/zsh_themes`
+do
+    ln -sf $HOME/dotfiles/zsh_themes/$file $HOME/.oh-my-zsh/custom/$file
 done
 
 echo "Vimプラグイン:NeoBundleのインストールを行いますか？（y/n）"

@@ -21,7 +21,7 @@ endif
 
 set t_Co=256
 "GuiColorScheme wombat
-"colorscheme wombat
+colorscheme wombat
 "colorscheme macvim
 "colorscheme jellybeans
 "colorscheme molokai 
