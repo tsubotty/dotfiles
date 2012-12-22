@@ -75,7 +75,8 @@
 ;;; P80 C-hをバックスペースにする
 ;; 入力されるキーシーケンスを置き換える
 ;; ?\C-?はDELのキーシケンス
-;; (keyboard-translate ?\C-h ?\C-?)
+(keyboard-translate ?\C-h ?\C-?)
+(define-key global-map (kbd "C-x ?") 'help-command)
 
 ;;; P79-81 お勧めのキー操作
 ;; C-mにnewline-and-indentを割り当てる。

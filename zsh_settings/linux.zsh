@@ -29,5 +29,7 @@ case "${OSTYPE}" in
         compdef -d aptitude
 
         alias vi='vim'
+        alias E='emacsclient -t'
+        alias kill-emacs="emacsclient -e '(kill-emacs)'"
         ;;
 esac
