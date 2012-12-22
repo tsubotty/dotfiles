@@ -11,10 +11,16 @@ alias java='java -Dfile.encoding=UTF-8'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias pu='pushd'
+alias po='popd'
 # cp confirm
 alias cp='cp -i'
 # git alias
 alias g='git'
+alias gst='git status'
+alias gdf='git diff'
+alias gci='git commit -a'
+alias gcim='git commit -am'
 # svn alias
 alias s='svn'
 # ls

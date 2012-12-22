@@ -88,7 +88,7 @@
 	<item>
         <name>Ctrl-G to EISUU+Escape (except for Emacs)</name> 
 		<identifier>remap.jis_escape2eisuuAndEscape_global</identifier>
-        <not>VIRTUAL_BOX, EMACS, VMWARE</not>
+        <not>VIRTUAL_BOX, EMACS, VMWARE, ITERM2</not>
 		<autogen>
 			--KeyToKey--
 			KeyCode::G, ModifierFlag::CONTROL_L,
