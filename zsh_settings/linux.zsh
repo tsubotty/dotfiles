@@ -14,6 +14,9 @@ case "${OSTYPE}" in
         alias acs='apt-cache search'
         alias agr='sudo apt-get remove' #特定パッケージの削除
         alias agp='sudo apt-get purge' #特定パッケージの設定ファイルを含めた削除
+        
+        compdef -d apt-get
+        compdef -d apt-cache
 
         # aptitude alias
         alias atup='sudo aptitude update && sudo aptitude safe-upgrade'
@@ -22,6 +25,8 @@ case "${OSTYPE}" in
         alias ati='sudo aptitude install'
         alias atr='sudo aptitude remove'
         alias atp='sudo aptitude purge'
+        
+        compdef -d aptitude
 
         alias vi='vim'
         ;;
