@@ -154,8 +154,6 @@
 ;; 5.5インデントの設定                                    ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; P92-94 タブ文字の表示幅
-;; TABの表示幅。初期値は8
-(setq-default tab-width 4)
 ;; インデントにタブ文字を使用しない
 (setq-default indent-tabs-mode nil)
 ;; php-modeのみタブを利用しない
@@ -166,7 +164,16 @@
 ;; C、C++、JAVA、PHPなどのインデント
 (add-hook 'c-mode-common-hook
           '(lambda ()
-             (c-set-style "bsd")))
+             (c-set-style "java"))) ;bsdになっていると8文字になる
+(add-hook 'c-mode-hook
+          '(lambda ()
+             (c-basic-offset 4)
+             (tab-width 4)
+						 )) ;bsdになっていると8文字になる
+;; TABの表示幅。初期値は8
+(setq-default tab-width 4)
+;; 基本インデント量
+(setq-default c-basic-offset 4)
 
 
 
@@ -184,7 +191,7 @@
   ;; テーマを読み込むための設定
   (color-theme-initialize)
   ;; テーマhoberに変更する
-  (color-theme-hober))
+  (color-theme-midnight))
 
 ;;; P97-99 フォントの設定
 (when (eq window-system 'ns)
@@ -230,8 +237,8 @@
      (:background "LightGoldenrodYellow" t))
     (t (:bold t)))
   "hl-line's my face")
-(setq hl-line-face 'my-hl-line-face)
-(global-hl-line-mode t)
+;(setq hl-line-face 'my-hl-line-face)
+;(global-hl-line-mode t)
 
 ;; P101 括弧の対応関係のハイライト
 ;; paren-mode：対応する括弧を強調して表示する
@@ -380,6 +387,9 @@
 ;;; P127-128 過去の履歴からペースト──anything-show-kill-ring
 ;; M-yにanything-show-kill-ringを割り当てる
 (define-key global-map (kbd "M-y") 'anything-show-kill-ring)
+(define-key global-map (kbd "M-a") 'anything-for-files)
+(define-key global-map (kbd "M-g") 'gdb)
+(define-key global-map (kbd "M-f") 'describe-face)
 
 ;; ▼要拡張機能インストール▼
 ;;; P128-129 moccurを利用する──anything-c-moccur
@@ -463,3 +473,8 @@
 (setq tex-command "~/Library/TeXShop/bin/platex2pdf-utf8"
        dvi2-command "open -a TeXShop")
 
+;;; GDB
+(setq gdb-many-windows t)
+(add-hook 'gdb-mode-hook'(lambda() (gud-tooltip-mode t))) ;変数の上にマウスカーソルを置くと値を表示
+(setq gdb-use-separate-io-buffer t) ;I/Oバッファを表示
+(setq gud-tooltip-echo-area nil) ;tにするとmini bufferに値が表示される
