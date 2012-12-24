@@ -18,6 +18,7 @@ source ~/dotfiles/.zsh/git-prompt/zshrc.sh
 export LANG=ja_JP.UTF-8  # 文字コードをUTF-8に設定
 export KCODE=u           # KCODEにUTF-8を設定
 export AUTOFEATURE=true  # autotestでfeatureを動かす
+export LISTMAX=1000
 
 bindkey -e               # キーバインドをemacsモードに設定
 #bindkey -v              # キーバインドをviモードに設定

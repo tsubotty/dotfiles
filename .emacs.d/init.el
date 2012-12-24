@@ -14,12 +14,23 @@
 (setq ns-command-modifier (quote meta))
 (setq ns-alternate-modifier (quote super))
 
-;起動時フレームサイズ
-(setq initial-frame-alist
-			(append (list
-					'(width .108)    ; フレーム幅(文字数)
-					'(height .60)   ; フレーム高(文字数)
-					) initial-frame-alist))
+;;起動時フレームサイズ
+;(setq initial-frame-alist
+;			(append (list
+;					'(width .108)    ; フレーム幅(文字数)
+;					'(height .60)   ; フレーム高(文字数)
+;					) initial-frame-alist))
+
+(let ((ws window-system))
+	(cond ((eq ws 'w32)
+				 (set-frame-position (selected-frame) 0 0)
+				 (setq term-setup-hook 'jbr-init)
+				 (setq window-setup-hook 'jbr-init))
+				((eq ws 'ns)
+				 ;; for MacBook Air(Late2010) 11inch display
+				 (set-frame-position (selected-frame) 0 0)
+				 (set-frame-size (selected-frame) 108 60))))
+	
 ;; ビープ音を消す
 (setq visible-bell t)
 (setq ring-bell-function 'ignore)
@@ -95,7 +106,7 @@
 ;;; P82-83 パスの設定
 (add-to-list 'exec-path "/opt/local/bin")
 (add-to-list 'exec-path "/usr/local/bin")
-(add-to-list 'exec-path "~/bin")
+(add-to-list 'exec-path "~/gdb/bin")
 
 ;;; P85 文字コードを指定する
 (set-language-environment "Japanese")
@@ -470,8 +481,8 @@
       (cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
 (autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
 ;; previewにtexshop
-(setq tex-command "~/Library/TeXShop/bin/platex2pdf-utf8"
-       dvi2-command "open -a TeXShop")
+(setq tex-command "~/my_shell_scripts/latex_preview_emacs"
+       dvi2-command "open -a Preview.app")
 
 ;;; GDB
 (setq gdb-many-windows t)

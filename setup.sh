@@ -10,10 +10,10 @@ echo "全て上書き（1）, 既存の物は残す（2）, 中止（それ以�
 read ans
 DOT_FILES=( .zshenv .zsh_profile .emacs.d .gemrc .gitconfig .vimrc .gvimrc .vim .vimperatorrc .muttrc .screenrc .tmux.conf)
 if [ "$ans" = "1" ]; then
-    ln -sfn $HOME/dotfiles/.zshrc.head $HOME/.zshrc
+    ln -sf $HOME/dotfiles/.zshrc.head $HOME/.zshrc
     for file in ${DOT_FILES[@]}
     do
-        ln -sfn $HOME/dotfiles/$file $HOME/$file
+        ln -sf $HOME/dotfiles/$file $HOME/
     done
     if expr "$OSTYPE" : "darwin*" > /dev/null; then
         ln -sf $HOME/dotfiles/private.xml $HOME/Library/Application\ Support/KeyRemap4MacBook/private.xml
@@ -21,7 +21,7 @@ if [ "$ans" = "1" ]; then
 elif [ "$ans" = "2" ]; then
     for file in ${DOT_FILES[@]}
     do
-        ln -sn $HOME/dotfiles/$file $HOME/$file
+        ln -s $HOME/dotfiles/$file $HOME/
     done
     if expr "$OSTYPE" : "darwin*" > /dev/null; then
         ln -s $HOME/dotfiles/private.xml $HOME/Library/Application\ Support/KeyRemap4MacBook/private.xml

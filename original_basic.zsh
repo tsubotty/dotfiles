@@ -20,6 +20,7 @@ export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s' # less syntax highl
 export LANG=ja_JP.UTF-8  # 文字コードをUTF-8に設定
 export KCODE=u           # KCODEにUTF-8を設定
 export AUTOFEATURE=true  # autotestでfeatureを動かす
+export LISTMAX=1000
 
 bindkey -e               # キーバインドをemacsモードに設定
 #bindkey -v              # キーバインドをviモードに設定
@@ -27,7 +28,7 @@ bindkey -e               # キーバインドをemacsモードに設定
 setopt no_beep           # ビープ音を鳴らさないようにする
 setopt auto_cd           # ディレクトリ名の入力のみで移動する 
 setopt auto_pushd        # cd時にディレクトリスタックにpushdする
-setopt correct           # コマンドのスペルを訂正する
+setopt correct_all           # コマンドのスペルを訂正する
 setopt magic_equal_subst # =以降も補完する(--prefix=/usrなど)
 setopt prompt_subst      # プロンプト定義内で変数置換やコマンド置換を扱う
 setopt notify            # バックグラウンドジョブの状態変化を即時報告する
@@ -38,6 +39,8 @@ setopt complete_in_word
 autoload -U compinit; compinit # 補完機能を有効にする
 setopt auto_list               # 補完候補を一覧で表示する(d)
 setopt auto_menu               # 補完キー連打で補完候補を順に表示する(d)
+setopt always_to_end
+setopt auto_name_dirs
 setopt list_packed             # 補完候補をできるだけ詰めて表示する
 setopt list_types              # 補完候補にファイルの種類も表示する
 bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)

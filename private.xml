@@ -96,6 +96,18 @@
 		</autogen>
 	</item>
 
+    <!-- iTerm2でCtrl-GをCtrl-G＋IME_OFF -->
+	<item>
+        <name>Ctrl-G to EISUU+Ctrl-G in iTerm2</name> 
+		<identifier>remap.c-giniterm2</identifier>
+        <only>ITERM2</only>
+		<autogen>
+			--KeyToKey--
+			KeyCode::G, ModifierFlag::CONTROL_L,
+			KeyCode::JIS_EISUU, KeyCode::G, ModifierFlag::CONTROL_L
+		</autogen>
+	</item>
+    
     <!-- シフトでIME  --> 
 	<item>
 		<name>shift_to_IME(When type only && Not in VirtualBox)</name>

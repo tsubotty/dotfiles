@@ -23,8 +23,7 @@ NeoBundle 'git://github.com/Shougo/unite.vim.git'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-guicolorscheme'
 NeoBundle 'vim-scripts/CSApprox'
-" Unite 
-NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite.vim' " Unite 
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'h1mesuke/unite-outline'
 " NeoBundle 'Sixeight/unite-grep'
@@ -38,13 +37,15 @@ NeoBundle 'vim-scripts/The-NERD-Commenter'
 NeoBundle 'https://github.com/thinca/vim-quickrun.git'
 NeoBundle 'https://github.com/scrooloose/nerdtree'
 NeoBundle 'git://git.wincent.com/command-t.git'
-" powerline
-NeoBundle 'Lokaltog/vim-powerline' 
+NeoBundle 'Lokaltog/vim-powerline' " powerline
+
 " Non github repos
+NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
 " Non git repos
 "NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
-NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+NeoBundle 'buftabs' " 0.5   Minimalistic buffer tabs saving screen space
+
 filetype plugin indent on     " Required!
 
 "Installation check.
