@@ -31,5 +31,7 @@ case "${OSTYPE}" in
         alias vi='vim'
         alias E='emacsclient -t'
         alias kill-emacs="emacsclient -e '(kill-emacs)'"
+        
+        alias rm='trash-put'
         ;;
 esac
