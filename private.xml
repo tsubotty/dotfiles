@@ -86,7 +86,7 @@
 
     <!-- どこでもCtrl-GでESC -->
 	<item>
-        <name>Ctrl-G to EISUU+Escape (except for Emacs)</name> 
+        <name>Ctrl-G to EISUU+Escape (except for iTerm, Emacs, VB, VM)</name> 
 		<identifier>remap.jis_escape2eisuuAndEscape_global</identifier>
         <not>VIRTUAL_BOX, EMACS, VMWARE, ITERM2</not>
 		<autogen>
@@ -96,10 +96,22 @@
 		</autogen>
 	</item>
 
+    <!-- どこでもCtrl-GでESC -->
+	<item>
+        <name>Ctrl-G to EISUU+Escape in iTerm2</name> 
+		<identifier>remap.jis_escape2eisuuAndEscape_in_iTerm2</identifier>
+        <only>ITERM2</only>
+		<autogen>
+			--KeyToKey--
+			KeyCode::G, ModifierFlag::CONTROL_L,
+			KeyCode::JIS_EISUU, KeyCode::ESCAPE
+		</autogen>
+	</item>
+    
     <!-- iTerm2でCtrl-GをCtrl-G＋IME_OFF -->
 	<item>
         <name>Ctrl-G to EISUU+Ctrl-G in iTerm2</name> 
-		<identifier>remap.c-giniterm2</identifier>
+		<identifier>remap.c-g_in_iterm2</identifier>
         <only>ITERM2</only>
 		<autogen>
 			--KeyToKey--

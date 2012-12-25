@@ -3,9 +3,9 @@ filetype off                   " Required!
 
 if has('vim_starting')
 	set runtimepath+=~/.vim/bundle/neobundle.vim/
+  call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
 
 " github repos
 NeoBundle 'Shougo/vimproc'
@@ -19,25 +19,28 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'git://github.com/Shougo/unite.vim.git'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-guicolorscheme'
 NeoBundle 'vim-scripts/CSApprox'
 NeoBundle 'Shougo/unite.vim' " Unite 
 NeoBundle 'tsukkee/unite-help'
-NeoBundle 'h1mesuke/unite-outline'
-" NeoBundle 'Sixeight/unite-grep'
+"NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'Sixeight/unite-grep'
 NeoBundle 'basyura/unite-rails'
 NeoBundle 'thinca/vim-unite-history'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'choplin/unite-vim_hacks'
+     NeoBundle 'mattn/webapi-vim'
+     NeoBundle 'mattn/wwwrenderer-vim'
+     NeoBundle 'thinca/vim-openbuf'
 NeoBundle 'mattn/zencoding-vim.git'
 NeoBundle 'mattn/sonictemplate-vim.git'
 NeoBundle 'vim-scripts/The-NERD-Commenter'
 NeoBundle 'https://github.com/thinca/vim-quickrun.git'
 NeoBundle 'https://github.com/scrooloose/nerdtree'
 NeoBundle 'git://git.wincent.com/command-t.git'
-NeoBundle 'Lokaltog/vim-powerline' " powerline
+"NeoBundle 'Lokaltog/vim-powerline' " powerline
 
 " Non github repos
 NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -45,6 +48,7 @@ NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 " Non git repos
 "NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
 NeoBundle 'buftabs' " 0.5   Minimalistic buffer tabs saving screen space
+NeoBundle 'bufexplorer.zip' " 6.0.2 Buffer Explorer / Browser
 
 filetype plugin indent on     " Required!
 
