@@ -13,6 +13,6 @@ etc...
 
 Usage:
 Clone from github
-git clone git@github.com:karasuhaneto/dotfiles.git
+git clone https://github.com/karasuhaneto/dotfiles.git
 
 Move into the directory, run "setup.sh", then symblic links from your $HOME to dotfiles are made.
