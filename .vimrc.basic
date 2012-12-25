@@ -27,6 +27,7 @@ set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
 set browsedir=current
 "set list "タブ文字、行末など不可視文字を表示する。
+set cursorline
 
 autocmd FileType * set formatoptions-=ro "テキストやコメントの折り返しをどうするかなどの設定
 

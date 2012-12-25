@@ -11,6 +11,8 @@ source ~/dotfiles/.vimrc.completion
 source ~/dotfiles/.vimrc.colors
 "マッピングの設定
 source ~/dotfiles/.vimrc.mapping
+"テンプレートファイルの読み込み
+source ~/dotfiles/.vimrc.templates
 
 """" latex-suite 
 let tex_flavor = 'latex'

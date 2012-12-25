@@ -1,0 +1,4 @@
+augroup Templates
+  autocmd!
+  autocmd BufNewFile *.tex 0r $HOME/.vim/templates/skelton.tex
+augroup END

@@ -1,0 +1,42 @@
+\documentclass[a4paper]{jsarticle}
+
+% レイアウトの設定 
+\setlength{\oddsidemargin}{25mm}
+\addtolength{\oddsidemargin}{-1in}
+\setlength{\textwidth}{160mm}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{lscape}
+\usepackage{subfigure}
+
+\makeatletter
+\def\tbcaption{\def\@captype{table}\caption}
+\def\figcaption{\def\@captype{figure}\caption}
+\makeatother
+
+% Listingsの設定
+%\usepackage{ascmac,here,txfonts,txfonts}
+\usepackage{listings,jlisting}
+%\usepackage{color}
+\lstset{
+  breaklines = true,
+  language=Python,
+  basicstyle=\ttfamily\scriptsize,
+  %commentstyle={\itshape \color[cmyk]{1,0.4,1,0}},
+  classoffset=1,
+  %keywordstyle={\bfseries \color[cmyk]{0,1,0,0}},
+  %stringstyle={\ttfamily \color[rgb]{0,0,1}},
+  frame=tRBl,
+  framesep=5pt,
+  showstringspaces=false,
+  numbers=left,
+  stepnumber=1,
+  numberstyle=\tiny,
+  tabsize=2,
+}
+
+\title{レポート}
+\author{03110485 局 成矢}
+
+\begin{document}
+\maketitle
+\end{document}
