@@ -9,7 +9,9 @@ endif
 
 " github repos
 NeoBundle 'Shougo/vimproc'
+NeoBundle 'akiradeveloper/project.vim' " a clone of project.vim v1.4.1
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'gitv' " 1.0   gitk for Vim.
 NeoBundle 'Lokaltog/vim-easymotion'
 "NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 NeoBundle 'L9'
@@ -41,7 +43,7 @@ NeoBundle 'vim-scripts/The-NERD-Commenter'
 NeoBundle 'https://github.com/thinca/vim-quickrun.git'
 NeoBundle 'https://github.com/scrooloose/nerdtree'
 NeoBundle 'git://git.wincent.com/command-t.git'
-"NeoBundle 'Lokaltog/vim-powerline' " powerline
+NeoBundle 'Lokaltog/vim-powerline' " powerline
 
 " Non github repos
 NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -50,6 +52,7 @@ NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 "NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
 NeoBundle 'buftabs' " 0.5   Minimalistic buffer tabs saving screen space
 NeoBundle 'bufexplorer.zip' " 6.0.2 Buffer Explorer / Browser
+NeoBundle 'sudo.vim' " 1.0   Allows one to edit a file with prevledges from an unprivledged session.
 
 filetype plugin indent on     " Required!
 

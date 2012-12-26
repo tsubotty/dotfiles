@@ -1,8 +1,8 @@
 "色とか透明度とか
 "colorscheme elflord
 "colorscheme wombat
-colorscheme vividchalk
-set transparency=15
+colorscheme blacksea
+set transparency=25
 set lines=90 columns=200
 "クリップボード
 set clipboard+=autoselect

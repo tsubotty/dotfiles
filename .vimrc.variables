@@ -1,0 +1,36 @@
+""" Unite.vim
+let g:unite_enable_start_insert = 1 " 入力モードで開始する
+
+""" VimFiler
+let g:vimfiler_safe_mode_by_default = 0
+
+""" Zen-Coidng
+let g:user_zen_leader_key='<C-,>'
+
+""" NERD-Commenter
+let g:NERDCreateDefaultMappings = 0 " デフォルトのマッピングオフ
+let NERDSpaceDelims = 1 " スペース一個挟む
+
+""" Vim PowerLine
+let g:use_Powerline_dividers = 1
+let g:Powerline_symbols = 'fancy'
+
+""" Latex-Suite
+let tex_flavor = 'latex'
+let g:Tex_DefaultTargetFormat = 'pdf' "Macの人はデフォルトでpdfなので必要ない その他のOSの人はデフォルトがdviなので必要
+let g:Tex_CompileRule_dvi = 'platex --interaction=nonstopmode $*'
+let g:Tex_CompileRule_pdf = 'dvipdfmx $*.dvi'
+let g:Tex_FormatDependency_pdf = 'dvi,pdf'
+"let g:Tex_DefaultTargetFormat = 'pdf' "標準で.pdfにコンパイルして開いてね
+let g:Tex_ViewRule_pdf = 'open -a Preview' "PDFはPreview.appで開いてね
+"let g:Tex_CompileRule_pdf = 'pdflatex $*.tex' "pdflatexを使って.texから.pdfに変換してね
+
+""" buftabs
+let buftabs_only_basename = 1 "basenameのみ
+let buftabs_in_statusline = 1 "statuslineに表示
+
+""" bufexploer
+let bufExplorerDetailedHelp = 1
+
+""" mru.vim
+let MRU_Use_Alt_useopen = 1

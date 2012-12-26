@@ -38,8 +38,10 @@ noremap <C-g> <ESC>
 vnoremap <C-g> <ESC>
 cnoremap <C-g> <ESC>
 
-nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return> 
 "ESCキー２度押しでハイライトを消す
+nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return> 
+" C-Oで下に空行挿入
+nnoremap <C-o> o<ESC>
 
 "Emacs風に <C-k>で行末まで削除
 func! s:kill_line()
@@ -54,8 +56,6 @@ endfunc
 "inoremap <C-k>  <C-o>:<C-u>call <SID>kill_line()<CR>
 
 """ unite.vim
-" 入力モードで開始する
-let g:unite_enable_start_insert = 1
 " バッファ一覧
 nnoremap <silent> <C-U>b :<C-u>Unite buffer<CR>
 " バッファのカレントディレクトリのファイル一覧
@@ -89,14 +89,9 @@ nnoremap <silent> <C-U>i :<C-u>Unite colorscheme<CR>
 
 " VimFiler
 nnoremap <silent> <Leader>v :<C-u>VimFiler<CR>
-let g:vimfiler_safe_mode_by_default = 0
-
-" Zen-Coidng
-let g:user_zen_leader_key=','
+nnoremap <C-x> :<C-u>VimFiler -split -simple -winwidth=25 -no-quit<CR>
 
 " NERD-Commenter
-let g:NERDCreateDefaultMappings = 0 " デフォルトのマッピングオフ
-let NERDSpaceDelims = 1 " スペース一個挟む
 nmap ,/ <Plug>NERDCommenterToggle
 vmap ,/ <Plug>NERDCommenterToggle
 nmap ,a <Plug>NERDCommenterAppend
@@ -108,7 +103,6 @@ nnoremap <C-K> <C-W>k
 nnoremap <C-J> <C-W>j
 nnoremap Q :q<CR>
 "nnoremap T :tabe<CR>
-nnoremap <C-x> :<C-u>VimFiler -split -simple -winwidth=25 -no-quit<CR>
 "nnoremap <S-Tab> gt
 "nnoremap <C-S-Tab> gT
 "nnoremap L gt
@@ -155,7 +149,6 @@ function! MyTabLine()
   return s
 endfunction
  
-let g:use_Powerline_dividers = 1
  
 function! MyTabLabel(n)
     let buflist = tabpagebuflist(a:n)
