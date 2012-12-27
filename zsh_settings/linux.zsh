@@ -32,6 +32,8 @@ case "${OSTYPE}" in
         alias E='emacsclient -t'
         alias kill-emacs="emacsclient -e '(kill-emacs)'"
         
-        alias rm='trash-put'
+        if which trash-put &>/dev/null; then
+            alias rm='trash-put'
+        fi
         ;;
 esac

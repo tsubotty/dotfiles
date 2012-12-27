@@ -50,6 +50,7 @@ NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
 " Non git repos
 "NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
+"NeoBundle 'bufferlist.vim' " 1.0   simple, fast, and slick non-disturbing buffer list
 NeoBundle 'buftabs' " 0.5   Minimalistic buffer tabs saving screen space
 NeoBundle 'bufexplorer.zip' " 6.0.2 Buffer Explorer / Browser
 NeoBundle 'sudo.vim' " 1.0   Allows one to edit a file with prevledges from an unprivledged session.
