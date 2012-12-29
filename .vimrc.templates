@@ -1,8 +1,9 @@
 augroup Templates
   autocmd!
-  autocmd BufNewFile *.tex 0r $HOME/.vim/templates/skelton.tex
-  autocmd BufNewFile *.c 0r $HOME/.vim/templates/skelton.c
-  autocmd BufNewFile *.cpp 0r $HOME/.vim/templates/skelton.cpp
-  autocmd BufNewFile *.rb 0r $HOME/.vim/templates/skelton.rb
-  autocmd BufNewFile *.php 0r $HOME/.vim/templates/skelton.php
+  autocmd BufNewFile *.rb :source $HOME/.vim/templates/ruby_template.vim
+  autocmd BufNewFile *.php :source $HOME/.vim/templates/php_template.vim
+  autocmd BufNewFile *.c :source $HOME/.vim/templates/c_template.vim
+  autocmd BufNewFile *.cpp :source $HOME/.vim/templates/cpp_template.vim
+  autocmd BufNewFile *.html :source $HOME/.vim/templates/html_template.vim
+  autocmd BufNewFile *.tex :source $HOME/.vim/templates/tex_template.vim
 augroup END

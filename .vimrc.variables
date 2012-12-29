@@ -34,3 +34,10 @@ let bufExplorerDetailedHelp = 1
 
 """ mru.vim
 let MRU_Use_Alt_useopen = 1
+
+""" vim-ref
+let g:ref_open = 'vsplit'
+let g:ref_refe_cmd = "$HOME/bin/refe"
+let g:ref_refe_version = 2
+
+nnoremap ,rr :<C-U>Ref refe<Space>

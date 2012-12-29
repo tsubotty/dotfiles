@@ -46,3 +46,4 @@ alias less='less -MN'
 
 compdef -d make
 compdef -d svn
+compdef -d scp

@@ -89,7 +89,7 @@ nnoremap <silent> [i :<C-u>Unite colorscheme<CR>
 
 " VimFiler
 nnoremap <silent> <Leader>v :<C-u>VimFiler<CR>
-nnoremap <C-x> :<C-u>VimFiler -split -simple -winwidth=25 -no-quit<CR>
+nnoremap <C-x> :<C-u>VimFiler -split -simple -winwidth=20 -no-quit<CR>
 
 " NERD-Commenter
 nmap ,/ <Plug>NERDCommenterToggle
@@ -115,7 +115,7 @@ nnoremap 4<CR> :b4<CR>
 nnoremap 5<CR> :b5<CR>
 nnoremap 6<CR> :b6<CR>
 " latex用
-"imap <C-m> <Plug>IMAP_JumpForward 
+imap <C-k> <Plug>IMAP_JumpForward 
 
 "for i in range(1, 9)
 "    execute 'nnoremap <Tab>' . i . ' ' . i . 'gt'
