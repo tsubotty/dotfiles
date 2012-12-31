@@ -25,6 +25,8 @@ nnoremap <C-s> :<C-u>write<CR>
 " Ev/Rvでvimrcの編集と反映
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
+command! Ni NeoBundleInstall
+command! Nu NeoBundleUpdate
 
 "##### Vim風のキーバインド #####"
 "inoremap <C-j> <Down>
