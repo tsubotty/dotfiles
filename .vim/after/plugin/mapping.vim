@@ -1,4 +1,14 @@
-"#####自動で括弧の中に戻る######"
+""" AltをMetaキーにする
+let c = 'a'
+while c <= 'z'
+    execute "set <M-" . c . ">=\e" . c
+    execute "imap \e" . c . " <M-" . c . ">"
+    execute "set <M-S-" . c . ">=\e" . toupper(c)
+    execute "imap \e" . toupper(c) . " <M-" . c . ">"
+    let c = nr2char(1+char2nr(c))
+endw
+
+""" 自動で括弧の中に戻る######"
 ""inoremap { {}<Left>
 ""inoremap [ []<Left>
 ""inoremap ( ()<Left>
@@ -10,7 +20,7 @@
 noremap o ob<BS>
 ""inoremap <TAB> <ESC>==i
 
-""#####コロンセミコロン入れ変え
+""" #####コロンセミコロン入れ変え
 noremap ; :
 noremap : ;
 map Y y$ "yyと同じように使える
@@ -20,7 +30,7 @@ inoremap <C-e> <END>
 inoremap <C-a> <HOME>
 
 "C-sでセーブ
-nnoremap <C-s> :<C-u>write<CR>
+nnoremap <M-s> :<C-u>write<CR>
 
 " Ev/Rvでvimrcの編集と反映
 command! Ev edit $MYVIMRC
@@ -98,6 +108,8 @@ nnoremap <silent> <Space>s :<C-u>Unite neobundle/search<CR>
 nnoremap <silent> <Space>o :<C-u>Unite outline<CR>
 " カラー
 nnoremap <silent> <Space>i :<C-u>Unite colorscheme<CR>
+" grep
+nnoremap <silent> <Space>g :<C-u>Unite grep<CR>
 
 "" ウィンドウを分割して開く
 "au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')

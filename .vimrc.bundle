@@ -6,8 +6,6 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
-
-" github repos
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'akiradeveloper/project.vim' " a clone of project.vim v1.4.1
 NeoBundle 'tpope/vim-fugitive'
@@ -55,6 +53,7 @@ NeoBundle 'sudo.vim' " 1.0   Allows one to edit a file with prevledges from an u
 NeoBundle 'open-browser.vim' " 0.0.0 Open URI with your favorite browser from your favorite editor
 NeoBundle 'gitv' " 1.0   gitk for Vim.
 NeoBundle 'surround.vim' " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease
+NeoBundle 'emacscommandline' " 1.0   makes command-line mode behave more like the Unix command line
 
 filetype plugin indent on     " Required!
 

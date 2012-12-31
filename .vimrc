@@ -11,7 +11,7 @@ source ~/dotfiles/.vimrc.indent
 source ~/dotfiles/.vimrc.completion
 "Color関連
 source ~/dotfiles/.vimrc.colors
-"マッピングの設定
-source ~/dotfiles/.vimrc.mapping
+"マッピングの設定 マッピングは.vim/after/pluginに移動
+"source ~/dotfiles/.vimrc.mapping
 "テンプレートファイルの読み込み
 source ~/dotfiles/.vimrc.templates

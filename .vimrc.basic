@@ -26,7 +26,7 @@ set formatoptions-=ro "コメントアウトで改行時の自動をやめる
 set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
 set browsedir=current
-set grepprg=grep\ -nH\ 
+set grepprg=grep\ -inH\ -R\ 
 set shellslash
 "set list "タブ文字、行末など不可視文字を表示する。
 set cursorline
