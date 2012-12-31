@@ -3,6 +3,7 @@ case "${OSTYPE}" in
         if [ -x /Applications/MacVim.app/Contents/MacOS/Vim ]; then
             export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
             export VISUAL=/Applications/MacVim.app/Contents/MacOS/Vim
+            export TEXLOCAL=/usr/local/texlive/texmf-local/tex/latex/local
             alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
             alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
         fi

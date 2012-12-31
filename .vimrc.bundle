@@ -11,11 +11,10 @@ endif
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'akiradeveloper/project.vim' " a clone of project.vim v1.4.1
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'gitv' " 1.0   gitk for Vim.
 NeoBundle 'Lokaltog/vim-easymotion'
 "NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 NeoBundle 'L9'
-NeoBundle 'FuzzyFinder'
+"NeoBundle 'FuzzyFinder'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc'
@@ -51,9 +50,12 @@ NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 " Non git repos
 "NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
 "NeoBundle 'bufferlist.vim' " 1.0   simple, fast, and slick non-disturbing buffer list
-NeoBundle 'buftabs' " 0.5   Minimalistic buffer tabs saving screen space
+"NeoBundle 'buftabs' " 0.5   Minimalistic buffer tabs saving screen space
 NeoBundle 'bufexplorer.zip' " 6.0.2 Buffer Explorer / Browser
 NeoBundle 'sudo.vim' " 1.0   Allows one to edit a file with prevledges from an unprivledged session.
+NeoBundle 'open-browser.vim' " 0.0.0 Open URI with your favorite browser from your favorite editor
+NeoBundle 'gitv' " 1.0   gitk for Vim.
+NeoBundle 'surround.vim' " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease
 
 filetype plugin indent on     " Required!
 

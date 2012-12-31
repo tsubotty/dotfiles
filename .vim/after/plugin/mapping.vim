@@ -19,6 +19,13 @@ map Y y$ "yyと同じように使える
 inoremap <C-e> <END>
 inoremap <C-a> <HOME>
 
+"C-sでセーブ
+nnoremap <C-s> :<C-u>write<CR>
+
+" Ev/Rvでvimrcの編集と反映
+command! Ev edit $MYVIMRC
+command! Rv source $MYVIMRC
+
 "##### Vim風のキーバインド #####"
 "inoremap <C-j> <Down>
 "inoremap <C-k> <Up>
@@ -31,6 +38,19 @@ inoremap <C-n> <Down>
 inoremap <C-p> <Up>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
+
+"移動系
+nnoremap <C-H> <C-W>h
+nnoremap <C-L> <C-W>l
+nnoremap <C-K> <C-W>k
+nnoremap <C-J> <C-W>j
+nnoremap Q :q<CR>
+
+"画面操作系
+nnoremap ,v :<C-u>vsplit<CR>
+nnoremap ,h :<C-u>split<CR>
+nnoremap ,c :<C-u>close<CR>
+nnoremap ,o :<C-u>only<CR>
 
 "Ctrl+g をESCに
 inoremap <C-g> <ESC>
@@ -57,25 +77,25 @@ endfunc
 
 """ unite.vim
 " バッファ一覧
-nnoremap <silent> [b :<C-u>Unite buffer<CR>
+nnoremap <silent> <Space>b :<C-u>Unite buffer<CR>
 " バッファのカレントディレクトリのファイル一覧
-nnoremap <silent> [f :<C-u>UniteWithBufferDir file_rec<CR>
+nnoremap <silent> <Space>f :<C-u>UniteWithBufferDir file_rec<CR>
 " レジスタ一覧
-nnoremap <silent> [r :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> <Space>r :<C-u>Unite -buffer-name=register register<CR>
 " 最近使用したファイル一覧
-nnoremap <silent> [m :<C-u>Unite file_mru<CR>
+nnoremap <silent> <Space>m :<C-u>Unite file_mru<CR>
 " 常用セット
-nnoremap <silent> [u :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> <Space>u :<C-u>Unite buffer file_mru<CR>
 " 全部乗せ
-nnoremap <silent> [a :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> <Space>a :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 " カレントディレクトリ再帰的
-nnoremap <silent> [c :<C-u>Unite file_rec<CR>
+nnoremap <silent> <Space>c :<C-u>Unite file_rec<CR>
 " プラグイン検索
-nnoremap <silent> [s :<C-u>Unite neobundle/search<CR>
+nnoremap <silent> <Space>s :<C-u>Unite neobundle/search<CR>
 " アウトライン
-nnoremap <silent> [o :<C-u>Unite outline<CR>
+nnoremap <silent> <Space>o :<C-u>Unite outline<CR>
 " カラー
-nnoremap <silent> [i :<C-u>Unite colorscheme<CR>
+nnoremap <silent> <Space>i :<C-u>Unite colorscheme<CR>
 
 "" ウィンドウを分割して開く
 "au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
@@ -88,20 +108,22 @@ nnoremap <silent> [i :<C-u>Unite colorscheme<CR>
 "au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 
 " VimFiler
-nnoremap <silent> <Leader>v :<C-u>VimFiler<CR>
-nnoremap <C-x> :<C-u>VimFiler -split -simple -winwidth=20 -no-quit<CR>
+"nnoremap <silent> <Leader>v :<C-u>VimFiler<CR>
+nnoremap <Leader>v :<C-u>VimFiler -split -winwidth=20 -toggle -no-quit -simple<CR>
 
 " NERD-Commenter
 nmap ,/ <Plug>NERDCommenterToggle
 vmap ,/ <Plug>NERDCommenterToggle
 nmap ,a <Plug>NERDCommenterAppend
 
-"移動系
-nnoremap <C-H> <C-W>h
-nnoremap <C-L> <C-W>l
-nnoremap <C-K> <C-W>k
-nnoremap <C-J> <C-W>j
-nnoremap Q :q<CR>
+" Open_Browser
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+nmap <Leader>o <Plug>(openbrowser-open)
+vmap <Leader>o <Plug>(openbrowser-open)
+" ググる
+nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
+
 "nnoremap T :tabe<CR>
 "nnoremap <S-Tab> gt
 "nnoremap <C-S-Tab> gT

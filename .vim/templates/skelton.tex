@@ -1,25 +1,45 @@
+% レポートの種類設定
 \documentclass[a4paper]{jsarticle}
+%\documentclass[a4paper, 11pt]{jsarticle}
+%\documentclass[b5paper]{jsarticle}
+%\documentclass[a4paper]{jreport}
 
-% レイアウトの設定 
-\setlength{\oddsidemargin}{25mm}
-\addtolength{\oddsidemargin}{-1in}
-\setlength{\textwidth}{160mm}
+% レイアウトの設定 http://joker.hatenablog.com/entry/2012/07/09/153537 
+% 方法1
+\usepackage[top=30truemm,bottom=30truemm,left=25truemm,right=25truemm]{geometry}
+
+% 方法2
+%\setlength{\oddsidemargin}{25mm}
+%\addtolength{\oddsidemargin}{-1in}
+%\setlength{\textwidth}{160mm}
+
+% パッケージの設定
+\usepackage{color}                                % 色を付ける graphicxの前に配置しないとまずい
 \usepackage[dvipdfmx]{graphicx}
-\usepackage{lscape}
-\usepackage{subfigure}
+\usepackage{lscape}                               % 横にできる http://www.lightstone.co.jp/latex/kb0036.htm
+\usepackage{subfigure}                            % 図にsubcaptionを付けれる http://did2.blog64.fc2.com/blog-entry-239.html
+\usepackage{multicol}                             % 二段組など http://www.biwako.shiga-u.ac.jp/sensei/kumazawa/tex/multicol.html
+\usepackage{ascmac}                               % screen, itembox, shadebox などが使えるようになる
+\usepackage{here}                                 % 強制的に現在位置に図表を配置 http://toriaezuyattemiru.cocolog-nifty.com/blog/2010/06/latex-heresty-6.html
+\usepackage{txfonts}                              % TX fontsを使う
+\usepackage{listings, jlisting}                   % ソースコードを綺麗に表示 jlistingで日本語対応 http://d.hatena.ne.jp/mallowlabs/20061226/1167137637
+\usepackage{eclclass}                             % ツリーを作成出来る http://www.rsch.tuis.ac.jp/~mizutani/online/latex/style.html
+\usepackage{Flow}                                 % フローチャート file:///usr/local/texlive/texmf-local/tex/latex/local/flow/flowchrt.pdf
 
-\makeatletter
-\def\tbcaption{\def\@captype{table}\caption}
-\def\figcaption{\def\@captype{figure}\caption}
-\makeatother
+%\makeatletter
+%\def\tbcaption{\def\@captype{table}\caption}
+%\def\figcaption{\def\@captype{figure}\caption}
+%\makeatother
 
 % Listingsの設定
-%\usepackage{ascmac,here,txfonts,txfonts}
-\usepackage{listings,jlisting}
-%\usepackage{color}
-\lstset{
-  breaklines = true,
-  language=Python,
+\lstset{                                                   % http://www.biwako.shiga-u.ac.jp/sensei/kumazawa/tex/listings.html
+  language=C,                                              % 言語設定
+  numbers=left,
+  stepnumber=1,
+  numberstyle=\tiny,
+	%numbersep=
+  breaklines=true,                                         % 行が長い時に改行するか否か
+	%breakindent=,                                           % 改行時インデント量
   basicstyle=\ttfamily\scriptsize,
   %commentstyle={\itshape \color[cmyk]{1,0.4,1,0}},
   classoffset=1,
@@ -28,16 +48,14 @@
   frame=tRBl,
   framesep=5pt,
   showstringspaces=false,
-  numbers=left,
-  stepnumber=1,
-  numberstyle=\tiny,
-  tabsize=2,
+  tabsize=2
 }
 
-\title{レポート}
+\title{<++>}
 \author{03110485 局 成矢}
 
 \begin{document}
 \maketitle
-
+<++>
 \end{document}
+
