@@ -13,7 +13,7 @@ NeoBundle 'Lokaltog/vim-easymotion' " Vim motions on speed!
 "NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 NeoBundle 'L9'
 "NeoBundle 'FuzzyFinder'
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplcache', '69aaa7fece'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimfiler'

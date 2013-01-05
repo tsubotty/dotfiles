@@ -29,8 +29,9 @@ map Y y$ "yyと同じように使える
 inoremap <C-e> <END>
 inoremap <C-a> <HOME>
 
-"C-sでセーブ
+"M-sでセーブ
 nnoremap <M-s> :<C-u>write<CR>
+nnoremap <M-q> :<C-u>quit<CR>
 
 " Ev/Rvでvimrcの編集と反映
 command! Ev edit $MYVIMRC
@@ -63,6 +64,14 @@ nnoremap ,v :<C-u>vsplit<CR>
 nnoremap ,h :<C-u>split<CR>
 nnoremap ,c :<C-u>close<CR>
 nnoremap ,o :<C-u>only<CR>
+nnoremap ,f :<C-u>call <SID>four_split()<CR>
+
+func! s:four_split()
+  vnew
+  new
+  wincmd l
+  new
+endfunc
 
 "Ctrl+g をESCに
 inoremap <C-g> <ESC>
@@ -110,6 +119,20 @@ nnoremap <silent> <Space>o :<C-u>Unite outline<CR>
 nnoremap <silent> <Space>i :<C-u>Unite colorscheme<CR>
 " grep
 nnoremap <silent> <Space>g :<C-u>Unite grep<CR>
+
+"uniteを開いている間のキーマッピング
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()"{{{
+  "ctrl+jで縦に分割して開く
+  nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+  inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+  "ctrl+jで横に分割して開く
+  nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+  inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+  "ctrl+oでその場所に開く
+  nnoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
+  inoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
+endfunction"}}}
 
 "" ウィンドウを分割して開く
 "au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')

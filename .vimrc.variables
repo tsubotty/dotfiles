@@ -7,6 +7,12 @@ let g:vimfiler_as_default_explorer = 1
 
 """ Zen-Coidng
 let g:user_zen_leader_key=','
+let g:user_zen_settings = {
+      \'lang' : 'ja',
+      \'css' : {
+      \'filters' : 'fc'
+      \}
+      \}
 
 """ NERD-Commenter
 let g:NERDCreateDefaultMappings = 0 " デフォルトのマッピングオフ
