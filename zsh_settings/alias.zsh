@@ -24,7 +24,7 @@ alias gcim='git commit -am'
 # svn alias
 alias s='svn'
 # ls
-alias ls='ls -F --color' la='ls -a --color' ll='ls -lah --color'
+alias ls='ls -F --color' la='ls -a --color' ll='ls -laht --color'
 # g++
 alias gpp='g++'
 # tmux

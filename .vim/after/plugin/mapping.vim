@@ -110,15 +110,17 @@ nnoremap <silent> <Space>u :<C-u>Unite buffer file_mru<CR>
 " 全部乗せ
 nnoremap <silent> <Space>a :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 " カレントディレクトリ再帰的
-nnoremap <silent> <Space>c :<C-u>Unite file_rec<CR>
+nnoremap <silent> <Space>d :<C-u>Unite file_rec<CR>
 " プラグイン検索
 nnoremap <silent> <Space>s :<C-u>Unite neobundle/search<CR>
 " アウトライン
 nnoremap <silent> <Space>o :<C-u>Unite outline<CR>
 " カラー
-nnoremap <silent> <Space>i :<C-u>Unite colorscheme<CR>
+nnoremap <silent> <Space>c :<C-u>Unite colorscheme<CR>
 " grep
 nnoremap <silent> <Space>g :<C-u>Unite grep<CR>
+" help
+nnoremap <silent> <Space>h :<C-u>Unite help<CR>
 
 "uniteを開いている間のキーマッピング
 autocmd FileType unite call s:unite_my_settings()
