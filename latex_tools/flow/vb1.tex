@@ -1,0 +1,187 @@
+\documentstyle[CMacs,nassi]{qadoc}
+\docno{NTG-voorbeeld-001}
+\author{Leo en Marion van Geest}
+\date{28 februari 1991}
+\title{Voorbeeld van verschillende}
+\subtitle{CAWCS styles en opties}
+\class{Niet geclassificeerd}
+\begin{document}
+
+\section{De document style QADoc}
+
+Dit document is tot stand gekomen door de volgende commando's :
+
+\begin{verbatim}
+    \documentstyle[CMacs,nassi,nl]{QADoc}
+    \docno{NTG-voorbeeld-001}
+    \author{Leo en Marion van Geest}
+    \date{28 februari 1991}
+    \title{Voorbeeld van verschillend}
+    \subtitle{CAWCS styles en opties}
+    \class{Niet geclassificeerd}
+\end{verbatim}
+
+De style QADoc verzorgt zowel de documentstyle als de pagestyle, standaard in
+11~pts. De parameters voor de heading worden in de pre-amble gedefinieerd.
+
+Behalve de layout valt bij deze style ook op dat elke sectie op een nieuwe
+bladzijde begint, subsecties daarentegen niet. Alle standaards als table of
+contents, list of figures, glossary, index etc. kunnen gebruikt worden. Elk van
+deze onderdelen komt in een aparte sectie.
+
+\section{De optie CMacs}
+De optie CMacs bevat onder andere de definities voor `Bits' die gebruikt wordt
+om bitpatronen en data structuren te vertonen.
+
+Een simpel voorbeeld is:
+
+\beginbits{VDU SWITCHED}
+  \word{1}{source=22 (MH1 active)}{H1}
+  \bytes{2}{type=1}{subtype=3}{H2}
+  \word{3}{VDU number}{ID}
+\endbits
+
+wat bereikt wordt met de commando's:
+
+\begin{verbatim}
+\beginbits{VDU SWITCHED}
+  \word{1}{source=22 (MH1 active)}{H1}
+  \bytes{2}{type=1}{subtype=3}{H2}
+  \word{3}{VDU number}{ID}
+\endbits
+\end{verbatim}
+
+De parameter van \verb"\beginbits" is de naam van de structuur. De parameters
+van \verb"\word" en \verb"\byte" geven de mogelijkheid om text voor, in en na de
+structuur-regel te specificeren.
+
+
+\section{De optie Nassi}
+De optie Nassi maakt het mogelijk Nassi-Schneidermann diagrammen te maken.
+
+Het volgende diagram
+
+\scriptsize
+\STRUCT{Structure name}{Structure purpose}{%
+  \ACTION{initial statement}%
+  \PROC{proc name}{procedure purpose}%
+  \IF{condition to test}%
+  \THEN{%
+    \ACTION{true action 1}%
+    \ACTION{true action 2}%
+  }%
+  \ELSE{%
+    \ACTION{false action}%
+  }%
+  \ENDIF%
+  \REPEAT{%
+    \ACTION{statement to repeat}%
+  }%
+  \UNTIL{end condition}%
+  \WHILE{start condition}{%
+    \ACTION{statement to do}%
+  }%
+  \ENDWHILE%
+  \CASE{case item}{%
+    \WHEN{condition 1}{%
+      \ACTION{statement to do}%
+    }%
+    \WHEN{condition 2}{%
+      \ACTION{statement 1 to do}%
+      \ACTION{statement 2 to do}%
+    }%
+    \WHEN{condition 3}{%
+      \ACTION{statement to do}%
+    }%
+  }%
+  \ENDCASE%
+}%
+\normalsize
+
+\vspace{0.5cm}
+
+wordt bereikt door de commando's:
+
+\begin{verbatim}
+\scriptsize
+\STRUCT{Structure name}{Structure purpose}{%
+  \ACTION{initial statement}%
+  \PROC{proc name}{procedure purpose}%
+  \IF{condition to test}%
+  \THEN{%
+    \ACTION{true action 1}%
+    \ACTION{true action 2}%
+  }%
+  \ELSE{%
+    \ACTION{false action}%
+  }%
+  \ENDIF%
+  \REPEAT{%
+    \ACTION{statement to repeat}%
+  }%
+  \UNTIL{end condition}%
+  \WHILE{start condition}{%
+    \ACTION{statement to do}%
+  }%
+  \ENDWHILE%
+  \CASE{case item}{%
+    \WHEN{condition 1}{%
+      \ACTION{statement to do}%
+    }%
+    \WHEN{condition 2}{%
+      \ACTION{statement 1 to do}%
+      \ACTION{statement 2 to do}%
+    }%
+    \WHEN{condition 3}{%
+      \ACTION{statement to do}%
+    }%
+  }%
+  \ENDCASE%
+}%
+\normalsize
+\end{verbatim}
+
+Door toevoeging van enige `dimensie' commando's kan in breedte, en daarmee in
+hoogte gevarieerd worden. Met het commando \verb"\nassiwidth=\textwidth" wordt
+het volgende resultaat bereikt:
+
+\nassiwidth=\textwidth
+\scriptsize
+\STRUCT{Structure name}{Structure purpose}{%
+  \ACTION{initial statement}%
+  \PROC{proc name}{procedure purpose}%
+  \IF{condition to test}%
+  \THEN{%
+    \ACTION{true action 1}%
+    \ACTION{true action 2}%
+  }%
+  \ELSE{%
+    \ACTION{false action}%
+  }%
+  \ENDIF%
+  \REPEAT{%
+    \ACTION{statement to repeat}%
+  }%
+  \UNTIL{end condition}%
+  \WHILE{start condition}{%
+    \ACTION{statement to do}%
+  }%
+  \ENDWHILE%
+  \CASE{case item}{%
+    \WHEN{condition 1}{%
+      \ACTION{statement to do}%
+    }%
+    \WHEN{condition 2}{%
+      \ACTION{statement 1 to do}%
+      \ACTION{statement 2 to do}%
+    }%
+    \WHEN{condition 3}{%
+      \ACTION{statement to do}%
+    }%
+  }%
+  \ENDCASE%
+}%
+\normalsize
+
+\end{document}
+

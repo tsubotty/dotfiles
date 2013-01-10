@@ -1,0 +1,348 @@
+% nassi.sty  29 augustus 1989, C.M. Lindhout.
+\typeout{Nassi-Scheiderman macro's. Released 29 augustus 1989 Ground Support}
+
+% Copyright (C) 1989 by Kees Lindhout and Leo van Geest,
+% Center for the Automation of Weapon and Command Systems,
+% Royal Netherlands Navy
+%
+% Permission to copy all or part of this work is granted, provided
+% that the copies are not made or distributed for resale, and that
+% the copyright notice and this notice are retained.
+
+\global\newdimen\wwa \global\newdimen\wwb \global\newdimen\wwc
+\global\newdimen\wwd \global\newdimen\wwe \global\newdimen\wwf
+\global\newdimen\wwg \global\newdimen\wwh \global\newdimen\wwi
+\global\newdimen\wwj \global\newdimen\wwk \global\newdimen\wwl
+\global\newdimen\wwm \global\newdimen\wwn \global\newdimen\wwo
+\global\newdimen\wwp \global\newdimen\wwq \global\newdimen\wwr
+\global\newdimen\wws \global\newdimen\wwt \global\newdimen\wwu
+\global\newdimen\wwv \global\newdimen\www \global\newdimen\wwx
+\global\newdimen\wwy \global\newdimen\wwz
+\global\newdimen\wwA \global\newdimen\wwB \global\newdimen\wwC
+\global\newdimen\wwD \global\newdimen\wwE \global\newdimen\wwF
+\global\newdimen\wwG \global\newdimen\wwH \global\newdimen\wwI
+\global\newdimen\wwJ \global\newdimen\wwK \global\newdimen\wwL
+\global\newdimen\wwM \global\newdimen\wwN \global\newdimen\wwO
+\global\newdimen\wwP \global\newdimen\wwQ \global\newdimen\wwR
+\global\newdimen\wwS \global\newdimen\wwT \global\newdimen\wwU
+\global\newdimen\wwV \global\newdimen\wwW \global\newdimen\wwX
+\global\newdimen\wwY \global\newdimen\wwZ
+
+\def\ww#1{%
+  \ifcase#1%
+    \wwa\or\wwb\or\wwc\or\wwd\or\wwe\or\wwf\or\wwg\or\wwh\or\wwi\or\wwj\or
+    \wwk\or\wwl\or\wwm\or\wwn\or\wwo\or\wwp\or\wwq\or\wwr\or\wws\or\wwt\or
+    \wwu\or\wwv\or\www\or\wwx\or\wwy\or\wwz\or\wwA\or\wwB\or\wwC\or\wwD\or
+    \wwE\or\wwF\or\wwG\or\wwH\or\wwI\or\wwJ\or\wwK\or\wwL\or\wwM\or\wwN\or
+    \wwO\or\wwP\or\wwQ\or\wwR\or\wwS\or\wwT\or\wwU\or\wwV\or\wwW\or\wwX\or
+    \wwY\or\wwZ
+  \fi%
+}%
+
+\global\newcount\nr%
+\global\newif\iftry%
+\global\newif\ifunderline%
+\newif\ifunderlinethen%
+\newif\ifunderlineelse%
+\newdimen\nassiwidth%
+\nassiwidth=0pt%
+\newdimen\minunitwidth%
+\minunitwidth=60pt%
+\newdimen\unitwidth%
+\newdimen\thickness%
+\newbox\thentext%
+\newbox\elsetext%
+\thickness=0.01in%
+\newdimen\spc%
+\newdimen\fac%
+\newdimen\ha%
+\newdimen\hb%
+\newdimen\hc%
+\newcount\nra%
+\newcount\nrb%
+\newdimen\wa%
+\newdimen\wb%
+\newdimen\wc%
+%
+\def\reserveww#1{#1=\nr \global\advance\nr by 1}%
+\def\saveww#1#2{\global\ww#2=#1}%
+\def\readww#1{#1=\ww\nr \global\advance\nr by 1}%
+%
+\def\setiftext#1#2{\setbox\thentext=\hbox{#1}\setbox\elsetext=\hbox{#2}}%
+\setiftext{Y}{N}%
+%
+\def\vspc{%
+  \vbox to 2\spc{}%
+}%
+%
+\def\hspc{%
+  \hbox to \spc{}%
+}%
+%
+\def\spcbox#1#2{%
+  \hbox{%
+    \hspc%
+    \vbox{%
+      \vspc%
+      \wa=#1%
+      \advance\wa-2\spc%
+      \hbox{\parbox{\wa}{\raggedright#2}}%
+      \vspc%
+    }%
+    \hspc%
+  }%
+}%
+%
+\def\ACTION#1{%
+  \iftry%
+    \hbox to \unitwidth{}%
+  \else%
+    \hrule height\thickness%
+    \spcbox{\unitwidth}{#1}%
+    \global\underlinefalse%
+  \fi%
+}%
+%
+\def\PROC#1#2{%
+  \iftry%
+    \hbox to \unitwidth{}%
+  \else%
+    \hrule height\thickness%
+    \spcbox{\unitwidth}{#2 (#1)}%
+    \global\underlinefalse%
+  \fi%
+}%
+%
+\def\LABEL#1{%
+}%
+%
+\def\leftif{%
+  \hbox{%
+    \begin{picture}(80,60)%
+      \put(0,60){\line(4,-3){80}}%
+      \put(0,5){\hbox to 80\unitlength{\hspc\copy\thentext\hfil}}%
+    \end{picture}%
+  }%
+}%
+%
+\def\rightif{%
+  \hbox{%
+    \begin{picture}(80,60)%
+      \put(0,0){\line(4,3){80}}%
+      \put(0,5){\hbox to 80\unitlength{\hfil\copy\elsetext\hspc}}%
+    \end{picture}%
+  }%
+}%
+%
+\def\IF#1\THEN#2\ELSE#3\ENDIF{%
+  \iftry%
+    \reserveww{\nra}%
+    \reserveww{\nrb}%
+    \setbox0=\vbox{\hbox to 8ex{} #2}%
+    \setbox1=\vbox{\hbox to 8ex{} #3}%
+    \saveww{\wd0}{\nra}%
+    \saveww{\wd1}{\nrb}%
+    \hbox{\hbox to 16ex{}\hbox to \unitwidth{}}%
+    \hbox{\box0\box1}%
+  \else%
+    \readww{\wa}%
+    \readww{\wb}%
+%
+    \wc=0.01\wa%
+    \advance\wc0.01\wb%
+    \wb=\unitwidth%
+    \divide\wb\wc%
+    \wa=0.01\wa%
+    \multiply\wa\wb%
+%
+    \wb=\unitwidth%
+    \advance\wb-\wa%
+%
+    \hrule height\thickness%
+    \hbox{%
+      \leftif%
+      \wa=\unitwidth%
+      \advance\wa-16ex%
+      \spcbox{\wa}{#1}%
+      \rightif%
+    }%
+    \setbox0=\vbox{\unitwidth=\wa\hbox to \unitwidth{}\global\underlinetrue #2}%
+    \ifunderline\underlinethentrue\else\underlinethenfalse\fi%
+    \ha=\ht0%
+    \advance\ha\dp0%
+    \setbox1=\vbox{\unitwidth=\wb\hbox to \unitwidth{}\global\underlinetrue #3}%
+    \ifunderline\underlineelsetrue\else\underlineelsefalse\fi%
+    \hb=\ht1%
+    \advance\hb\dp1%
+    \ifdim\ha>\hb\hc=\ha\else\hc=\hb\fi%
+    \hbox{%
+      \vtop{%
+        \unvbox0%
+        \ifdim\ha<\hb{\ifunderlinethen\hrule height\thickness\fi}\fi%
+      }%
+      \hbox to -\thickness{}%
+      \vrule width\thickness%
+      \vtop{%
+        \unvbox1%
+        \ifdim\hb<\ha{\ifunderlineelse\hrule height\thickness\fi}\fi%
+      }%
+    }%
+    \global\underlinetrue%
+  \fi%
+}%
+%
+\def\REPEAT#1\UNTIL#2{%
+  \iftry%
+    \hbox{%
+      \hbox to 0.3\minunitwidth{}%
+      \vtop{%
+        #1%
+      }%
+    }%
+    \hbox to \unitwidth{}%
+  \else%
+    \hbox{%
+      \vtop{%
+        \hrule height\thickness%
+        \hbox to 0.3\minunitwidth{}%
+      }%
+      \vrule width\thickness%
+      \vtop{%
+        \wa=\unitwidth%
+        \advance\wa-0.3\minunitwidth%
+        \unitwidth=\wa%
+        #1%
+        \hrule height\thickness%
+      }%
+    }%
+    \spcbox{\unitwidth}{#2}%
+    \global\underlinetrue%
+  \fi%
+}%
+%
+\def\WHILE#1#2\ENDWHILE{%
+  \iftry%
+    \hbox to \unitwidth{}%
+    \hbox{%
+      \hbox to 0.3\minunitwidth{}%
+      \vtop{%
+        #2%
+      }%
+    }%
+  \else%
+    \hrule height\thickness%
+    \spcbox{\unitwidth}{#1}%
+    \hbox{%
+      \hbox to 0.3\minunitwidth{}%
+      \vrule width\thickness%
+      \vbox{%
+        \wa=\unitwidth%
+        \advance\wa-0.3\minunitwidth%
+        \unitwidth=\wa%
+        #2%
+      }%
+    }%
+    \global\underlinetrue%
+  \fi%
+}%
+%
+\def\WHEN#1#2{%
+  \iftry%
+    \reserveww{\nra}%
+    \setbox0=\vbox{#2}%
+    \saveww{\wd0}{\nra}%
+    \box0%
+  \else%
+    \readww{\wa}%
+    \wa=0.01\wa%
+    \multiply\wa\wc%
+    \vtop{%
+      \hbox to 8ex{}%
+      \unitwidth=\wa%
+      \spcbox{\unitwidth}{#1}%
+      #2%
+    }%
+    \hbox to -\thickness{}%
+    \vrule width\thickness%
+  \fi%
+}%
+%
+\def\leftcase{%
+  \hbox{%
+    \begin{picture}(80,60)%
+      \put(0,60){\line(4,-3){80}}%
+    \end{picture}%
+  }%
+}%
+%
+\def\CASE#1#2\ENDCASE{%
+  \iftry%
+    \reserveww{\nra}%
+    \setbox0=\hbox{#2}%
+    \saveww{\wd0}{\nra}%
+    \hbox{\box0}%
+  \else%
+    \readww{\wa}%
+%
+    \wc=0.01\wa%
+    \wb=\unitwidth%
+    \divide\wb\wc%
+    \wc=\wb%
+    \wa=0.01\wa%
+    \multiply\wa\wb%
+%
+    \hrule height\thickness%
+    \hbox{%
+      \leftcase%
+      \wa=\unitwidth%
+      \advance\wa-8ex%
+      \spcbox{\wa}{#1}%
+    }%
+    \hrule height\thickness%
+    \hbox{#2}%
+    \global\underlinetrue%
+  \fi%
+}%
+%
+\def\STRUCT#1#2#3{%
+  \unitlength=0.1ex%
+  \spc=1ex%
+%
+  \nr=0%
+  \trytrue%
+  \unitwidth=\minunitwidth%
+  \setbox0=\vbox{%
+    \baselineskip=0pt%
+    \lineskip=0pt%
+    \parindent=0pt%
+    \parskip=0pt%
+    #3
+  }%
+%
+  \nr=0%
+  \tryfalse%
+  \ifdim\nassiwidth=0pt%
+    \unitwidth=\wd0%
+  \else%
+    \unitwidth=\nassiwidth%
+  \fi%
+  \vbox{%
+    \vspace{0.5cm}
+    {\normalsize{\bf #1 --- }#2}%
+    \vspace{0.5cm}
+    \par%
+    \hbox{%
+      \baselineskip=0pt%
+      \lineskip=0pt%
+      \parindent=0pt%
+      \parskip=0pt%
+      \vrule width\thickness%
+      \vbox{%
+        #3%
+        \hrule height\thickness%
+      }%
+      \hbox to -\thickness{}%
+      \vrule width\thickness%
+    }%
+  }%
+}%

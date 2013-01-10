@@ -1,0 +1,99 @@
+\documentstyle[CMacs,Flow]{qadoc}
+\docno{NTG-voorbeeld-002}
+\author{Leo en Marion van Geest}
+\date{28 februari 1991}
+\title{Voorbeeld van verschillende}
+\subtitle{CAWCS styles en opties}
+\class{Niet geclassificeerd}
+\begin{document}
+
+\section{De optie Flow}
+
+De optie Flow maakt het mogelijk Flow charts te maken.
+
+Het is niet mogelijk flow charts en Nassi-Schneidermann diagrammen samen te
+gebruiken in \'e\'en document. Voor beiden wordt dezelfde pseudo-code gebruikt.
+Het volgende flow chart is gerealiseerd door vrijwel dezelfde commando's
+als die welke in het eerste voorbeeld document voor het Nassi-Schneidermann
+diagram gebruikt zijn.
+
+De commando's:
+
+\begin{verbatim}
+\scriptsize
+\STRUCT{Struc name}{Structure purpose}{%
+  \ACTION{initial statement}%
+  \PROC{proc name}{procedure purpose}%
+  \IF{test}%
+  \THEN{%
+    \ACTION{true action 1}%
+    \ACTION{true action 2}%
+  }%
+  \ELSE{%
+    \ACTION{false action}%
+  }%
+  \ENDIF%
+  \REPEAT{%
+    \ACTION{statement to repeat}%
+  }%
+  \UNTIL{end condition}%
+  \WHILE{start condition}{%
+    \ACTION{statement to do}%
+  }%
+  \ENDWHILE%
+  \CASE{case item}{%
+    \WHEN{condition 1}{%
+      \ACTION{statement to do}%
+    }%
+    \WHEN{condition 2}{%
+      \ACTION{statement to do}%
+    }%
+    \WHEN{condition 3}{%
+      \ACTION{statement to do}%
+    }%
+  }%
+  \ENDCASE%
+}%
+\normalsize
+\end{verbatim}
+
+
+zorgen voor het volgende diagram
+
+\scriptsize
+\STRUCT{Struc name}{Structure purpose}{%
+  \ACTION{initial statement}%
+  \PROC{proc name}{procedure purpose}%
+  \IF{test}%
+  \THEN{%
+    \ACTION{true action 1}%
+    \ACTION{true action 2}%
+  }%
+  \ELSE{%
+    \ACTION{false action}%
+  }%
+  \ENDIF%
+  \REPEAT{%
+    \ACTION{statement to repeat}%
+  }%
+  \UNTIL{end condition}%
+  \WHILE{start condition}{%
+    \ACTION{statement to do}%
+  }%
+  \ENDWHILE%
+  \CASE{case item}{%
+    \WHEN{condition 1}{%
+      \ACTION{statement to do}%
+    }%
+    \WHEN{condition 2}{%
+      \ACTION{statement to do}%
+    }%
+    \WHEN{condition 3}{%
+      \ACTION{statement to do}%
+    }%
+  }%
+  \ENDCASE%
+}%
+\normalsize
+
+\end{document}

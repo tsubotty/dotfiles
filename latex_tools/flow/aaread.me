@@ -1,0 +1,28 @@
+De bijdrage voor het NTG van het CAWCS bestaat uit 3 LaTeX sources:
+
+	1) CAWCS_TEX.TEX	het verhaal
+	2) VOORBEELD1.TEX
+	3) VOORBEELD2.TEX	beiden voorbeelden van styles en opties
+
+Het verhaal is in de standaard Article style, met optie A4WIDE. De commando's
+hiervoor zijn in commentaar opgenomen in de source file en kunnen indien de
+opties niet aanwezig zijn actief gemaakt worden.
+
+De benodigde opties voor de voorbeelden zijn:
+
+	QADOC.STY, QA11.STY, NASSI.STY, FLOW.STY en CMACS.STY
+
+Allen zijn bijgeleverd.
+
+Conversie van de DVI files van de voorbeeld documenten kan met DVI2LN3 (LNTEX) 
+met de qualifiers
+
+	/A4/HOFFSET=1in/VOFFSET=1in
+
+of met DVIALW met een speciale pre-amble file (bijgeleverd onder de naam
+DVIALW.PS) en de opties
+
+	-b -x0.75in -y0.25in
+
+Dit is voor de voorbeeld documenten essentieel.
+

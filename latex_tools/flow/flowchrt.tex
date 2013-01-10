@@ -1,0 +1,118 @@
+\documentstyle[Flow]{article}
+% an example given by Mrs. M.J. van Geest-Slort
+% has been modified by Iwakuma Tetsuo
+\pagestyle{empty}
+\setlength{\topmargin}{0cm}
+\setlength{\headsep}{10pt}
+\setlength{\textheight}{26cm}
+\setlength{\textwidth}{16cm}
+\setlength{\oddsidemargin}{2.25cm}
+\setlength{\evensidemargin}{2.25cm}
+\begin{document}
+\begin{center} {\Large Flow Chart} \end{center}
+\begin{minipage}[t]{.48\textwidth}
+\underline{\large\bf How to code it}
+\begin{verbatim}
+\scriptsize
+\STRUCT{Struc name}{Structure purpose}{%
+
+
+  \ACTION{initial statement}%
+
+  \PROC{proc name}{procedure purpose}%
+
+
+   {\setiftext{true}{false}%
+  \IF{condition \\ to test}%
+  \THEN{%
+    \ACTION{true action 1}%
+    \ACTION{true action 2}%
+  }%
+  \ELSE{%
+    \ACTION{false action}%
+  }%
+  \ENDIF%
+   }%
+
+  \LABEL{A}%
+
+   {\setiftext{OK}{\ \ \ No}%
+  \REPEAT{%
+    \ACTION{statement to repeat}%
+  }%
+  \UNTIL{end condition}%
+   }%
+
+
+  \WHILE{start condition}{%
+    \ACTION{statement to do}%
+  }%
+  \ENDWHILE%
+
+
+
+  \CASE{case item}{%
+
+    \WHEN{condition 1}{%
+      \ACTION{statement to do}%
+    }%
+
+    \WHEN{condition 2}{%
+      \ACTION{statement to do}%
+    }%
+
+    \WHEN{condition 3}{%
+      \ACTION{statement to do}%
+    }%
+  }%
+  \ENDCASE%
+}%
+\normalsize
+\end{verbatim}
+\end{minipage}
+~
+\begin{minipage}[t]{.48\textwidth}
+\underline{\large\bf How it appears}\\
+\scriptsize
+\STRUCT{Struc name}{Structure purpose}{%
+  \ACTION{initial statement}%
+  \PROC{proc name}{procedure purpose}%
+   {\setiftext{true}{false}%
+  \IF{condition \\ to test}%
+  \THEN{%
+    \ACTION{true action 1}%
+    \ACTION{true action 2}%
+  }%
+  \ELSE{%
+    \ACTION{false action}%
+  }%
+  \ENDIF%
+   }%
+  \LABEL{A}%
+   {\setiftext{OK}{\ \ \ No}%
+  \REPEAT{%
+    \ACTION{statement to repeat}%
+  }%
+  \UNTIL{end condition}%
+   }%
+  \WHILE{start condition}{%
+    \ACTION{statement to do}%
+  }%
+  \ENDWHILE%
+  \CASE{case item}{%
+    \WHEN{condition 1}{%
+      \ACTION{statement to do}%
+    }%
+    \WHEN{condition 2}{%
+      \ACTION{statement to do}%
+    }%
+    \WHEN{condition 3}{%
+      \ACTION{statement to do}%
+    }%
+  }%
+  \ENDCASE%
+}%
+\normalsize
+\end{minipage}
+
+\end{document}

@@ -1,0 +1,135 @@
+% Miscellaneous CAWCS options, 27 juli 1989
+\typeout{CAWCS defined macro's, 27 juli 1989 Support}
+
+% Copyright (C) 1989 by Kees Lindhout and Leo van Geest,
+% Center for the Automation of Weapon and Command Systems,
+% Royal Netherlands Navy
+%
+% Permission to copy all or part of this work is granted, provided
+% that the copies are not made or distributed for resale, and that
+% the copyright notice and this notice are retained.
+
+% Commandos om een verbatim output van een source file te verkrijgen
+% Beter bekend als \listing
+
+
+%zie blz 380 TEX book, un-catcode alle special characters
+
+\def\uncatcodespecials{
+    \def\do##1{\catcode`##1=12 }
+    \dospecials}
+
+% zie blz 391 TEX book, setup voor verbatim met tabs en spaties
+
+\def\setupverbatim{
+    \tentt
+    \def\par{\leavevmode\egroup\box0\endgraf\vskip 0pt plus 0.8pt}
+    \obeylines 
+    \uncatcodespecials 
+    \obeyspaces
+    \catcode `\^^I=\active
+    \everypar{\startbox}}
+{\obeyspaces\global\let =\ }  %let active space = control space
+
+\newdimen\w 
+
+\setbox0=\hbox{\tt\space}
+\w=8\wd0 %tab amount
+
+\def\startbox{\setbox0=\hbox\bgroup}
+{\catcode`\^^I=\active
+ \gdef^^I{\leavevmode
+          \egroup
+          \dimen0=\wd0                  %the width sofar, or since the previous tab
+          \divide\dimen0 by\w
+          \multiply\dimen0 by\w         %compute previous multiple of \w
+          \advance\dimen0 by\w          %advance to nex multiple of \w
+          \wd0=\dimen0 
+          \box0 
+          \startbox}}
+
+% Listings maken zie blz 380 TEX book
+
+\def\listing#1{
+    \par
+    \begingroup
+	\setupverbatim
+	\input#1
+	\vskip \baselineskip 
+    \endgroup}
+
+% einde verbatim listing 
+
+
+% macro's om bit patterns te type setten
+
+\def\vl{\vrule height2ex depth1ex} %vertical line bigger than character
+\def\hl{\hbox{\hskip 2em\vrule width24em depth 0pt height0.4pt}}
+\def\ldr#1{\hbox to 2em{\hfil #1\ }} %leader
+\def\bn#1{\hbox to 1.5 em{\hfil#1\hfil}} %formats one bit number
+                                         %in 1/16 of word.
+\def\bitnos{%
+  \vbox{%
+    \hbox{%
+      \ldr{}%
+      \hbox to 24em{%
+        \bn{15}\bn{14}\bn{13}\bn{12}%
+        \bn{11}\bn{10}\bn{9}\bn{8}\bn{7}%
+        \bn{6}\bn{5}\bn{4}\bn{3}\bn{2}%
+        \bn{1}\bn{0}%
+      }%
+    }%
+  }%
+}
+
+\def\word#1#2#3{%
+  \vskip 0pt%
+  \vbox{%
+    \hl%
+    \hbox{%
+      \ldr{#1}%
+      \hbox to 24em{%
+        \vl%
+        \ #2\hfil%
+        \vl%
+      }%
+      \ #3\hfil%
+    }%
+  }%
+}
+\def\bytes#1#2#3#4{%
+  \vskip 0pt%
+  \vbox{%
+    \hl%
+    \hbox{%
+      \ldr{#1}%
+      \hbox to 12em{%
+        \vl%
+        \ #2\hfil%
+        \vl%
+      }%
+      \hbox to 12em{%
+        \ #3\hfil%
+        \vl%
+      }%
+      \ #4\hfil%
+    }%
+  }%
+}
+
+\def\beginbits#1{
+  \vskip 2ex
+  ---\ \ #1\ \ ---
+  \vskip 1ex
+  \begingroup
+  \offinterlineskip
+  \bitnos
+  \vskip 0.6ex
+}
+
+\def\endbits{\hl\vskip 2ex\endgroup}
+
+% einde bits
+
+
+

@@ -1,0 +1,259 @@
+\documentstyle[11pt,twoside]{article}
+\pagestyle{plain}
+\title{Gebruik van \TeX\ en \LaTeX\ op het CAWCS}
+\author{Leo en Marion van Geest}
+\date{28 februari 1991}
+
+%Indien de style opties A4 en A4wide niet aanwezig zijn dienen de
+%volgende statements actief te worden 
+%\topmargin 0 pt     %    Nominal distance from top of paper to top of page
+%\textheight 46\baselineskip
+%\advance\textheight by \topskip
+%\oddsidemargin 0.125 in    %   Note that \oddsidemargin = \evensidemargin
+%\evensidemargin 0.125 in
+%\marginparwidth 0.75 in
+%\textwidth 6.125 in % Width of text line.
+%Einde A4 en A4wide opties
+
+\hyphenation{do-cu-men-ta-tie om-ge-ving}
+
+\begin{document}
+
+\maketitle
+\parindent 0pt
+\parskip\parsep
+
+\begin{center}
+{\LARGE Wij zijn niet ge\"{\i}nteresseerd in \TeX\ en \LaTeX!}
+\end{center}
+
+\section{Inleiding}
+
+Het CAWCS is het Centrum voor Automatisering van Wapen en Commando Systemen der
+Koninklijke Marine. Een marinebedrijf dat de operationele software ontwikkelt
+welke draait aan boord van boven- en onderwaterschepen en vliegtuigen. Daarnaast
+worden voor dezelfde platformen trainers gemaakt waarop bemanningen aan de wal
+onderricht krijgen.
+
+Het CAWCS heeft ongeveer 150 medewerkers waarvan 100 zich daadwerkelijk met
+software ontwikkeling bezighouden. De overigen behartigen de operationele kant
+van de systemen of bieden administratieve en technische ondersteuning.
+
+De auteurs zijn leden van de in totaal uit 5 personen bestaande sectie Support
+van de afdeling Systeem Ontwikkeling. De taak van deze sectie is het instant
+houden en onderhouden van de ontwikkelomgeving, ondersteuning van gebruikers,
+het ontwikkelen van nieuwe en onderhoud aan bestaande tools, de evaluatie,
+installatie en in gebruik name van software producten van derden etc.
+
+\section{Ontwikkelomgeving}
+
+De omgeving waarbinnen de software ontwikkeling plaats vindt bestaat uit een
+cluster van 6 VAX computers waaraan 19 VAX werkstations gekoppeld zijn, allen
+met een VMS operating systeem, alsmede enkele militaire computers. Gebruikers
+hebben de beschikking over VT200 en VT320 terminals, een aantal LN03 laser
+printers en enkele PostScript printers.
+
+De voornaamste software pakketten die gebruikt worden bestaan uit Teamwork voor
+analyse en design, Oracle data base management systeem, Ada als programmeertaal
+voor de VAX computers, ondersteund door de complete toolset van DEC (VAXset) en
+Mars/Mascot met RTL/2 voor de militaire computers. 
+
+En, het zal U niet verbazen, \TeX\ en \LaTeX\ met een heleboel gerelateerde
+tools.
+
+\section{\TeX\ en \LaTeX\ binnen het CAWCS}
+
+\TeX, \LaTeX\ en de gerelateerde tools worden binnen de afdeling Systeem
+Ontwikkeling van het CAWCS gebruikt voor het genereren van allerhande
+documentatie. De nadruk ligt hierbij op twee aspecten: \LaTeX\ en gebruik.
+
+Software productie is waar het om draait en daarbij behoort een aanzienlijke
+hoeveelheid documentatie. \LaTeX\ wordt gezien als een tool waarmee het
+produceren van documentatie vereenvoudigd wordt terwijl de kwaliteit verbetert.
+Het werkt productie verhogend. \TeX\ daarentegen wordt door velen als `te
+moeilijk voor het dagelijks gebruik' ervaren. 
+
+Binnen het CAWCS zijn slechts enkele \TeX\ kenners aanwezig. Samen met de
+medewerkers van de sectie Support, zorgen zij voor uitbreiding van de \LaTeX\
+omgeving. Alleen uitbreiding, want naast kwaliteit is continu\"{\i}teit \'e\'en
+van de belangrijkste aspecten binnen een productie omgeving. Wat vandaag kan
+moet morgen ook kunnen. Het mag wel sneller, mooier, uitgebreider maar niet
+anders.
+
+\section{Realisatie}
+
+Alle \TeX\ gerelateerde software betrekt het CAWCS uit de DECUS \TeX\
+collection. De sectie Support is verantwoordelijk voor kwaliteit en
+continu\"{\i}teit en selecteert vooraf een subset uit de aangeboden styles,
+tools, etc. afgestemd op de ontwikkelomgeving en de gebruikerswensen.
+
+In verband met toekomstige upgrades, wordt zoveel mogelijk gekozen voor
+standaard producten. Wijzigingen beperken zich tot het corrigeren van eventuele
+fouten, indien mogelijk, kleine aanpassingen aan styles en inpassing in de
+ontwikkelomgeving, gebruikers interface, opslag structuren etc. De meeste
+aangeboden styles en opties worden zonder meer overgenomen.
+
+Presentatie aan de gebruikers geschiedt in de vorm van manual pages en users
+reference manuals, verzameld in een zogenaamd Support Manual. In dit manual
+wordt alle algemene CAWCS software beschreven en de hele \LaTeX\ omgeving is
+hierin ook ondergebracht. Het Support Manual wordt overigens ook
+geproduceerd met \LaTeX. Hiervoor zijn speciale styles ontworpen, zowel voor de
+manual pages als voor de reference manuals.
+
+\section{De Selectie}
+
+Op het CAWCS worden naast \LaTeX\ en \TeX\ de volgende tools in meer of mindere
+mate gebruikt:
+
+\nobreak
+\begin{itemize}
+\item \TeX\-achtigen
+    \nobreak
+    \begin{itemize}
+    \item Bib\TeX\ 
+    \item Sli\TeX\ 
+    \item Glo\TeX\ 
+    \item Idx\TeX\ 
+    \end{itemize}
+\goodbreak     
+\item DVI verwerking
+\nobreak
+    \begin{itemize}
+    \item DVI2LN3   (conversie naar LN03 code) 
+    \item DVIALW    (conversie naar PostScript)
+    \item CRUDETYPE (conversie naar text file) 
+    \item DVI2TTY   (preview op text terminal) 
+    \item XDVI      (preview op VAX station)   
+    \item DVITOVDU  (preview op verschillende terminals)     
+    \item DVITYPE   (DVI leesbaar maken)       
+    \end{itemize}
+\goodbreak
+\item Algemeen
+\nobreak
+    \begin{itemize}
+    \item SPELL (spelling checker met \TeX\ know-how)
+    \item LSEDIT environment en section files (ter ondersteuning van het
+    intikken t.b.v. \LaTeX, Bib\TeX\ en Sli\TeX\ en met de mogelijkheid \LaTeX\
+    te starten vanuit de editor en fouten te `reviewen')
+    \item RNOto\TeX\ (conversie Digital Standard Runoff naar \TeX)
+    \item TR2\TeX\ (conversie Troff naar \TeX)
+    \end{itemize}
+\end{itemize}
+
+
+\section{De Uitbreidingen}
+
+De gekozen subset is op het CAWCS uitgebreid met styles en opties die aansluiten
+bij de wensen die ontstaan als men zich met systeem ontwerpen en programmeren
+bezighoudt. Bovendien dient men zich voor wat betreft de documentatie van de
+operationele software te houden aan bepaalde standaards.
+
+Dit laatste heeft geleid tot twee document styles, QADoc en QADocLand, die met
+name de voorgeschreven layout ondersteunen. Beide styles zijn in principe
+gelijk, met dien verstande dat QADoc portrait mode en QADocLand landscape mode
+ondersteunt. De styles kenmerken zich door een grote bladvulling, een standaard
+pagestyle met daarin een kader en een vaste heading, de mogelijkheid een footer
+met daarin de document classificatie op nemen, paginanummering per hoofdstuk en
+een nesting van subsections tot maximaal 7 levels. De heading bevat een titel,
+subtitel, documentnummer, hoofdstuk- en pagina nummer, datum en auteur. Als
+gevolg hiervan bleek het nodig de DVI converters voor LN03 en PostScript te
+voorzien van een vaste set qualifiers/opties en iets gewijzigde pre-amble files.
+Er is een omgeving gecre\"eerd waarbinnen \LaTeX\ draait en waarin de gebruiker
+afhankelijk van de gebruikte documentstyle, de daarbij behorende DVI conversie
+kan kiezen.
+
+Vanuit de hoek van de programmeurs is de wens gekomen om in de module design
+documentatie, verschillende data en controle structuren te kunnen opnemen.
+Hieruit zijn een aantal style opties voortgekomen die het mogelijk maken flow
+charts, Nassi-Schneidermann diagrammen, data structuren en bitpatronen in een
+document te defini\"eren.
+
+Voor data structuren en bitpatronen is een \LaTeX\ environment gemaakt
+waarbinnen bits, bytes en woorden gespecificeerd kunnen worden, voorzien van de
+nodige tekst, en waar een tekening uit komt van de gespecificeerde
+datastructuur.
+
+Voor flow charts en Nassi-Schneidermann diagrammen is gekozen voor specificatie
+in de vorm van pseudo-code. Alle bekende structuren als if-then-else, while-do,
+case, repeat-until en de acties zijn gedefinieerd als commando's. Deze dienen
+gebruikt te worden binnen een specifiek commando waarin het totale diagram
+gedefinieerd wordt. Overigens zijn beide styles geschreven in \TeX.
+
+Ten behoeve van alle bovenstaande, veel gebruikte, styles en opties is de
+Language Sensitive Editor omgeving uitgebreid met ondersteuning hiervoor. Deze
+ondersteuning is grotendeels ondergebracht in aparte files, die zonder problemen
+toegevoegd kunnen worden aan de uit de \TeX\ collection afkomstige
+ondersteuning.
+
+Een andere ontwikkelde style is Manual, ten behoeve van het al eerder genoemde
+Support Manual. Hierin zijn commando's opgebracht die het mogelijk maken manual
+pages en users reference manuals te produceren. Een style optie Listing maakt
+het mogelijk source code op te nemen binnen deze style, wat vooral gebruikt
+wordt om specificaties van standaard (Ada) packages te documenteren.
+
+Als laatste, de enige pure \TeX\ applicatie, Cards, een tool om eenvoudige
+visitekaartjes te maken.
+
+\section{Integratie en andere toepassingen}
+
+Behalve uitbreiding van de bestaande \LaTeX\ omgeving, is er ook gezocht naar
+toepassingen waarbij \LaTeX\ gecombineerd wordt met andere software
+ontwikkelings tools die bij het CAWCS in gebruik zijn.
+
+E\'en van de meest productieve inspanningen op dat gebied, heeft geleid tot een
+uitbreiding van de Document Production Interface (DPI) van Teamwork. Teamwork
+biedt de mogelijkheid om een document, de hoofdstuk indeling etc. te beschrijven
+in een Structured Chart. In de structured chart wordt verwezen naar het model
+dat het in ontwikkeling zijnde systeem beschrijft. Een model is een verzameling
+entity relation diagrams, data flow diagrams, state transition diagrams, data
+dictionary entries etc. DPI biedt de mogelijkheid uit de structured chart en het
+model een standaard document te produceren in Interleaf, Scribe of VAXDocument
+formaat, maar bleek ook aanpasbaar en uitbreidbaar. En dat hebben we gedaan. DPI
+produceert nu ook \LaTeX\ source files. De diagrammen worden geproduceerd in
+PostScript en ingevoegd in het document waarvan de structuur, de documentstyle
+etc. in \LaTeX\ gedefinieerd is volgens de geldende normen.
+
+Een ander voorbeeld is een tool, DataModel, waarmee het mogelijk is databases te
+ontwerpen. Met behulp van invulschermen en een databestand wordt de opbouw van
+de database vastgelegd of gewijzigd. De tool genereert twee dingen, de Oracle
+statements waarmee de database daadwerkelijk gecre\"eerd kan worden en een
+\LaTeX\ source file die voldoet aan de standaard voor een zogenaamd Database
+Design Document met de complete benodigde beschrijving van diezelfde database.
+
+\section{Toekomst}
+
+Zoals uit het voorgaande moge blijken, zoekt het CAWCS het voornamelijk in de
+toepassing van \LaTeX\ en in mindere mate \TeX. Ook in de toekomst zal de nadruk
+liggen op het uitbreiden van de toepassingsmogelijkheden.  Behoud van wat er is
+vormt de belangrijkste overweging die speelt, bijvoorbeeld bij de upgrade naar
+een volgende versie van \TeX. Er zal een grondige evaluatie aan voorafgaan.
+
+Er zijn ook plannen en idee\"en voor verdere ontwikkeling van tools en/of
+uitbreiding van bestaande. LSEDIT biedt sinds kort de mogelijkheid gebruik te
+maken van een Program Design Language en daaruit documenten te genereren volgens
+de Dod-STD-2167A, een documentatie norm waaraan ook het CAWCS moet voldoen.
+ASCII text en Runoff source zijn de mogelijke vormen van een dergelijk document,
+maar dat is uitbreidbaar en wat ons betreft is \LaTeX\ daarvoor een uitstekende
+candidaat.
+
+Ook volledige ondersteuning, in de vorm van \LaTeX\ templates in LSEDIT, voor de
+complete DoD-STD-2167A documentatie set behoort tot de toekomstplannen.
+
+Een ander idee is een Ada source code formatter, waaruit niet alleen
+geformateerde (compileerbare) Ada source files komen maar ook \LaTeX\ source
+files, waarmee dan een `pretty printer' gerealiseerd is.
+
+Verder zullen de toepassingsmogelijkheden van SGML en aanverwanten bezien
+worden.
+
+\section{Conclusie}
+
+Zoals gezegd: Wij zijn niet ge\"{\i}nteresseerd in \TeX\ en \LaTeX,
+
+\vspace{2cm}
+
+\begin{center}
+{\LARGE Maar wel in wat het voor ons kan doen!}
+\end{center}
+
+\end{document}

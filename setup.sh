@@ -30,6 +30,32 @@ else
     echo "setup has cancelled"
 fi
 
+# latex
+echo "symlink to $HOME/dotfiles/latex_tools is installing"
+case $OSTYPE in
+    darwin*)
+        if [ -e $HOME/Library/texmf/tex/latex ]; then
+            ln -s $HOME/dotfiles/latex_tools $HOME/Library/texmf/tex/latex/
+        else
+            mkdir -p $HOME/Library/texmf/tex/latex
+            ln -s $HOME/dotfiles/latex_tools $HOME/Library/texmf/tex/latex/
+        fi
+        sudo mktexlsr
+        ;;
+    linux*)
+        if [ -e $HOME/texmf/tex/latex ]; then
+            ln -s $HOME/dotfiles/latex_tools $HOME/texmf/tex/latex/
+        else
+            mkdir -p $HOME/texmf/tex/latex
+            ln -s $HOME/dotfiles/latex_tools $HOME/texmf/tex/latex/
+        fi
+        sudo mktexlsr
+        ;;
+    *) 
+        ;;
+esac
+
+
 echo "Intalling oh-my-zsh to ${HOME} ...."
 git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 
