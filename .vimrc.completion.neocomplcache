@@ -37,7 +37,8 @@ let g:neocomplcache_dictionary_filetype_lists = {
     \ 'perl' : $HOME.'/.vim/dict/perl.dict',
     \ 'php' : $HOME.'/.vim/dict/php.dict',
     \ 'scheme' : $HOME.'/.vim/dict/scheme.dict',
-    \ 'vm' : $HOME.'/.vim/dict/vim.dict'
+    \ 'vim' : $HOME.'/.vim/dict/vim.dict',
+    \ 'tex' : $HOME.'/.vim/dict/tex.dict'
     \ }
 
 " Define keyword.
