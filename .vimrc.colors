@@ -19,15 +19,17 @@ elseif &term =~ "xterm-color"
   set t_Sb=[4%dm
 endif
 
-set t_Co=256
-"GuiColorScheme wombat
-colorscheme wombat
-"colorscheme macvim
-"colorscheme jellybeans
-"colorscheme molokai 
-"colorscheme slate 
+" set t_Co=256
+" GuiColorScheme wombat
+" colorscheme wombat
+" colorscheme macvim
+" colorscheme jellybeans
+" colorscheme molokai 
+" colorscheme slate 
 colorscheme vividchalk
-"colorscheme inkpot
+" colorscheme inkpot
+" colorscheme peachpuff
+" colorscheme adrian
 
 
 "ポップアップメニューのカラーを設定

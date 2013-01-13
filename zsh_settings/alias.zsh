@@ -43,6 +43,7 @@ alias denjo='ssh -p 2462 tsubone@denjo-centos'
 alias karasu='ssh -p 2462 tsubone@karasuhaneto.myhome.cx'
 alias globalip='wget -q http://info.ddo.jp/remote_addr.php -O -|cut -c 13-'
 alias less='less -MN'
+alias hist='history'
 
 compdef -d make
 compdef -d svn

@@ -80,3 +80,8 @@ let g:quickrun_config = {
 \       "runner/vimproc/updatetime" : 40,
 \   }
 \}
+
+""" qfixhowm
+let howm_dir = '$HOME/dotfiles/.vim/Qmemo'
+let howm_fileencoding = 'utf-8'
+let howm_fileformat = 'unix'

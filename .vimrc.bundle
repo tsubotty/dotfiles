@@ -18,7 +18,7 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'thinca/vim-ref'
-NeoBundleLazy 'thinca/vim-guicolorscheme'
+NeoBundle 'thinca/vim-guicolorscheme'
 NeoBundleLazy 'vim-scripts/CSApprox'
 NeoBundle 'Shougo/unite.vim' " Unite 
 NeoBundle 'tsukkee/unite-help'
@@ -42,6 +42,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundleLazy 'scrooloose/nerdtree'
 NeoBundleLazy 'git://git.wincent.com/command-t.git'
 NeoBundle 'Lokaltog/vim-powerline' " powerline
+NeoBundle 'fuenor/qfixhowm' " This is a test version of QFixHowm.
 
 " Non github repos
 NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -56,6 +57,7 @@ NeoBundle 'open-browser.vim' " 0.0.0 Open URI with your favorite browser from yo
 NeoBundle 'gitv' " 1.0   gitk for Vim.
 NeoBundle 'surround.vim' " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease
 NeoBundle 'emacscommandline' " 1.0   makes command-line mode behave more like the Unix command line
+NeoBundle '256-jungle' " 1.0   Dark-orange colorscheme for 256 color terminals (like xterm).
 
 filetype plugin indent on     " Required!
 
