@@ -19,7 +19,7 @@ set number "行番号を表示する
 set notimeout ttimeout ttimeoutlen=200 "キーコードはすぐにタイムアウト。マッピングはタイムアウトしない
 set pastetoggle=<F11> "<F11>でpasteとnopasteを入れ替える
 set noswapfile "swapファイルを作らない
-"set nobackup "bakcupファイルを作らない
+set nobackup "bakcupファイルを作らない
 set backupdir=$HOME/dotfiles/.vim/vimbackup
 set backupskip=/private/tmp/*,/tmp/* "cronetab用
 set formatoptions-=ro "コメントアウトで改行時の自動をやめる
@@ -49,3 +49,7 @@ set clipboard+=autoselect
 
 " OSのクリップボードを使用する
 set clipboard+=unnamed
+
+"let $PERL_DLL = "/usr/local/lib/perl5/5.12.0/darwin-2level/CORE/libperl.dylib"
+"let $PYTHON_DLL = "/usr/local/Cellar/python/2.7.3/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib"
+"let $RUBY_DLL = "/usr/local/lib/libruby.1.8.dylib"

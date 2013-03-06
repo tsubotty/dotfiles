@@ -7,7 +7,9 @@ let g:vimfiler_safe_mode_by_default = 0
 let g:vimfiler_as_default_explorer = 1
 
 """ Zen-Coidng
-let g:user_zen_leader_key='<C-,>'
+" let g:user_zen_leader_key=''
+" let g:user_zen_expandabbr_key='<Tab>'
+" let g:user_zen_next_key='<C-.>'
 let g:user_zen_settings = {
       \'lang' : 'ja',
       \'css' : {
@@ -81,7 +83,28 @@ let g:quickrun_config = {
 \   }
 \}
 
+let g:quickrun_config.markdown = {
+      \ 'outputter' : 'null',
+      \ 'command'   : 'open',
+      \ 'cmdopt'    : '-a',
+      \ 'args'      : 'Marked',
+      \ 'exec'      : '%c %o %a %s',
+      \ }
+
 """ qfixhowm
 let howm_dir = '$HOME/dotfiles/.vim/Qmemo'
 let howm_fileencoding = 'utf-8'
 let howm_fileformat = 'unix'
+
+""" Gist.vim 
+let g:gist_update_on_write = 2
+
+""" syntastic
+let g:syntastic_mode_map = { 
+      \ 'mode': 'active',
+      \ 'passive_filetypes': ['html', 'javascript'],
+      \ 'active_filetypes': []
+      \ }
+let g:syntastic_auto_loc_list = 1 
+let g:syntastic_javascript_checker = "jshint"
+" let g:syntastic_javascript_checker = 'gjslint'

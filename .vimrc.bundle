@@ -43,6 +43,11 @@ NeoBundleLazy 'scrooloose/nerdtree'
 NeoBundleLazy 'git://git.wincent.com/command-t.git'
 NeoBundle 'Lokaltog/vim-powerline' " powerline
 NeoBundle 'fuenor/qfixhowm' " This is a test version of QFixHowm.
+" NeoBundle 'jelera/vim-javascript-syntax' " Enhanced javascript syntax file for Vim
+NeoBundle 'jiangmiao/simple-javascript-indenter' " A vim javascript indent script
+NeoBundle 'nono/jquery.vim' " Syntax file for jQuery in ViM
+NeoBundle 'teramako/jscomplete-vim' " vim omnifunc for JavaScript
+" NeoBundle 'scrooloose/syntastic' " Syntax checking hacks for vim
 
 " Non github repos
 NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -58,6 +63,10 @@ NeoBundle 'gitv' " 1.0   gitk for Vim.
 NeoBundle 'surround.vim' " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease
 NeoBundle 'emacscommandline' " 1.0   makes command-line mode behave more like the Unix command line
 NeoBundle '256-jungle' " 1.0   Dark-orange colorscheme for 256 color terminals (like xterm).
+"NeoBundle 'VimRepress' " 1.3.0 Plugin for managing wordpress blog from Vim.
+NeoBundle 'vim-scripts/VimRepress'
+NeoBundle 'bhy/vim-markdown' " Vim Markdown runtime file
+NeoBundle 'mattn/gist-vim' " vimscript for gist
 
 filetype plugin indent on     " Required!
 

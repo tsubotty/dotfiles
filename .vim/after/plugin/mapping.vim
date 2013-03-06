@@ -162,6 +162,7 @@ nmap <Leader>o <Plug>(openbrowser-open)
 vmap <Leader>o <Plug>(openbrowser-open)
 " ググる
 nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
+nnoremap <Leader>s :<C-u>SyntasticCheck<CR>
 
 "nnoremap T :tabe<CR>
 "nnoremap <S-Tab> gt
