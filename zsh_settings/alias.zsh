@@ -28,7 +28,7 @@ alias ls='ls -F --color' la='ls -a --color' ll='ls -laht --color'
 # g++
 alias gpp='g++'
 # tmux
-alias tm='tmux'
+# alias tm='tmux'
 alias tma='tmux attach'
 alias tma0='tmux attach -t 0'
 alias tma1='tmux attach -t 1'

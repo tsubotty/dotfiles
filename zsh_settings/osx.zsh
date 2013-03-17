@@ -28,10 +28,12 @@ case "${OSTYPE}" in
         alias opbr='open $(brew --prefix)/'
         alias cdbr='pushd $(brew --prefix)/'
         # tmux
-        alias tmux='tmuxx'
-        alias tm='tmuxx'
+        # alias tmux='tmuxx'
+        # alias tm='tmuxx'
         alias tma='tmux attach'
         alias tml='tmux list-window'
+        alias tm='/usr/local/bin/tmux'
+        alias tmux='/usr/local/bin/tmux'
         # Application
         alias safari='open -g -a Safari'
         alias chrome='open -g -a Google\ Chrome'
