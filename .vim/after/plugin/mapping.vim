@@ -30,8 +30,10 @@ inoremap <C-e> <END>
 inoremap <C-a> <HOME>
 
 "M-sでセーブ
-nnoremap <M-s> :<C-u>write<CR>
-nnoremap <M-q> :<C-u>quit<CR>
+" nnoremap <M-s> :<C-u>write<CR>
+" nnoremap <M-q> :<C-u>quit<CR>
+nnoremap ,s :<C-u>write<CR>
+nnoremap ,q :<C-u>quit<CR>
 
 " Ev/Rvでvimrcの編集と反映
 command! Ev edit $MYVIMRC
