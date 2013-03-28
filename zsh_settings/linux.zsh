@@ -27,6 +27,11 @@ case "${OSTYPE}" in
         alias atp='sudo aptitude purge'
         
         compdef -d aptitude
+        
+        # yum alias
+        alias yup='yum -y update'
+        alias yi='yum -y install'
+        compdef -d yum
 
         alias vi='vim'
         alias E='emacsclient -t'
