@@ -29,8 +29,8 @@ case "${OSTYPE}" in
         compdef -d aptitude
         
         # yum alias
-        alias yup='yum -y update'
-        alias yi='yum -y install'
+        alias yup='sudo yum -y update'
+        alias yi='sudo yum -y install'
         compdef -d yum
 
         alias vi='vim'
