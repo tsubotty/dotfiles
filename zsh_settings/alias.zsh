@@ -21,6 +21,9 @@ alias gst='git status'
 alias gdf='git diff'
 alias gci='git commit -a'
 alias gcim='git commit -am'
+alias gbr='git branch'
+alias gco='git checkout'
+alias gft='git fetch'
 # svn alias
 alias s='svn'
 # ls

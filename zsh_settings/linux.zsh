@@ -31,6 +31,9 @@ case "${OSTYPE}" in
         # yum alias
         alias yup='sudo yum -y update'
         alias yi='sudo yum -y install'
+        alias y='sudo yum'
+        alias yum='sudo yum'
+        alias yr='sudo yum remove'
         compdef -d yum
 
         alias vi='vim'

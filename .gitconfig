@@ -1,5 +1,5 @@
 [user]
-	name = Tsubone Seiya
+	name = Seiya Tsubone
 	email = karasuhaneto@gmail.com
 [core]
 	excludesfile = /Users/tsubone/.gitignore_global
@@ -19,6 +19,7 @@
 	vi = "!f() { vi "$(git ls-files "\\*$1\\*" | head -10)"; }; f" 
 	sh = show
 	br = branch
+	dif = diff
 [tig "bind"]
 	generic = g move-first-line
 	generic = G move-last-line
