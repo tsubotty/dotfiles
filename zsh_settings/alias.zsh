@@ -24,6 +24,8 @@ alias gcim='git commit -am'
 alias gbr='git branch'
 alias gco='git checkout'
 alias gft='git fetch'
+alias gr='git remote'
+alias gcl='git clone'
 # svn alias
 alias s='svn'
 # ls
@@ -47,7 +49,14 @@ alias karasu='ssh -p 2462 tsubone@karasuhaneto.myhome.cx'
 alias globalip='wget -q http://info.ddo.jp/remote_addr.php -O -|cut -c 13-'
 alias less='less -MN'
 alias hist='history'
+#github
+function git() {hub "$@"}
+alias hb='hub browse'
+alias hcl='hub clone'
+alias hcr='hub create'
+alias hpr='hub pull-request'
 
 compdef -d make
 compdef -d svn
 compdef -d scp
+compdef -d git

@@ -11,6 +11,11 @@ fi
 # zsh-git-promptを読み込む
 source ~/dotfiles/.zsh/git-prompt/zshrc.sh
 
+# gitの補完を早くする
+autoload bashcompinit
+bashcompinit
+source ~/git-completion.bash
+
 # ------------------------------
 # General Settings
 # ------------------------------

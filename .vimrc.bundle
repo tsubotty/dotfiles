@@ -47,6 +47,8 @@ NeoBundle 'fuenor/qfixhowm' " This is a test version of QFixHowm.
 NeoBundle 'jiangmiao/simple-javascript-indenter' " A vim javascript indent script
 NeoBundle 'nono/jquery.vim' " Syntax file for jQuery in ViM
 NeoBundle 'teramako/jscomplete-vim' " vim omnifunc for JavaScript
+NeoBundle 'rizzatti/funcoo.vim' 
+NeoBundle 'rizzatti/dash.vim'
 " NeoBundle 'scrooloose/syntastic' " Syntax checking hacks for vim
 
 " Non github repos

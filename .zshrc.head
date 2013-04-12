@@ -1,4 +1,0 @@
-## 最初に読み込まれるように ## 
-## $HOMEに設置するだけのファイル ##
-## 実質は.zshrc.body ##
-. $HOME/dotfiles/.zshrc.body

@@ -1,5 +1,6 @@
-#flag="original" # 自分専用設定のみ
-flag="framework" # oh-my-zshを使用
+# flag によって 環境を切り替える
+flag="original" # 自分専用設定のみ
+# flag="framework" # oh-my-zshを使用
 ZSH_THEME="my_rprompt"
 
 # 下記追加 PATHの設定を先に行う
