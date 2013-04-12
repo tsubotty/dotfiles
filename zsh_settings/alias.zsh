@@ -26,6 +26,10 @@ alias gco='git checkout'
 alias gft='git fetch'
 alias gr='git remote'
 alias gcl='git clone'
+alias gl='git log'
+alias glp='git log -p'
+alias glo='git log --oneline'
+alias gls='git log --stat'
 # svn alias
 alias s='svn'
 # ls
