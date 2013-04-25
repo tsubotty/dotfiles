@@ -7,9 +7,6 @@ for i in $ZSHHOME/*; do
 done
 fi
 
-# zsh-git-promptを読み込む
-source ~/dotfiles/.zsh/git-prompt/zshrc.sh
-
 # ------------------------------
 # General Settings
 # ------------------------------
@@ -88,6 +85,11 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 ## プロンプトに色を付ける
 autoload -Uz colors; colors;
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
+
+
+#=============================
+# precmd settings   動的にプロンプト変更など
+#=============================
 # precmdを複数 
 autoload -Uz add-zsh-hook
 

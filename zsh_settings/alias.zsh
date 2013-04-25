@@ -17,19 +17,21 @@ alias po='popd'
 alias cp='cp -i'
 # git alias
 alias g='git'
+alias gad='git add -A'
 alias gst='git status'
 alias gdf='git diff'
 alias gci='git commit -a'
 alias gcim='git commit -am'
-alias gbr='git branch'
+alias gbr='git branch -avv'
 alias gco='git checkout'
 alias gft='git fetch'
-alias gr='git remote'
+alias gr='git remote -v'
 alias gcl='git clone'
 alias gl='git log'
 alias glp='git log -p'
 alias glo='git log --oneline'
 alias gls='git log --stat'
+alias gpullr='git pull --rebase'
 # svn alias
 alias s='svn'
 # ls
@@ -63,4 +65,4 @@ alias hpr='hub pull-request'
 compdef -d make
 compdef -d svn
 compdef -d scp
-compdef -d git
+# compdef -d git

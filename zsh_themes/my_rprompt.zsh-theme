@@ -37,6 +37,11 @@ case ${UID} in
   ;;
 esac 
 
-RPROMPT="%{$fg[yellow]%}%{$reset_color%}%{$FG[239]%}[%{$reset_color%}%{$fg[cyan]%}%~%{$reset_color%}%{$FG[239]%}]%{$reset_color%}"
+source ~/dotfiles/.zsh/zsh-vcs-prompt/zshrc.sh
+ZSH_VCS_PROMPT_ENABLE_CACHING='true'
+RPROMPT='$(vcs_super_info)'"%{$fg[yellow]%}%{$reset_color%}%{$FG[239]%}[%{$reset_color%}%{$fg[cyan]%}%~%{$reset_color%}%{$FG[239]%}]%{$reset_color%}"
 
 SPROMPT="%{$fg_bold[red]%}correct: %R -> %r (y or n)?%{$reset_color%} "
+
+# zsh-git-promptを読み込む
+# source ~/dotfiles/.zsh/git-prompt/zshrc.sh
