@@ -65,4 +65,4 @@ alias hpr='hub pull-request'
 compdef -d make
 compdef -d svn
 compdef -d scp
-# compdef -d git
+compdef -d git
