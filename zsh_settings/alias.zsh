@@ -32,6 +32,7 @@ alias glp='git log -p'
 alias glo='git log --oneline'
 alias gls='git log --stat'
 alias gpullr='git pull --rebase'
+alias gsw='git checkout -'
 # svn alias
 alias s='svn'
 # ls

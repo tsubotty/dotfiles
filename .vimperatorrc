@@ -14,7 +14,7 @@ set editor='/usr/bin/mvim -f'
 " 自動フォーカスオフ
 set focuscontent
 "カラースキーム
-colorscheme vimplight
+"colorscheme vimplight
 " コマンドライン自動補完強化
 set autocomplete
 set complete=sl

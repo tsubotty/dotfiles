@@ -20,14 +20,16 @@
 	sh = show
 	br = branch
 	dif = diff
-	re= remote
+	re = remote
+	switch = checkout -
+	sw = checkout -
 [tig "bind"]
 	generic = g move-first-line
 	generic = G move-last-line
 [github]
 	user = karasuhaneto@gmail.com
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	cmd = /Applications/Kaleidoscope.app/Contents/MacOS/ksdiff -w \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
