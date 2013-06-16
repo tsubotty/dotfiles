@@ -57,7 +57,7 @@ alias globalip='wget -q http://info.ddo.jp/remote_addr.php -O -|cut -c 13-'
 alias less='less -MN'
 alias hist='history'
 #github
-function git() {hub "$@"}
+# function git() {hub "$@"}
 alias hb='hub browse'
 alias hcl='hub clone'
 alias hcr='hub create'

@@ -1,5 +1,6 @@
 case "${OSTYPE}" in
     linux*)
+        export DISPLAY=:0.0 # warning 回避用
         if [ -x /usr/bin/vim ]; then
             export EDITOR=/usr/bin/vim
             export VISUAL=/usr/bin/vim
