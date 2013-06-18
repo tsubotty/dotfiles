@@ -14,8 +14,7 @@ NeoBundle 'Lokaltog/vim-easymotion' " Vim motions on speed!
 NeoBundle 'L9'
 "NeoBundle 'FuzzyFinder'
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vimproc'
+" NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-guicolorscheme'
@@ -30,19 +29,19 @@ NeoBundle 'osyo-manga/shabadou.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'thinca/vim-unite-history'
 NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'choplin/unite-vim_hacks'
+" NeoBundle 'choplin/unite-vim_hacks'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/wwwrenderer-vim'
 NeoBundle 'thinca/vim-openbuf'
 NeoBundle 'mattn/zencoding-vim.git'
 NeoBundleLazy 'mattn/sonictemplate-vim.git'
-NeoBundle 'vim-scripts/The-NERD-Commenter'
+" NeoBundle 'vim-scripts/The-NERD-Commenter'
 NeoBundle 'thinca/vim-quickrun'
-NeoBundleLazy 'scrooloose/nerdtree'
+" NeoBundleLazy 'scrooloose/nerdtree'
 NeoBundleLazy 'git://git.wincent.com/command-t.git'
 NeoBundle 'Lokaltog/vim-powerline' " powerline
-NeoBundle 'fuenor/qfixhowm' " This is a test version of QFixHowm.
+" NeoBundle 'fuenor/qfixhowm' " This is a test version of QFixHowm.
 " NeoBundle 'jelera/vim-javascript-syntax' " Enhanced javascript syntax file for Vim
 NeoBundle 'jiangmiao/simple-javascript-indenter' " A vim javascript indent script
 NeoBundle 'nono/jquery.vim' " Syntax file for jQuery in ViM
@@ -58,13 +57,13 @@ NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 "NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
 "NeoBundle 'bufferlist.vim' " 1.0   simple, fast, and slick non-disturbing buffer list
 "NeoBundle 'buftabs' " 0.5   Minimalistic buffer tabs saving screen space
-NeoBundle 'bufexplorer.zip' " 6.0.2 Buffer Explorer / Browser
+" NeoBundle 'bufexplorer.zip' " 6.0.2 Buffer Explorer / Browser
 NeoBundle 'sudo.vim' " 1.0   Allows one to edit a file with prevledges from an unprivledged session.
 NeoBundle 'open-browser.vim' " 0.0.0 Open URI with your favorite browser from your favorite editor
 NeoBundle 'gitv' " 1.0   gitk for Vim.
 NeoBundle 'surround.vim' " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease
-NeoBundle 'emacscommandline' " 1.0   makes command-line mode behave more like the Unix command line
-NeoBundle '256-jungle' " 1.0   Dark-orange colorscheme for 256 color terminals (like xterm).
+" NeoBundle 'emacscommandline' " 1.0   makes command-line mode behave more like the Unix command line
+" NeoBundle '256-jungle' " 1.0   Dark-orange colorscheme for 256 color terminals (like xterm).
 "NeoBundle 'VimRepress' " 1.3.0 Plugin for managing wordpress blog from Vim.
 NeoBundle 'vim-scripts/VimRepress'
 NeoBundle 'bhy/vim-markdown' " Vim Markdown runtime file
