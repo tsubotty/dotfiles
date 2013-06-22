@@ -2,7 +2,7 @@
 case "${OSTYPE}" in
     darwin*)
         # my_shell_scripts
-        export PATH=${PATH}:${HOME}/my_shell_scripts
+        export PATH=${PATH}:${HOME}/ShellScripts
         export PATH=$(brew --prefix coreutils)/libexec/gnubin:${PATH}
         export JAVA_HOME=$(/usr/libexec/java_home)
         export PATH=$PATH:${JAVA_HOME}/bin

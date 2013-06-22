@@ -33,10 +33,10 @@ NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/wwwrenderer-vim'
-NeoBundle 'thinca/vim-openbuf'
+" NeoBundle 'thinca/vim-openbuf'
 NeoBundle 'mattn/zencoding-vim.git'
 NeoBundleLazy 'mattn/sonictemplate-vim.git'
-" NeoBundle 'vim-scripts/The-NERD-Commenter'
+NeoBundle 'vim-scripts/The-NERD-Commenter'
 NeoBundle 'thinca/vim-quickrun'
 " NeoBundleLazy 'scrooloose/nerdtree'
 NeoBundleLazy 'git://git.wincent.com/command-t.git'
@@ -51,7 +51,7 @@ NeoBundle 'rizzatti/dash.vim'
 " NeoBundle 'scrooloose/syntastic' " Syntax checking hacks for vim
 
 " Non github repos
-NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+" NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
 " Non git repos
 "NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
