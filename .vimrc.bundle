@@ -48,6 +48,7 @@ NeoBundle 'nono/jquery.vim' " Syntax file for jQuery in ViM
 NeoBundle 'teramako/jscomplete-vim' " vim omnifunc for JavaScript
 NeoBundle 'rizzatti/funcoo.vim' 
 NeoBundle 'rizzatti/dash.vim'
+NeoBundle 'kien/ctrlp.vim'
 " NeoBundle 'scrooloose/syntastic' " Syntax checking hacks for vim
 
 " Non github repos
