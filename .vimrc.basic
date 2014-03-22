@@ -1,4 +1,5 @@
 syntax on "色分け
+set completeopt=menuone "プレビューウィンドウが出るのを防ぐ for python
 set hidden "バッファを保存しなくても他のバッファを表示
 set showcmd "タイプ途中のコマンドを画面最下行に表示
 set incsearch "インクリメンタルサーチ

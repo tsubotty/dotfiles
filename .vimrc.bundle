@@ -47,7 +47,7 @@ NeoBundle 'jiangmiao/simple-javascript-indenter' " A vim javascript indent scrip
 NeoBundle 'nono/jquery.vim' " Syntax file for jQuery in ViM
 NeoBundle 'teramako/jscomplete-vim' " vim omnifunc for JavaScript
 NeoBundle 'rizzatti/funcoo.vim' 
-NeoBundle 'rizzatti/dash.vim'
+" NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'kien/ctrlp.vim'
 " NeoBundle 'scrooloose/syntastic' " Syntax checking hacks for vim
 
@@ -60,7 +60,7 @@ NeoBundle 'kien/ctrlp.vim'
 "NeoBundle 'buftabs' " 0.5   Minimalistic buffer tabs saving screen space
 " NeoBundle 'bufexplorer.zip' " 6.0.2 Buffer Explorer / Browser
 NeoBundle 'sudo.vim' " 1.0   Allows one to edit a file with prevledges from an unprivledged session.
-NeoBundle 'open-browser.vim' " 0.0.0 Open URI with your favorite browser from your favorite editor
+" NeoBundle 'open-browser.vim' " 0.0.0 Open URI with your favorite browser from your favorite editor
 NeoBundle 'gitv' " 1.0   gitk for Vim.
 NeoBundle 'surround.vim' " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease
 " NeoBundle 'emacscommandline' " 1.0   makes command-line mode behave more like the Unix command line

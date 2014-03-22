@@ -26,6 +26,10 @@
 		<appname>CHROME</appname>
         <equal>com.google.Chrome</equal>
 	</appdef>
+    <appdef>
+        <appname>CHROMIUM</appname>
+        <equal>org.chromium.Chromium</equal>
+    </appdef>
 	<appdef>
 		<appname>EMACS</appname>
         <equal>org.gnu.Emacs</equal>
@@ -155,7 +159,7 @@
 	<item> 
 		<name>Emacslike UpDown</name>
 		<identifier>private.emacs_updown_in_firefox</identifier>
-        <only>FIREFOX, NIGHTLY, AURORA, REEDER, PREVIEW, CHROME, FINDER, THUNDERBIRD</only>
+        <only>FIREFOX, NIGHTLY, AURORA, REEDER, PREVIEW, CHROME, CHROMIUM, FINDER, THUNDERBIRD</only>
 		<autogen> 
 			--KeyToKey-- 
 			KeyCode::N, ModifierFlag::CONTROL_L, 
@@ -172,7 +176,7 @@
 	<item> 
 		<name>Emacslike UpDownLeftRight(except for firefox, iterm2, terminal)</name>
 		<identifier>private.emacs_move</identifier>
-        <not>VIRTUAL_BOX, VMWARE, FIREFOX, NIGHTLY, AURORA, CHROME, ITERM2, MACVIM, EMACS, TERMINAL, SUBLIME</not>
+        <not>VIRTUAL_BOX, VMWARE, FIREFOX, NIGHTLY, AURORA, CHROME, CHROMIUM, ITERM2, MACVIM, EMACS, TERMINAL, SUBLIME</not>
 		<autogen> 
 			--KeyToKey-- 
 			KeyCode::N, ModifierFlag::CONTROL_L, 
