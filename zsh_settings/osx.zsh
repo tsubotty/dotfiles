@@ -51,8 +51,8 @@ case "${OSTYPE}" in
         alias img="wget_url.sh"
         
         # GNU commands
-        alias tar='gtar'
-        alias find='gfind'
-        alias xargs='gxargs'
+        # alias tar='gtar'
+        # alias find='gfind'
+        # alias xargs='gxargs'
         ;;
 esac

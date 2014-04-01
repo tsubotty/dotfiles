@@ -14,6 +14,6 @@ case "${OSTYPE}" in
         ;;
 esac
 
-export PATH=/usr/local/bin:/usr/local/sbin/:/opt/local/bin:/opt/local/sbin:${PATH}:/usr/bin:/usr/sbin:/bin:/sbin:/opt/X11/bin:$HOME/bin
+export PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:${PATH}:/usr/bin:/usr/sbin:/bin:/sbin:/opt/X11/bin:$HOME/bin
 # 重複リセット
 typeset -U path

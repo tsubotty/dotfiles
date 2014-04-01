@@ -38,7 +38,8 @@ alias s='svn'
 # ls
 alias ls='ls -F --color' la='ls -a --color' ll='ls -laht --color'
 # g++
-alias gpp='g++'
+# alias gpp='g++'
+alias gpp="g++ -std=c++11 -Wall -O2"
 # tmux
 # alias tm='tmux'
 alias tma='tmux attach'
