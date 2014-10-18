@@ -24,6 +24,9 @@ export LSCOLORS="Gxfxcxdxbxegedabagacad"
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30' ## 補完時の色の設定
 export ZLS_COLORS=$LS_COLORS ## ZLS_COLORSとは？ 多分下のzsytle ':の設定と重複
 export CLICOLOR=true ## lsコマンド時、自動で色がつく(ls -Gのようなもの？)
+export ZSH_SETTINGS="${HOME}/dotfiles/zsh_settings/"
+export ZSH_THEMES="${HOME}/dotfiles/zsh_themes/"
+export ZSH_THEME="my_rprompt"
 
 # ------------------------------
 # zle : ウィジェット作成の設定
@@ -85,6 +88,17 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # 補完候補に�
 # シェル関数定義
 # ------------------------------
 function history-all { history -E 1 }
+
+# ------------------------------
+# 外部ファイル読み込み
+# ------------------------------
+
+. ${ZSH_THEMES}${ZSH_THEME}".zsh-theme"    # テーマ読み込み
+
+for file in `ls $ZSH_SETTINGS`
+do
+. $ZSH_SETTINGS$file
+done
 
 # ------------------------------
 # シェル起動時、コマンド同時実行
