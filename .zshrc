@@ -1,103 +1,93 @@
-# flag によって 環境を切り替える
-flag="original" # 自分専用設定のみ
-# flag="framework" # oh-my-zshを使用
-ZSH_THEME="my_rprompt"
+# ------------------------------
+# シェル関数のロード
+# ------------------------------
+autoload -U compinit; compinit # 補完機能を有効にする
+autoload history-search-end # マッチしたコマンドのヒストリを表示できるようにする
+autoload -Uz colors; colors; # プロンプトに色を付ける
 
-# 下記追加 PATHの設定を先に行う
-source $HOME/dotfiles/.path.zsh
+# ------------------------------
+# 環境変数設定
+# ------------------------------
+export EDITOR=vim        # エディタをvimに設定
+export PAGER=less        
+export LESS='-R'
+export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s' # less syntax highlight
+export LANG=ja_JP.UTF-8  # 文字コードをUTF-8に設定
+export KCODE=u           # KCODEにUTF-8を設定
+export AUTOFEATURE=true  # autotestでfeatureを動かす
+export LISTMAX=1000
+export HISTFILE=~/.zsh_history   # ヒストリを保存するファイル
+export HISTSIZE=100000            # メモリに保存されるヒストリの件数
+export SAVEHIST=100000            # 保存されるヒストリの件数
+export HISTTIMEFORMAT='%y/%m/%d %H:%M:%S ';
+export LSCOLORS="Gxfxcxdxbxegedabagacad"
+export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30' ## 補完時の色の設定
+export ZLS_COLORS=$LS_COLORS ## ZLS_COLORSとは？ 多分下のzsytle ':の設定と重複
+export CLICOLOR=true ## lsコマンド時、自動で色がつく(ls -Gのようなもの？)
 
-if [ $flag = "framework" ]; then
-    ZSH=$HOME/.oh-my-zsh #フレームワークの基準ディレクトリ
+# ------------------------------
+# zle : ウィジェット作成の設定
+# 書式：zle -N ウィジェット名　シェル関数名
+# ------------------------------
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
 
-    # CASE_SENSITIVE="true"
+# ------------------------------
+# キーバインド
+# ウィジェットにキーをバインド
+# 書式：bindkey キー　ウィジェット
+# ------------------------------
+bindkey -e               # キーバインドをemacsモードに設定
+#bindkey -v              # キーバインドをviモードに設定
+bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
 
-    # DISABLE_AUTO_UPDATE="true"
+# ------------------------------
+# 有効オプション設定
+# ------------------------------
+setopt no_beep                 # ビープ音を鳴らさないようにする
+setopt auto_cd                 # ディレクトリ名の入力のみで移動する 
+setopt auto_pushd              # cd時にディレクトリスタックにpushdする
+setopt correct_all                 # コマンドのスペルを訂正する
+setopt magic_equal_subst       # =以降も補完する(--prefix=/usrなど)
+setopt prompt_subst            # プロンプト定義内で変数置換やコマンド置換を扱う
+setopt notify                  # バックグラウンドジョブの状態変化を即時報告する
+setopt equals                  # =commandを`which command`と同じ処理にする
+setopt complete_in_word
+setopt auto_list               # 補完候補を一覧で表示する(d)
+setopt auto_menu               # 補完キー連打で補完候補を順に表示する(d)
+setopt always_to_end           # 補完後のカーソルを自動で文末まで動かす？
+setopt auto_name_dirs          # 絶対ディレクトリと相対ディレクトリを自動判別？
+setopt list_packed             # 補完候補をできるだけ詰めて表示する
+setopt list_types              # 補完候補にファイルの種類も表示する
+setopt extended_glob           # グロブ機能を拡張する
+setopt bang_hist          # !を使ったヒストリ展開を行う(d)
+setopt extended_history   # ヒストリに実行時間も保存する
+setopt hist_ignore_dups   # 直前と同じコマンドはヒストリに追加しない
+setopt hist_ignore_space  # コマンドがスペースで始まる場合、コマンド履歴に追加しない  例： <Space>echo hello と入力
+setopt share_history      # 他のシェルのヒストリをリアルタイムで共有する
+setopt hist_reduce_blanks # 余分なスペースを削除してヒストリに保存する
 
-    # DISABLE_LS_COLORS="true"
+# ------------------------------
+# 無効オプション設定
+# ------------------------------
+unsetopt caseglob    # ファイルグロブで大文字小文字を区別しない
 
-    # DISABLE_AUTO_TITLE="true"
+# ------------------------------
+# zstyle 補完に関する設定
+# どのようなコンテクストでどのようなスタイルにするかを設定
+# ------------------------------
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # 補完候補に色を付ける
 
-    # COMPLETION_WAITING_DOTS="true"
+# ------------------------------
+# シェル関数定義
+# ------------------------------
+function history-all { history -E 1 }
 
-    plugins=(git)
+# ------------------------------
+# シェル起動時、コマンド同時実行
+# ------------------------------
+[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 
-    source $ZSH/oh-my-zsh.sh
-else
-    ZSH_SETTINGS="${HOME}/dotfiles/zsh_settings/"
-    ZSH_THEMES="${HOME}/dotfiles/zsh_themes/"
-    . $HOME/dotfiles/original_basic.zsh #中心となる設定
-    . ${ZSH_THEMES}${ZSH_THEME}".zsh-theme" # 最後に選んだテーマで上書き
-    for file in `ls $ZSH_SETTINGS`
-    do
-        . $ZSH_SETTINGS$file
-    done
-fi
-
-# powerline の設定 http://mba-hack.blogspot.jp/2013/01/powerline-bash.html
-#function powerline_precmd() {
-#  export PS1="$(~/powerline-bash/powerline-bash.py $? --shell zsh)"
-#}
-# 
-#function install_powerline_precmd() {
-#  for s in "${precmd_functions[@]}"; do
-#    if [ "$s" = "powerline_precmd" ]; then
-#      return
-#    fi
-#  done
-#  precmd_functions+=(powerline_precmd)
-#}
-# 
-#install_powerline_precmd
-###-begin-npm-completion-###
-#
-# npm command completion script
-#
-# Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
-# Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
-#
-
-COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
-COMP_WORDBREAKS=${COMP_WORDBREAKS/@/}
-export COMP_WORDBREAKS
-
-if type complete &>/dev/null; then
-  _npm_completion () {
-    local si="$IFS"
-    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$COMP_CWORD" \
-                           COMP_LINE="$COMP_LINE" \
-                           COMP_POINT="$COMP_POINT" \
-                           npm completion -- "${COMP_WORDS[@]}" \
-                           2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  complete -F _npm_completion npm
-elif type compdef &>/dev/null; then
-  _npm_completion() {
-    si=$IFS
-    compadd -- $(COMP_CWORD=$((CURRENT-1)) \
-                 COMP_LINE=$BUFFER \
-                 COMP_POINT=0 \
-                 npm completion -- "${words[@]}" \
-                 2>/dev/null)
-    IFS=$si
-  }
-  compdef _npm_completion npm
-elif type compctl &>/dev/null; then
-  _npm_completion () {
-    local cword line point words si
-    read -Ac words
-    read -cn cword
-    let cword-=1
-    read -l line
-    read -ln point
-    si="$IFS"
-    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                       COMP_LINE="$line" \
-                       COMP_POINT="$point" \
-                       npm completion -- "${words[@]}" \
-                       2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  compctl -K _npm_completion npm
-fi
-###-end-npm-completion-###
