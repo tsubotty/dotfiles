@@ -42,7 +42,6 @@ case "${OSTYPE}" in
         alias o='open'
 
         alias wakeubuntu='VBoxManage startvm ~/VirtualBox\ VMs/Ubuntu/Ubuntu.vbox'
-        alias tsubone='ssh -l tsubone'
 
         # alias rm='rmtrash'
         alias vmrun_ubuntu='/Applications/VMware\ Fusion.app/Contents/Library/vmrun start ~/VMware/Ubuntu.vmwarevm'
