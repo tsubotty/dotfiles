@@ -37,7 +37,7 @@ case ${UID} in
   ;;
 esac 
 
-source ~/dotfiles/.zsh/zsh-vcs-prompt/zshrc.sh
+source ~/dotfiles/zsh_settings/zsh-vcs-prompt/zshrc.sh
 ZSH_VCS_PROMPT_ENABLE_CACHING='true'
 RPROMPT='$(vcs_super_info)'"%{$fg[yellow]%}%{$reset_color%}%{$FG[239]%}[%{$reset_color%}%{$fg[cyan]%}%~%{$reset_color%}%{$FG[239]%}]%{$reset_color%}"
 
