@@ -38,7 +38,6 @@ case "${OSTYPE}" in
         alias safari='open -g -a Safari'
         alias chrome='open -g -a Google\ Chrome'
         alias firefox='open -g -a Firefox'
-        alias subl="'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl'"
         alias o='open'
 
         alias wakeubuntu='VBoxManage startvm ~/VirtualBox\ VMs/Ubuntu/Ubuntu.vbox'

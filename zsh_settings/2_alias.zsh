@@ -2,8 +2,8 @@
 alias bye='sudo shutdown -h now'
 alias reboot='sudo reboot'
 # java alias
-alias javac='javac -J-Dfile.encoding=UTF-8'
-alias java='java -Dfile.encoding=UTF-8'
+# alias javac='javac -J-Dfile.encoding=UTF-8'
+# alias java='java -Dfile.encoding=UTF-8'
 # move
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -47,7 +47,7 @@ alias tml='tmux list-sessions'
 #rake 遅い
 alias rake='noglob rake'
 compdef -d rake
-alias globalip='wget -q http://info.ddo.jp/remote_addr.php -O -|cut -c 13-'
+alias globalip='wget -q http://info.ddo.jp/remote_addr.php -O - | grep REMOTE_ADDR | cut -c 13-'
 alias less='less -MN'
 alias hist='history'
 #github
