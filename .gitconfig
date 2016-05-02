@@ -13,7 +13,8 @@
 [alias]
 	co = checkout
 	st = status
-	ci = commit -a
+	ci = commit
+	ca = commit -a
 	ft = fetch
 	vi = "!f() { vi "$(git ls-files "\\*$1\\*" | head -10)"; }; f" 
 	sh = show

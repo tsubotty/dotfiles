@@ -7,6 +7,8 @@ case "${OSTYPE}" in
             alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
             alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
         fi
+        # z.sh (ディレクトリジャンプ用) @2015/11/15
+        `brew --prefix`/etc/profile.d/z.sh
         # English man
         alias eman='env LANG=C man'
         # osx alias
